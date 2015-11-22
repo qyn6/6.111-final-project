@@ -18,15 +18,16 @@ set_property target_language Verilog [current_project]
 add_files -quiet /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/6.111-final-project/project_1.runs/video_bram_synth_1/video_bram.dcp
 set_property used_in_implementation false [get_files /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/6.111-final-project/project_1.runs/video_bram_synth_1/video_bram.dcp]
 read_verilog -library xil_defaultlib {
-  /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/SCCB_interface.v
-  /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/OV7670_config_rom.v
-  /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/OV7670_config.v
-  /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/camera_read.v
-  /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/camera_configure.v
-  /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/project_top.v
+  /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/6.111-final-project/project_1.srcs/sources_1/imports/6.111/project/src/SCCB_interface.v
+  /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/6.111-final-project/project_1.srcs/sources_1/imports/6.111/project/src/OV7670_config_rom.v
+  /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/6.111-final-project/project_1.srcs/sources_1/imports/6.111/project/src/OV7670_config.v
+  /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/6.111-final-project/project_1.srcs/sources_1/imports/6.111/project/src/camera_read.v
+  /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/6.111-final-project/project_1.srcs/sources_1/imports/6.111/project/src/camera_configure.v
+  /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/6.111-final-project/project_1.srcs/sources_1/imports/6.111/project/src/project_top.v
+  /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/lab4/sources/display_8hex.v
 }
-read_xdc /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/final_project.srcs/constrs_1/imports/Downloads/Nexys4DDR_Master_lab4.xdc
-set_property used_in_implementation false [get_files /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/final_project.srcs/constrs_1/imports/Downloads/Nexys4DDR_Master_lab4.xdc]
+read_xdc /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/6.111-final-project/project_1.srcs/constrs_1/imports/Downloads/Nexys4DDR_Master_lab4.xdc
+set_property used_in_implementation false [get_files /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/6.111-final-project/project_1.srcs/constrs_1/imports/Downloads/Nexys4DDR_Master_lab4.xdc]
 
 catch { write_hwdef -file labkit.hwdef }
 synth_design -top labkit -part xc7a100tcsg324-3

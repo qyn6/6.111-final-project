@@ -47,9 +47,10 @@ module labkit(
 //  instantiate 7-segment display;  
     wire [31:0] data;
     wire [6:0] segments;
-    //display_8hex display(.clk(clock_25mhz),.data(data), .seg(segments), .strobe(AN));    
-//    assign SEG[6:0] = segments;
-//    assign SEG[7] = 1'b1;
+    display_8hex display(.clk(clock_25mhz),.data(data), .seg(segments), .strobe(AN));    
+    assign data = {16'b0, camera_pixel};
+    assign SEG[7:0] = segments;
+    assign SEG[7] = 1'b1;
 
 //////////////////////////////////////////////////////////////////////////////////
 //
@@ -92,7 +93,7 @@ module labkit(
     wire [15:0] stored_pixel;
     reg [15:0] pixel_num = 0;
     wire [15:0] mem_out;
-    assign SEG[7:0] = camera_pixel[7:0];
+    //assign SEG[7:0] = camera_pixel[7:0];
     
     //assign camera outputs
     assign JB[0] = camera_pwdn;
@@ -110,7 +111,7 @@ module labkit(
     assign JB[2] = siod;
     assign camera_hsync = JB[1];    
     assign camera_vsync = JB[5];
-    assign JB[6] = camera_clk_in;
+    assign JB[6] = clock_25mhz;
     assign camera_clk_out = JB[7];
 //    BUFG clk (.O(camera_clk_out), .I(JB[7]));
 //    assign JD[10] = camera_clk_out;
@@ -138,23 +139,25 @@ module labkit(
     reg hpar = 1;
     reg vpar = 1;
     reg [9:0] row_pixel_count = 0;
-    always @(posedge clock_25mhz) begin
-          if (mem_in == 16'hFFFF) begin
-            mem_in <= 0;
-          end else begin
-            mem_in = mem_in + 1;
-          end
-
+    always @(posedge camera_clk_out) begin
+//          if (mem_in == 16'hFFFF) begin
+//            mem_in <= 0;
+//          end else begin
+//            mem_in = mem_in + 1;
+//          end
+          if (camera_memory_we) begin
+            mem_in <= camera_pixel;
           
-          if (store_address == 17'd76800 - 1) store_address <= 0;
-          else if (hpar && vpar) store_address <= store_address + 1;
-          if (row_pixel_count == 639) begin
-            vpar <= ~vpar;
-            row_pixel_count <= 0;
-          end
-          else row_pixel_count <= row_pixel_count + 1;
-          if (vpar) hpar <= ~hpar;
           
+              if (store_address == 17'd76800 - 1) store_address <= 0;
+              else if (hpar && vpar) store_address <= store_address + 1;
+              if (row_pixel_count == 639) begin
+                vpar <= ~vpar;
+                row_pixel_count <= 0;
+              end
+              else row_pixel_count <= row_pixel_count + 1;
+              if (vpar) hpar <= ~hpar;
+          end
     end
     
     always @(posedge clock_25mhz) begin
