@@ -1,7 +1,7 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2014.4.1 (lin64) Build 1149489 Thu Feb 19 16:01:47 MST 2015
-| Date         : Fri Nov 20 16:30:14 2015
+| Date         : Sun Nov 22 14:32:54 2015
 | Host         : eecs-digital-24 running 64-bit Ubuntu 12.04.5 LTS
 | Command      : report_clock_utilization -file labkit_clock_utilization_placed.rpt
 | Design       : labkit
@@ -49,7 +49,7 @@ Table of Contents
 | Index | BUFG Cell                | Net Name            | BELs | Sites | Fixed | MaxDelay (ns) | Skew (ns) |
 +-------+--------------------------+---------------------+------+-------+-------+---------------+-----------+
 |     1 | CLK100MHZ_IBUF_BUFG_inst | CLK100MHZ_IBUF_BUFG |    2 |     1 |    no |         1.324 |     0.078 |
-|     2 | clk                      | camera_clk_out      |   10 |     7 |    no |         1.381 |     0.099 |
+|     2 | n_0_162_BUFG_inst        | n_0_162_BUFG        |   10 |     7 |    no |         1.381 |     0.099 |
 |     3 | JB_IBUF_BUFG[6]_inst     | JB_IBUF_BUFG[6]     |  124 |    95 |    no |         2.124 |     0.948 |
 +-------+--------------------------+---------------------+------+-------+-------+---------------+-----------+
 
@@ -102,7 +102,7 @@ Table of Contents
 +-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+----------------+
 | Source Type | BUFHCE Site | Fixed | MMCM Pins | PLL Pins | GT Pins | BRAM Pins | ILOGICs | OLOGICs | FFs | LUTMs | DSP48E1s | Clock Net Name |
 +-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+----------------+
-| BUFG        |     ---     |   no  |         0 |        0 |       0 |         0 |       0 |       0 |  10 |     0 |        0 | camera_clk_out |
+| BUFG        |     ---     |   no  |         0 |        0 |       0 |         0 |       0 |       0 |  10 |     0 |        0 | n_0_162_BUFG   |
 +-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+----------------+
 
 
@@ -130,7 +130,7 @@ Table of Contents
 # Location of BUFG Primitives 
 set_property LOC BUFGCTRL_X0Y17 [get_cells CLK100MHZ_IBUF_BUFG_inst]
 set_property LOC BUFGCTRL_X0Y0 [get_cells JB_IBUF_BUFG[6]_inst]
-set_property LOC BUFGCTRL_X0Y16 [get_cells clk]
+set_property LOC BUFGCTRL_X0Y16 [get_cells n_0_162_BUFG_inst]
 
 # Location of IO Clock Primitives
 
@@ -164,9 +164,9 @@ add_cells_to_pblock [get_pblocks  CLKAG_JB_IBUF_BUFG[6]] [get_cells  -filter { I
 resize_pblock [get_pblocks CLKAG_JB_IBUF_BUFG[6]] -add {CLOCKREGION_X1Y2:CLOCKREGION_X1Y2 CLOCKREGION_X1Y3:CLOCKREGION_X1Y3}
 #endgroup
 
-# Clock net "camera_clk_out" driven by instance "clk" located at site "BUFGCTRL_X0Y16"
+# Clock net "n_0_162_BUFG" driven by instance "n_0_162_BUFG_inst" located at site "BUFGCTRL_X0Y16"
 #startgroup
-create_pblock CLKAG_camera_clk_out
-add_cells_to_pblock [get_pblocks  CLKAG_camera_clk_out] [get_cells  -filter { IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL } -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="camera_clk_out"}]]]
-resize_pblock [get_pblocks CLKAG_camera_clk_out] -add {CLOCKREGION_X0Y2:CLOCKREGION_X0Y2}
+create_pblock CLKAG_n_0_162_BUFG
+add_cells_to_pblock [get_pblocks  CLKAG_n_0_162_BUFG] [get_cells  -filter { IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL } -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="n_0_162_BUFG"}]]]
+resize_pblock [get_pblocks CLKAG_n_0_162_BUFG] -add {CLOCKREGION_X0Y2:CLOCKREGION_X0Y2}
 #endgroup

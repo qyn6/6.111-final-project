@@ -5,19 +5,18 @@
 set_param gui.test TreeTableDev
 set_param xicom.use_bs_reader 1
 debug::add_scope template.lib 1
-set_msg_config -id {Common-41} -limit 4294967295
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
 
 create_project -in_memory -part xc7a100tcsg324-3
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/final_project/project_1.cache/wt [current_project]
-set_property parent.project_path /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/final_project/project_1.xpr [current_project]
+set_property webtalk.parent_dir /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/6.111-final-project/project_1.cache/wt [current_project]
+set_property parent.project_path /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/6.111-final-project/project_1.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-add_files -quiet /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/final_project/project_1.runs/video_bram_synth_1/video_bram.dcp
-set_property used_in_implementation false [get_files /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/final_project/project_1.runs/video_bram_synth_1/video_bram.dcp]
+add_files -quiet /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/6.111-final-project/project_1.runs/video_bram_synth_1/video_bram.dcp
+set_property used_in_implementation false [get_files /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/6.111-final-project/project_1.runs/video_bram_synth_1/video_bram.dcp]
 read_verilog -library xil_defaultlib {
   /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/SCCB_interface.v
   /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/OV7670_config_rom.v

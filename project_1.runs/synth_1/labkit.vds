@@ -2,27 +2,26 @@
 # Vivado v2014.4.1 (64-bit)
 # SW Build 1149489 on Thu Feb 19 16:01:47 MST 2015
 # IP Build 1147552 on Wed Feb 18 14:25:16 MST 2015
-# Start of session at: Fri Nov 20 16:28:46 2015
-# Process ID: 20466
-# Log file: /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/final_project/project_1.runs/synth_1/labkit.vds
-# Journal file: /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/final_project/project_1.runs/synth_1/vivado.jou
+# Start of session at: Sun Nov 22 14:24:19 2015
+# Process ID: 16782
+# Log file: /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/6.111-final-project/project_1.runs/synth_1/labkit.vds
+# Journal file: /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/6.111-final-project/project_1.runs/synth_1/vivado.jou
 #-----------------------------------------------------------
 source labkit.tcl
 # set_param gui.test TreeTableDev
 # set_param xicom.use_bs_reader 1
 # debug::add_scope template.lib 1
-# set_msg_config -id {Common-41} -limit 4294967295
 # set_msg_config -id {HDL 9-1061} -limit 100000
 # set_msg_config -id {HDL 9-1654} -limit 100000
 # create_project -in_memory -part xc7a100tcsg324-3
 # set_param project.compositeFile.enableAutoGeneration 0
 # set_param synth.vivado.isSynthRun true
-# set_property webtalk.parent_dir /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/final_project/project_1.cache/wt [current_project]
-# set_property parent.project_path /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/final_project/project_1.xpr [current_project]
+# set_property webtalk.parent_dir /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/6.111-final-project/project_1.cache/wt [current_project]
+# set_property parent.project_path /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/6.111-final-project/project_1.xpr [current_project]
 # set_property default_lib xil_defaultlib [current_project]
 # set_property target_language Verilog [current_project]
-# add_files -quiet /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/final_project/project_1.runs/video_bram_synth_1/video_bram.dcp
-# set_property used_in_implementation false [get_files /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/final_project/project_1.runs/video_bram_synth_1/video_bram.dcp]
+# add_files -quiet /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/6.111-final-project/project_1.runs/video_bram_synth_1/video_bram.dcp
+# set_property used_in_implementation false [get_files /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/6.111-final-project/project_1.runs/video_bram_synth_1/video_bram.dcp]
 # read_verilog -library xil_defaultlib {
 #   /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/SCCB_interface.v
 #   /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/OV7670_config_rom.v
@@ -41,18 +40,16 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 909.113 ; gain = 144.738 ; free physical = 1285 ; free virtual = 9761
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 909.105 ; gain = 144.738 ; free physical = 3555 ; free virtual = 14193
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'labkit' [/afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/project_top.v:22]
 	Parameter MAX_ADDRESS bound to: 17'b11111111111111111 
-INFO: [Synth 8-638] synthesizing module 'clock_quarter_divider' [/afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/project_top.v:215]
-INFO: [Synth 8-256] done synthesizing module 'clock_quarter_divider' (1#1) [/afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/project_top.v:215]
-INFO: [Synth 8-638] synthesizing module 'BUFG' [/mit/6.111/xilinx-vivado/Vivado/2014.4/scripts/rt/data/unisim_comp.v:606]
-INFO: [Synth 8-256] done synthesizing module 'BUFG' (2#1) [/mit/6.111/xilinx-vivado/Vivado/2014.4/scripts/rt/data/unisim_comp.v:606]
+INFO: [Synth 8-638] synthesizing module 'clock_quarter_divider' [/afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/project_top.v:190]
+INFO: [Synth 8-256] done synthesizing module 'clock_quarter_divider' (1#1) [/afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/project_top.v:190]
 INFO: [Synth 8-638] synthesizing module 'camera_configure' [/afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/camera_configure.v:23]
 	Parameter CLK_FREQ bound to: 25000000 - type: integer 
 INFO: [Synth 8-638] synthesizing module 'OV7670_config_rom' [/afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/OV7670_config_rom.v:23]
-INFO: [Synth 8-256] done synthesizing module 'OV7670_config_rom' (3#1) [/afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/OV7670_config_rom.v:23]
+INFO: [Synth 8-256] done synthesizing module 'OV7670_config_rom' (2#1) [/afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/OV7670_config_rom.v:23]
 INFO: [Synth 8-638] synthesizing module 'OV7670_config' [/afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/OV7670_config.v:23]
 	Parameter CLK_FREQ bound to: 25000000 - type: integer 
 	Parameter FSM_IDLE bound to: 0 - type: integer 
@@ -60,7 +57,7 @@ INFO: [Synth 8-638] synthesizing module 'OV7670_config' [/afs/athena.mit.edu/use
 	Parameter FSM_DONE bound to: 2 - type: integer 
 	Parameter FSM_TIMER bound to: 3 - type: integer 
 INFO: [Synth 8-155] case statement is not full and has no default [/afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/OV7670_config.v:58]
-INFO: [Synth 8-256] done synthesizing module 'OV7670_config' (4#1) [/afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/OV7670_config.v:23]
+INFO: [Synth 8-256] done synthesizing module 'OV7670_config' (3#1) [/afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/OV7670_config.v:23]
 INFO: [Synth 8-638] synthesizing module 'SCCB_interface' [/afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/SCCB_interface.v:23]
 	Parameter CLK_FREQ bound to: 25000000 - type: integer 
 	Parameter SCCB_FREQ bound to: 100000 - type: integer 
@@ -79,19 +76,18 @@ INFO: [Synth 8-638] synthesizing module 'SCCB_interface' [/afs/athena.mit.edu/us
 	Parameter FSM_DONE bound to: 11 - type: integer 
 	Parameter FSM_TIMER bound to: 12 - type: integer 
 INFO: [Synth 8-155] case statement is not full and has no default [/afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/SCCB_interface.v:72]
-INFO: [Synth 8-256] done synthesizing module 'SCCB_interface' (5#1) [/afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/SCCB_interface.v:23]
-INFO: [Synth 8-256] done synthesizing module 'camera_configure' (6#1) [/afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/camera_configure.v:23]
+INFO: [Synth 8-256] done synthesizing module 'SCCB_interface' (4#1) [/afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/SCCB_interface.v:23]
+INFO: [Synth 8-256] done synthesizing module 'camera_configure' (5#1) [/afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/camera_configure.v:23]
 WARNING: [Synth 8-350] instance 'configure' of module 'camera_configure' requires 5 connections, but only 4 given [/afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/project_top.v:119]
 INFO: [Synth 8-638] synthesizing module 'camera_read' [/afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/camera_read.v:21]
 	Parameter WAIT_FRAME_START bound to: 0 - type: integer 
 	Parameter ROW_CAPTURE bound to: 1 - type: integer 
 INFO: [Synth 8-155] case statement is not full and has no default [/afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/camera_read.v:42]
-INFO: [Synth 8-256] done synthesizing module 'camera_read' (7#1) [/afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/camera_read.v:21]
-INFO: [Synth 8-638] synthesizing module 'video_bram' [/afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/final_project/project_1.runs/synth_1/.Xil/Vivado-20466-eecs-digital-24/realtime/video_bram_stub.v:7]
-INFO: [Synth 8-256] done synthesizing module 'video_bram' (8#1) [/afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/final_project/project_1.runs/synth_1/.Xil/Vivado-20466-eecs-digital-24/realtime/video_bram_stub.v:7]
-INFO: [Synth 8-638] synthesizing module 'vga' [/afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/project_top.v:226]
-INFO: [Synth 8-256] done synthesizing module 'vga' (9#1) [/afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/project_top.v:226]
-WARNING: [Synth 8-324] index 10 out of range [/afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/project_top.v:116]
+INFO: [Synth 8-256] done synthesizing module 'camera_read' (6#1) [/afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/camera_read.v:21]
+INFO: [Synth 8-638] synthesizing module 'video_bram' [/afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/6.111-final-project/project_1.runs/synth_1/.Xil/Vivado-16782-eecs-digital-24/realtime/video_bram_stub.v:7]
+INFO: [Synth 8-256] done synthesizing module 'video_bram' (7#1) [/afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/6.111-final-project/project_1.runs/synth_1/.Xil/Vivado-16782-eecs-digital-24/realtime/video_bram_stub.v:7]
+INFO: [Synth 8-638] synthesizing module 'vga' [/afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/project_top.v:201]
+INFO: [Synth 8-256] done synthesizing module 'vga' (8#1) [/afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/project_top.v:201]
 WARNING: [Synth 8-3848] Net camera_reset in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/project_top.v:76]
 WARNING: [Synth 8-3848] Net camera_pwdn in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/project_top.v:75]
 WARNING: [Synth 8-3848] Net LED16_B in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/project_top.v:35]
@@ -102,7 +98,7 @@ WARNING: [Synth 8-3848] Net LED17_G in module/entity labkit does not have driver
 WARNING: [Synth 8-3848] Net LED17_R in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/project_top.v:36]
 WARNING: [Synth 8-3848] Net AN in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/project_top.v:39]
 WARNING: [Synth 8-3848] Net CLK_100M in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/project_top.v:119]
-INFO: [Synth 8-256] done synthesizing module 'labkit' (10#1) [/afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/project_top.v:22]
+INFO: [Synth 8-256] done synthesizing module 'labkit' (9#1) [/afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/project_top.v:22]
 WARNING: [Synth 8-3331] design labkit has unconnected port LED16_B
 WARNING: [Synth 8-3331] design labkit has unconnected port LED16_G
 WARNING: [Synth 8-3331] design labkit has unconnected port LED16_R
@@ -169,7 +165,7 @@ WARNING: [Synth 8-3331] design labkit has unconnected port BTNC
 WARNING: [Synth 8-3331] design labkit has unconnected port BTNL
 WARNING: [Synth 8-3331] design labkit has unconnected port BTND
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 944.355 ; gain = 179.980 ; free physical = 1248 ; free virtual = 9724
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 944.348 ; gain = 179.980 ; free physical = 3517 ; free virtual = 14155
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -180,7 +176,7 @@ Report Check Netlist:
 +------+------------------+-------+---------+-------+------------------+
 WARNING: [Synth 8-3295] tying undriven pin configure:clk to constant 0 [/afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/project_top.v:119]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 944.355 ; gain = 179.980 ; free physical = 1248 ; free virtual = 9724
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 944.348 ; gain = 179.980 ; free physical = 3516 ; free virtual = 14155
 ---------------------------------------------------------------------------------
 Loading clock regions from /mit/6.111/xilinx-vivado/Vivado/2014.4/data/parts/xilinx/artix7/artix7/xc7a100t/ClockRegion.xml
 Loading clock buffers from /mit/6.111/xilinx-vivado/Vivado/2014.4/data/parts/xilinx/artix7/artix7/xc7a100t/ClockBuffers.xml
@@ -202,22 +198,22 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1266.594 ; gain = 0.000 ; free physical = 1056 ; free virtual = 9533
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1266.586 ; gain = 0.000 ; free physical = 3323 ; free virtual = 13962
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 1266.594 ; gain = 502.219 ; free physical = 1056 ; free virtual = 9533
+Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 1266.586 ; gain = 502.219 ; free physical = 3322 ; free virtual = 13961
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-3
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 1266.594 ; gain = 502.219 ; free physical = 1056 ; free virtual = 9533
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 1266.586 ; gain = 502.219 ; free physical = 3322 ; free virtual = 13961
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 1266.594 ; gain = 502.219 ; free physical = 1056 ; free virtual = 9533
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 1266.586 ; gain = 502.219 ; free physical = 3322 ; free virtual = 13961
 ---------------------------------------------------------------------------------
 ROM "FSM_state" won't be mapped to RAM because it is too sparse.
 ROM "timer0" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
@@ -237,7 +233,7 @@ WARNING: [Synth 8-3848] Net LED17_R in module/entity labkit does not have driver
 WARNING: [Synth 8-3848] Net AN in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/project_top.v:39]
 WARNING: [Synth 8-3848] Net CLK_100M in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/project/src/project_top.v:119]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 1266.594 ; gain = 502.219 ; free physical = 1040 ; free virtual = 9517
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 1266.586 ; gain = 502.219 ; free physical = 3307 ; free virtual = 13946
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -406,7 +402,7 @@ BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
-Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 1266.594 ; gain = 502.219 ; free physical = 1040 ; free virtual = 9517
+Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 1266.586 ; gain = 502.219 ; free physical = 3307 ; free virtual = 13946
 ---------------------------------------------------------------------------------
 Start Cross Boundary Optimization
 ---------------------------------------------------------------------------------
@@ -451,9 +447,9 @@ WARNING: [Synth 8-3331] design labkit has unconnected port JC[5]
 WARNING: [Synth 8-3331] design labkit has unconnected port JC[4]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:21 . Memory (MB): peak = 1266.594 ; gain = 502.219 ; free physical = 1040 ; free virtual = 9517
+Finished Cross Boundary Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:21 . Memory (MB): peak = 1266.586 ; gain = 502.219 ; free physical = 3307 ; free virtual = 13946
 ---------------------------------------------------------------------------------
-Finished Parallel Reinference  : Time (s): cpu = 00:00:18 ; elapsed = 00:00:21 . Memory (MB): peak = 1266.594 ; gain = 502.219 ; free physical = 1040 ; free virtual = 9517
+Finished Parallel Reinference  : Time (s): cpu = 00:00:18 ; elapsed = 00:00:21 . Memory (MB): peak = 1266.586 ; gain = 502.219 ; free physical = 3307 ; free virtual = 13946
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -487,19 +483,19 @@ WARNING: [Synth 8-3332] Sequential element (\camera_read_1/pixel_data_reg[8] ) i
 Start Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 1266.598 ; gain = 502.223 ; free physical = 1024 ; free virtual = 9501
+Finished Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 1266.590 ; gain = 502.223 ; free physical = 3291 ; free virtual = 13930
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 1266.598 ; gain = 502.223 ; free physical = 1024 ; free virtual = 9501
+Finished Area Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 1266.590 ; gain = 502.223 ; free physical = 3291 ; free virtual = 13930
 ---------------------------------------------------------------------------------
-Finished Parallel Area Optimization  : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 1266.598 ; gain = 502.223 ; free physical = 1024 ; free virtual = 9501
+Finished Parallel Area Optimization  : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 1266.590 ; gain = 502.223 ; free physical = 3291 ; free virtual = 13930
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
 | |RTL Partition |Replication |Instances |
 +-+--------------+------------+----------+
 +-+--------------+------------+----------+
-Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 1266.598 ; gain = 502.223 ; free physical = 1024 ; free virtual = 9501
+Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 1266.590 ; gain = 502.223 ; free physical = 3291 ; free virtual = 13930
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
@@ -507,10 +503,10 @@ Start Timing Optimization
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 1266.598 ; gain = 502.223 ; free physical = 982 ; free virtual = 9459
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:31 ; elapsed = 00:00:35 . Memory (MB): peak = 1266.590 ; gain = 502.223 ; free physical = 3252 ; free virtual = 13891
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 1266.598 ; gain = 502.223 ; free physical = 982 ; free virtual = 9459
+Finished Timing Optimization : Time (s): cpu = 00:00:31 ; elapsed = 00:00:35 . Memory (MB): peak = 1266.590 ; gain = 502.223 ; free physical = 3252 ; free virtual = 13890
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -610,7 +606,7 @@ WARNING: [Synth 8-3332] Sequential element (\configure/SCCB1/timer_reg[16] ) is 
 WARNING: [Synth 8-3332] Sequential element (\configure/SCCB1/timer_reg[15] ) is unused and will be removed from module labkit.
 INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 1266.598 ; gain = 502.223 ; free physical = 973 ; free virtual = 9450
+Finished Technology Mapping : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 1266.590 ; gain = 502.223 ; free physical = 3242 ; free virtual = 13881
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -634,7 +630,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 1266.598 ; gain = 502.223 ; free physical = 973 ; free virtual = 9450
+Finished IO Insertion : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 1266.590 ; gain = 502.223 ; free physical = 3242 ; free virtual = 13881
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -647,7 +643,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 1266.598 ; gain = 502.223 ; free physical = 973 ; free virtual = 9450
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 1266.590 ; gain = 502.223 ; free physical = 3242 ; free virtual = 13881
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -659,7 +655,7 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 1266.598 ; gain = 502.223 ; free physical = 973 ; free virtual = 9450
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 1266.590 ; gain = 502.223 ; free physical = 3242 ; free virtual = 13881
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RAM, DSP and Shift Register Reporting
@@ -707,11 +703,11 @@ Report Instance Areas:
 |4     |  vga1          |vga                   |    83|
 +------+----------------+----------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 1266.598 ; gain = 502.223 ; free physical = 973 ; free virtual = 9450
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 1266.590 ; gain = 502.223 ; free physical = 3242 ; free virtual = 13881
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 228 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1266.598 ; gain = 76.242 ; free physical = 973 ; free virtual = 9450
-Synthesis Optimization Complete : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 1266.598 ; gain = 502.223 ; free physical = 973 ; free virtual = 9450
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:24 ; elapsed = 00:00:25 . Memory (MB): peak = 1266.590 ; gain = 76.242 ; free physical = 3242 ; free virtual = 13881
+Synthesis Optimization Complete : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 1266.590 ; gain = 502.223 ; free physical = 3242 ; free virtual = 13881
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 27 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -723,10 +719,10 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-41 Infos, 225 Warnings, 0 Critical Warnings and 0 Errors encountered.
+39 Infos, 224 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 1266.598 ; gain = 402.480 ; free physical = 966 ; free virtual = 9443
+synth_design: Time (s): cpu = 00:00:31 ; elapsed = 00:00:34 . Memory (MB): peak = 1266.590 ; gain = 402.480 ; free physical = 3236 ; free virtual = 13874
 # write_checkpoint -noxdef labkit.dcp
 # catch { report_utilization -file labkit_utilization_synth.rpt -pb labkit_utilization_synth.pb }
-report_utilization: Time (s): cpu = 00:00:00.18 ; elapsed = 00:00:00.26 . Memory (MB): peak = 1266.598 ; gain = 0.000 ; free physical = 965 ; free virtual = 9442
-INFO: [Common 17-206] Exiting Vivado at Fri Nov 20 16:29:29 2015...
+report_utilization: Time (s): cpu = 00:00:00.17 ; elapsed = 00:00:00.24 . Memory (MB): peak = 1266.590 ; gain = 0.000 ; free physical = 3235 ; free virtual = 13874
+INFO: [Common 17-206] Exiting Vivado at Sun Nov 22 14:25:02 2015...
