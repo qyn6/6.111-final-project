@@ -1,7 +1,7 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2014.4.1 (lin64) Build 1149489 Thu Feb 19 16:01:47 MST 2015
-| Date         : Sun Nov 22 15:48:53 2015
+| Date         : Sun Nov 22 17:58:12 2015
 | Host         : eecs-digital-24 running 64-bit Ubuntu 12.04.5 LTS
 | Command      : report_drc
 --------------------------------------------------------------------------------------
@@ -20,7 +20,7 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
            Max violations: <unlimited>
-         Violations found: 14
+         Violations found: 20
 
 2. REPORT DETAILS
 -----------------
@@ -35,6 +35,26 @@ Neither the CFGBVS nor CONFIG_VOLTAGE voltage property is set in the current_des
  #where value2 is the voltage provided to configuration bank 0
 
 Refer to the device configuration user guide for more information.
+Related violations: <none>
+
+DPIP-1#1 Warning
+Input pipelining  
+DSP read_address0 input C is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPIP-1#2 Warning
+Input pipelining  
+DSP read_address2 input A B is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPOP-1#1 Warning
+Output pipelining  
+DSP read_address0 output P is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
+Related violations: <none>
+
+DPOP-1#2 Warning
+Output pipelining  
+DSP read_address2 output P is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
 Related violations: <none>
 
 PLIO-7#1 Warning
@@ -89,15 +109,25 @@ Related violations: <none>
 
 RPBF-3#10 Warning
 IO port buffering is incomplete  
-Device port JB[5] expects both input and output buffering but the buffers are incomplete.
+Device port JB[2] expects both input and output buffering but the buffers are incomplete.
 Related violations: <none>
 
 RPBF-3#11 Warning
 IO port buffering is incomplete  
-Device port JB[6] expects both input and output buffering but the buffers are incomplete.
+Device port JB[3] expects both input and output buffering but the buffers are incomplete.
 Related violations: <none>
 
 RPBF-3#12 Warning
+IO port buffering is incomplete  
+Device port JB[5] expects both input and output buffering but the buffers are incomplete.
+Related violations: <none>
+
+RPBF-3#13 Warning
+IO port buffering is incomplete  
+Device port JB[6] expects both input and output buffering but the buffers are incomplete.
+Related violations: <none>
+
+RPBF-3#14 Warning
 IO port buffering is incomplete  
 Device port JB[7] expects both input and output buffering but the buffers are incomplete.
 Related violations: <none>

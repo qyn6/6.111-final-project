@@ -48,7 +48,7 @@ module labkit(
     wire [31:0] data;
     wire [6:0] segments;
     display_8hex display(.clk(clock_25mhz),.data(data), .seg(segments), .strobe(AN));    
-    assign data = {16'b0, camera_pixel};
+    assign data = {16'b0, mem_in};
     assign SEG[7:0] = segments;
     assign SEG[7] = 1'b1;
 
@@ -72,7 +72,7 @@ module labkit(
 //////////////////////////////////////////////////////////////////////////////////
     wire [7:0] camera_dout;
     wire start;
-    wire sioc, siod;
+    wire sioc, siod, done;
     wire camera_pwdn;
     wire camera_reset;
     wire camera_clk_in = clock_25mhz;
@@ -107,8 +107,9 @@ module labkit(
     assign camera_dout[3] = JA[5];
     assign camera_dout[5] = JA[6];
     assign camera_dout[7] = JA[7];
-    assign JB[3] = sioc;
-    assign JB[2] = siod;
+    assign JB[2] = sioc;
+    assign JB[3] = siod;
+    assign LED[10] = done;
     assign camera_hsync = JB[1];    
     assign camera_vsync = JB[5];
     assign JB[6] = clock_25mhz;
@@ -117,7 +118,7 @@ module labkit(
 //    assign JD[10] = camera_clk_out;
     assign start = BTNU;
     
-    camera_configure configure(.clk(CLK_100M), .start(start), .sioc(sioc), .siod(siod));
+    camera_configure configure(.clk(clock_25mhz), .start(start), .sioc(sioc), .siod(siod), .done(done));
     
     camera_read camera_read_1 (
         .p_clock(camera_clk_out), 
@@ -129,9 +130,9 @@ module labkit(
         .frame_done(camera_frame_done)
     );
     
-        wire wea;
-        assign LED[0] = SW[0];
-        assign wea = BTNR;
+    reg wea =0;
+//    assign LED[0] = SW[0];
+//    assign wea = BTNR;
         
     video_bram mybram(.clka(clock_25mhz), .ena(1), .wea(wea), .addra(store_address), 
         .dina(mem_in), .clkb(clock_25mhz), .addrb(read_address), .doutb(stored_pixel));
@@ -145,12 +146,19 @@ module labkit(
 //          end else begin
 //            mem_in = mem_in + 1;
 //          end
+          if (camera_frame_done) begin
+              store_address <= 0;
+              row_pixel_count <= 0;
+              hpar <= 1;
+              vpar <= 1;
+          end
           if (camera_memory_we) begin
-            mem_in <= camera_pixel;
-          
-          
-              if (store_address == 17'd76800 - 1) store_address <= 0;
-              else if (hpar && vpar) store_address <= store_address + 1;
+              mem_in <= camera_pixel;
+
+              if (hpar && vpar) begin
+                store_address <= store_address + 1;
+                wea <= 1;
+              end
               if (row_pixel_count == 639) begin
                 vpar <= ~vpar;
                 row_pixel_count <= 0;
@@ -164,7 +172,8 @@ module labkit(
         if ((vcount < 35 && hcount < 144) || (vcount >= 275 && hcount >= 464)) begin
                 read_address <= 0;
         end else if (hcount >= 144 && hcount < 464 && vcount >= 35 && vcount < 275) begin
-                read_address <= read_address +1;
+                //read_address <= read_address +1;
+                read_address <= (vcount-35) * 320 + hcount - 144;
         end
     end
 

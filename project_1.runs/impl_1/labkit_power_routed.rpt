@@ -1,7 +1,7 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2014.4.1 (lin64) Build 1149489 Thu Feb 19 16:01:47 MST 2015
-| Date             : Sun Nov 22 15:48:54 2015
+| Date             : Sun Nov 22 17:58:13 2015
 | Host             : eecs-digital-24 running 64-bit Ubuntu 12.04.5 LTS
 | Command          : report_power -file labkit_power_routed.rpt -pb labkit_power_summary_routed.pb
 | Design           : labkit
@@ -30,8 +30,8 @@ Table of Contents
 ----------
 
 +--------------------------+-------+
-| Total On-Chip Power (W)  | 0.121 |
-| Dynamic (W)              | 0.023 |
+| Total On-Chip Power (W)  | 0.122 |
+| Dynamic (W)              | 0.024 |
 | Device Static (W)        | 0.098 |
 | Effective TJA (C/W)      | 4.6   |
 | Max Ambient (C)          | 99.4  |
@@ -50,18 +50,19 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |    <0.001 |        3 |       --- |             --- |
-| Slice Logic    |    <0.001 |      543 |       --- |             --- |
-|   LUT as Logic |    <0.001 |      244 |     63400 |            0.38 |
+| Slice Logic    |     0.002 |      906 |       --- |             --- |
+|   LUT as Logic |     0.001 |      412 |     63400 |            0.64 |
+|   CARRY4       |    <0.001 |       24 |     15850 |            0.15 |
+|   Register     |    <0.001 |      286 |    126800 |            0.22 |
 |   BUFG         |    <0.001 |        2 |        32 |            6.25 |
-|   CARRY4       |    <0.001 |       13 |     15850 |            0.08 |
-|   Register     |    <0.001 |      140 |    126800 |            0.11 |
 |   F7/F8 Muxes  |    <0.001 |       16 |     63400 |            0.02 |
-|   Others       |     0.000 |       89 |       --- |             --- |
-| Signals        |     0.001 |      559 |       --- |             --- |
-| Block RAM      |     0.005 |     28.5 |       135 |           21.11 |
-| I/O            |     0.017 |       46 |       210 |           21.90 |
+|   Others       |     0.000 |       97 |       --- |             --- |
+| Signals        |     0.002 |      902 |       --- |             --- |
+| Block RAM      |     0.006 |       29 |       135 |           21.48 |
+| DSPs           |    <0.001 |        2 |       240 |            0.83 |
+| I/O            |     0.014 |       47 |       210 |           22.38 |
 | Static Power   |     0.098 |          |           |                 |
-| Total          |     0.121 |          |           |                 |
+| Total          |     0.122 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -71,16 +72,16 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.022 |       0.006 |      0.015 |
-| Vccaux    |       1.800 |     0.019 |       0.001 |      0.018 |
-| Vcco33    |       3.300 |     0.009 |       0.005 |      0.004 |
+| Vccint    |       1.000 |     0.026 |       0.010 |      0.015 |
+| Vccaux    |       1.800 |     0.019 |       0.000 |      0.018 |
+| Vcco33    |       3.300 |     0.008 |       0.004 |      0.004 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |
-| Vccbram   |       1.000 |     0.001 |       0.000 |      0.001 |
+| Vccbram   |       1.000 |     0.001 |       0.001 |      0.001 |
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |
 | Vccadc    |       1.800 |     0.020 |       0.000 |      0.020 |
@@ -140,15 +141,19 @@ Table of Contents
 +---------------------------------------+-----------+
 | Name                                  | Power (W) |
 +---------------------------------------+-----------+
-| labkit                                |     0.023 |
+| labkit                                |     0.024 |
 |   camera_read_1                       |    <0.001 |
 |   clockgen                            |    <0.001 |
+|   configure                           |     0.001 |
+|     SCCB1                             |    <0.001 |
+|     config_1                          |    <0.001 |
+|     rom1                              |    <0.001 |
 |   display                             |    <0.001 |
-|   mybram                              |     0.005 |
-|     U0                                |     0.005 |
-|       inst_blk_mem_gen                |     0.005 |
-|         gnativebmg.native_blk_mem_gen |     0.005 |
-|           valid.cstr                  |     0.005 |
+|   mybram                              |     0.007 |
+|     U0                                |     0.007 |
+|       inst_blk_mem_gen                |     0.007 |
+|         gnativebmg.native_blk_mem_gen |     0.007 |
+|           valid.cstr                  |     0.007 |
 |             has_mux_b.B               |    <0.001 |
 |             ramloop[12].ram.r         |    <0.001 |
 |               prim_noinit.ram         |    <0.001 |
@@ -202,8 +207,8 @@ Table of Contents
 |               prim_noinit.ram         |    <0.001 |
 |             ramloop[8].ram.r          |     0.001 |
 |               prim_noinit.ram         |     0.001 |
-|             ramloop[9].ram.r          |    <0.001 |
-|               prim_noinit.ram         |    <0.001 |
+|             ramloop[9].ram.r          |     0.000 |
+|               prim_noinit.ram         |     0.000 |
 |   vga1                                |    <0.001 |
 +---------------------------------------+-----------+
 
