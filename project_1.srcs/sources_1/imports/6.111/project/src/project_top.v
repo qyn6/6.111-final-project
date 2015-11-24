@@ -48,7 +48,7 @@ module labkit(
     wire [31:0] data;
     wire [6:0] segments;
     display_8hex display(.clk(clock_25mhz),.data(data), .seg(segments), .strobe(AN));    
-    assign data = {16'b0, mem_in};
+    assign data = {16'b0, stored_pixel};
     assign SEG[7:0] = segments;
     assign SEG[7] = 1'b1;
 
@@ -133,7 +133,17 @@ module labkit(
     reg wea =0;
 //    assign LED[0] = SW[0];
 //    assign wea = BTNR;
-        
+
+    wire [7:0] h;
+    wire [7:0] s;
+    wire [7:0] v;
+    reg coord_on = 1; //is the light in the current pixel location
+    
+//    rgb2hsv tohsv(.clock(clock_25mhz), .reset(camera_reset), .r({4'b0, stored_pixel[15:12]}), 
+//                .g(stored_pixel[11:4]), .b(4'b0, stored_pixel[3:0]), .h(h), .s(s), .v(v)); 
+    rgb2hsv tohsv(.clock(clock_25mhz), .reset(camera_reset), .r({4'b0, stored_pixel[11], stored_pixel[10], stored_pixel[3], stored_pixel[2]}), 
+            .g({stored_pixel[15:12], stored_pixel[7:4]}), .b({4'b0, stored_pixel[9], stored_pixel[8], stored_pixel[1], stored_pixel[0]}), .h(h), .s(s), .v(v));                
+                    
     video_bram mybram(.clka(clock_25mhz), .ena(1), .wea(wea), .addra(store_address), 
         .dina(mem_in), .clkb(clock_25mhz), .addrb(read_address), .doutb(stored_pixel));
     //parity bits for storing every other pixel, every other row
@@ -173,21 +183,33 @@ module labkit(
                 read_address <= 0;
         end else if (hcount >= 144 && hcount < 464 && vcount >= 35 && vcount < 275) begin
                 //read_address <= read_address +1;
-                read_address <= (vcount-35) * 320 + hcount - 144;
+                read_address <= (vcount-35) * 320 + (hcount - 144);
+        end else if (hcount >= 469 && hcount < 789 && vcount >= 35 && vcount < 275) begin
+                read_address <= (vcount-35) * 320 + (hcount - 469);
+                if (v > 70) begin
+                    coord_on <= 1;
+                end else begin
+                    coord_on <= 0;
+                end
+               //coord_on <= 1;
+
         end
     end
-
+    
+    assign LED[0] =  display_coord_area;
+    assign LED[1] = coord_on;
+    assign LED[2] = at_display_area;
 //////////////////////////////////////////////////////////////////////////////////
 // sample Verilog to generate color bars
     
     wire [9:0] hcount;
     wire [9:0] vcount;
-    wire hsync, vsync, at_display_area;
+    wire hsync, vsync, at_display_area, display_coord_area;
     vga vga1(.vga_clock(clock_25mhz),.hcount(hcount),.vcount(vcount),
-          .hsync(hsync),.vsync(vsync),.at_display_area(at_display_area));
+          .hsync(hsync),.vsync(vsync),.at_display_area(at_display_area), .display_coord_area(display_coord_area));
         
     assign VGA_R = ((vcount >= 275 && vcount < 280) || (hcount >= 464 && hcount < 469)) ? 4'hF : at_display_area ? {{stored_pixel[15:12]}} : 0;
-    assign VGA_G = at_display_area ? {{stored_pixel[10:7]}} : 0;
+    assign VGA_G = at_display_area ? {{stored_pixel[10:7]}} : (display_coord_area && coord_on)? 4'hF: 0;
     assign VGA_B = at_display_area ? {{stored_pixel[4:1]}} : 0;
 //    assign VGA_R = at_display_area ? {4{hcount[7]}} : 0;
 //    assign VGA_G = at_display_area ? {4{hcount[6]}} : 0;
@@ -197,6 +219,22 @@ module labkit(
 //    assign VGA_B = at_display_area ? {0000} : 0;
     assign VGA_HS = ~hsync;
     assign VGA_VS = ~vsync;
+endmodule
+
+module blob
+   #(parameter WIDTH = 64,            // default width: 64 pixels
+               HEIGHT = 64,           // default height: 64 pixels
+               COLOR = 24'hFF_FF_FF)  // default color: white
+   (input [10:0] x,hcount,
+    input [9:0] y,vcount,
+    output reg [23:0] pixel);
+
+   always @ * begin
+      if ((hcount >= x && hcount < (x+WIDTH)) &&
+     (vcount >= y && vcount < (y+HEIGHT)))
+    pixel = COLOR;
+      else pixel = 0;
+   end
 endmodule
 
 module clock_quarter_divider(input clk100_mhz, output reg clock_25mhz = 0);
@@ -213,7 +251,7 @@ endmodule
 module vga(input vga_clock,
             output reg [9:0] hcount = 0,    // pixel number on current line
             output reg [9:0] vcount = 0,	 // line number
-            output vsync, hsync, at_display_area);
+            output vsync, hsync, at_display_area, display_coord_area);
     // Counters.
     always @(posedge vga_clock) begin
         if (hcount == 799) begin
@@ -233,6 +271,8 @@ module vga(input vga_clock,
     assign hsync = (hcount < 96);
     assign vsync = (vcount < 2);
     assign at_display_area = (hcount >= 144 && hcount < 464 && vcount >= 35 && vcount < 275);
+    assign display_coord_area = (hcount >= 469 && hcount < 789 && vcount >= 35 && vcount < 275);
+    
 endmodule
 
 //module bram(input clka, input ena, input wea,

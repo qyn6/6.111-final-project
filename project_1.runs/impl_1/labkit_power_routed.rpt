@@ -1,7 +1,7 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2014.4.1 (lin64) Build 1149489 Thu Feb 19 16:01:47 MST 2015
-| Date             : Sun Nov 22 17:58:13 2015
+| Date             : Tue Nov 24 17:51:51 2015
 | Host             : eecs-digital-24 running 64-bit Ubuntu 12.04.5 LTS
 | Command          : report_power -file labkit_power_routed.rpt -pb labkit_power_summary_routed.pb
 | Design           : labkit
@@ -30,8 +30,8 @@ Table of Contents
 ----------
 
 +--------------------------+-------+
-| Total On-Chip Power (W)  | 0.122 |
-| Dynamic (W)              | 0.024 |
+| Total On-Chip Power (W)  | 0.135 |
+| Dynamic (W)              | 0.036 |
 | Device Static (W)        | 0.098 |
 | Effective TJA (C/W)      | 4.6   |
 | Max Ambient (C)          | 99.4  |
@@ -46,24 +46,25 @@ Table of Contents
 1.1 On-Chip Components
 ----------------------
 
-+----------------+-----------+----------+-----------+-----------------+
-| On-Chip        | Power (W) | Used     | Available | Utilization (%) |
-+----------------+-----------+----------+-----------+-----------------+
-| Clocks         |    <0.001 |        3 |       --- |             --- |
-| Slice Logic    |     0.002 |      906 |       --- |             --- |
-|   LUT as Logic |     0.001 |      412 |     63400 |            0.64 |
-|   CARRY4       |    <0.001 |       24 |     15850 |            0.15 |
-|   Register     |    <0.001 |      286 |    126800 |            0.22 |
-|   BUFG         |    <0.001 |        2 |        32 |            6.25 |
-|   F7/F8 Muxes  |    <0.001 |       16 |     63400 |            0.02 |
-|   Others       |     0.000 |       97 |       --- |             --- |
-| Signals        |     0.002 |      902 |       --- |             --- |
-| Block RAM      |     0.006 |       29 |       135 |           21.48 |
-| DSPs           |    <0.001 |        2 |       240 |            0.83 |
-| I/O            |     0.014 |       47 |       210 |           22.38 |
-| Static Power   |     0.098 |          |           |                 |
-| Total          |     0.122 |          |           |                 |
-+----------------+-----------+----------+-----------+-----------------+
++-------------------------+-----------+----------+-----------+-----------------+
+| On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
++-------------------------+-----------+----------+-----------+-----------------+
+| Clocks                  |    <0.001 |        3 |       --- |             --- |
+| Slice Logic             |     0.002 |     1032 |       --- |             --- |
+|   LUT as Logic          |     0.002 |      443 |     63400 |            0.69 |
+|   CARRY4                |    <0.001 |       28 |     15850 |            0.17 |
+|   Register              |    <0.001 |      328 |    126800 |            0.25 |
+|   LUT as Shift Register |    <0.001 |        8 |     19000 |            0.04 |
+|   BUFG                  |    <0.001 |        2 |        32 |            6.25 |
+|   F7/F8 Muxes           |    <0.001 |       18 |     63400 |            0.02 |
+|   Others                |     0.000 |      116 |       --- |             --- |
+| Signals                 |     0.003 |      996 |       --- |             --- |
+| Block RAM               |     0.009 |     36.5 |       135 |           27.03 |
+| DSPs                    |    <0.001 |        2 |       240 |            0.83 |
+| I/O                     |     0.021 |       50 |       210 |           23.80 |
+| Static Power            |     0.098 |          |           |                 |
+| Total                   |     0.135 |          |           |                 |
++-------------------------+-----------+----------+-----------+-----------------+
 
 
 1.2 Power Supply Summary
@@ -72,16 +73,16 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.026 |       0.010 |      0.015 |
-| Vccaux    |       1.800 |     0.019 |       0.000 |      0.018 |
-| Vcco33    |       3.300 |     0.008 |       0.004 |      0.004 |
+| Vccint    |       1.000 |     0.030 |       0.014 |      0.016 |
+| Vccaux    |       1.800 |     0.019 |       0.001 |      0.018 |
+| Vcco33    |       3.300 |     0.010 |       0.006 |      0.004 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |
-| Vccbram   |       1.000 |     0.001 |       0.001 |      0.001 |
+| Vccbram   |       1.000 |     0.002 |       0.001 |      0.001 |
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |
 | Vccadc    |       1.800 |     0.020 |       0.000 |      0.020 |
@@ -141,20 +142,26 @@ Table of Contents
 +---------------------------------------+-----------+
 | Name                                  | Power (W) |
 +---------------------------------------+-----------+
-| labkit                                |     0.024 |
+| labkit                                |     0.036 |
 |   camera_read_1                       |    <0.001 |
 |   clockgen                            |    <0.001 |
 |   configure                           |     0.001 |
-|     SCCB1                             |    <0.001 |
+|     SCCB1                             |     0.001 |
 |     config_1                          |    <0.001 |
 |     rom1                              |    <0.001 |
 |   display                             |    <0.001 |
-|   mybram                              |     0.007 |
-|     U0                                |     0.007 |
-|       inst_blk_mem_gen                |     0.007 |
-|         gnativebmg.native_blk_mem_gen |     0.007 |
-|           valid.cstr                  |     0.007 |
+|   mybram                              |     0.010 |
+|     U0                                |     0.010 |
+|       inst_blk_mem_gen                |     0.010 |
+|         gnativebmg.native_blk_mem_gen |     0.010 |
+|           valid.cstr                  |     0.010 |
 |             has_mux_b.B               |    <0.001 |
+|             ramloop[0].ram.r          |     0.001 |
+|               prim_noinit.ram         |     0.001 |
+|             ramloop[10].ram.r         |    <0.001 |
+|               prim_noinit.ram         |    <0.001 |
+|             ramloop[11].ram.r         |     0.001 |
+|               prim_noinit.ram         |     0.001 |
 |             ramloop[12].ram.r         |    <0.001 |
 |               prim_noinit.ram         |    <0.001 |
 |             ramloop[13].ram.r         |    <0.001 |
@@ -170,6 +177,8 @@ Table of Contents
 |             ramloop[18].ram.r         |    <0.001 |
 |               prim_noinit.ram         |    <0.001 |
 |             ramloop[19].ram.r         |    <0.001 |
+|               prim_noinit.ram         |    <0.001 |
+|             ramloop[1].ram.r          |    <0.001 |
 |               prim_noinit.ram         |    <0.001 |
 |             ramloop[20].ram.r         |    <0.001 |
 |               prim_noinit.ram         |    <0.001 |
@@ -207,8 +216,13 @@ Table of Contents
 |               prim_noinit.ram         |    <0.001 |
 |             ramloop[8].ram.r          |     0.001 |
 |               prim_noinit.ram         |     0.001 |
-|             ramloop[9].ram.r          |     0.000 |
-|               prim_noinit.ram         |     0.000 |
+|             ramloop[9].ram.r          |     0.001 |
+|               prim_noinit.ram         |     0.001 |
+|   tohsv                               |    <0.001 |
+|     hue_div1                          |     0.000 |
+|       U0                              |     0.000 |
+|     hue_div2                          |     0.000 |
+|       U0                              |     0.000 |
 |   vga1                                |    <0.001 |
 +---------------------------------------+-----------+
 

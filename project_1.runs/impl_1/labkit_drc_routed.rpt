@@ -1,7 +1,7 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2014.4.1 (lin64) Build 1149489 Thu Feb 19 16:01:47 MST 2015
-| Date         : Sun Nov 22 17:58:12 2015
+| Date         : Tue Nov 24 17:51:49 2015
 | Host         : eecs-digital-24 running 64-bit Ubuntu 12.04.5 LTS
 | Command      : report_drc
 --------------------------------------------------------------------------------------
@@ -39,12 +39,12 @@ Related violations: <none>
 
 DPIP-1#1 Warning
 Input pipelining  
-DSP read_address0 input C is not pipelined. Pipelining DSP48 input will improve performance.
+DSP read_address0 input B C is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#2 Warning
 Input pipelining  
-DSP read_address2 input A B is not pipelined. Pipelining DSP48 input will improve performance.
+DSP read_address1 input A B is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPOP-1#1 Warning
@@ -54,7 +54,7 @@ Related violations: <none>
 
 DPOP-1#2 Warning
 Output pipelining  
-DSP read_address2 output P is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
+DSP read_address1 output P is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
 Related violations: <none>
 
 PLIO-7#1 Warning

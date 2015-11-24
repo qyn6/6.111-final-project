@@ -62,6 +62,21 @@ module OV7670_config_rom(
     31: dout <= 16'hB1_0c; //ABLC1
     32: dout <= 16'hB2_0e; //RSVD       more magic internet values
     33: dout <= 16'hB3_80; //THL_ST
+    
+//    34: dout <= 16'h56_40;
+//    35: dout <= 16'h59_88;
+//    36: dout <= 16'h5a_88;
+//    37: dout <= 16'h5b_44;
+//    38: dout <= 16'h5c_67;
+//    39: dout <= 16'h5d_49;
+//    40: dout <= 16'h5e_0e;
+//    41: dout <= 16'h6a_40;
+//    42: dout <= 16'h6b_0a;
+//    43: dout <= 16'h6c_0a;
+//    44: dout <= 16'h6d_55;
+//    45: dout <= 16'h6e_11;
+//    46: dout <= 16'h6f_9f;
+//    47: dout <= 16'hb4_0a;
     default: dout <= 16'hFF_FF;         //mark end of ROM
     endcase
     
