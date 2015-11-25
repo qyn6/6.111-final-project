@@ -1,0 +1,4 @@
+
+*** Running vivado
+    with args -log labkit.vdi -applog -m64 -messageDb vivado.pb -mode batch -source labkit.tcl -notrace
+
