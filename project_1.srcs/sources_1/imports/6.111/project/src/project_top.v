@@ -48,7 +48,7 @@ module labkit(
     wire [31:0] data;
     wire [6:0] segments;
     display_8hex display(.clk(clock_25mhz),.data(data), .seg(segments), .strobe(AN));    
-    assign data = {16'b0, stored_pixel};
+    assign data = {6'b0, y, 3'b0, flight, 2'b0, x};
     assign SEG[7:0] = segments;
     assign SEG[7] = 1'b1;
 
@@ -134,6 +134,10 @@ module labkit(
 //    assign LED[0] = SW[0];
 //    assign wea = BTNR;
 
+    wire attack; //1 if attack on, 0 else
+    reg flight = 0; //1 if flight pulse below some threshold
+    reg [9:0] x;
+    reg [9:0] y;
     wire [7:0] h;
     wire [7:0] s;
     wire [7:0] v;
@@ -146,6 +150,8 @@ module labkit(
                     
     video_bram mybram(.clka(clock_25mhz), .ena(1), .wea(wea), .addra(store_address), 
         .dina(mem_in), .clkb(clock_25mhz), .addrb(read_address), .doutb(stored_pixel));
+        
+    motion_type motion_type(.clock(clock_25mhz), .x_pos(x), .motion(attack));   
     //parity bits for storing every other pixel, every other row
     reg hpar = 1;
     reg vpar = 1;
@@ -178,9 +184,12 @@ module labkit(
           end
     end
     
+    reg turn_on = 0;
+    
     always @(posedge clock_25mhz) begin
         if ((vcount < 35 && hcount < 144) || (vcount >= 275 && hcount >= 464)) begin
                 read_address <= 0;
+ 
         end else if (hcount >= 144 && hcount < 464 && vcount >= 35 && vcount < 275) begin
                 //read_address <= read_address +1;
                 read_address <= (vcount-35) * 320 + (hcount - 144);
@@ -188,6 +197,23 @@ module labkit(
                 read_address <= (vcount-35) * 320 + (hcount - 469);
                 if (v > 70) begin
                     coord_on <= 1;
+                    if (vsync == 1) begin
+                        x <= 0;
+                        y <= 0;
+                    end else begin
+                        x <= hcount;
+                        y <= vcount;
+                        if (flight == 1) begin
+                            flight <= 0;
+                        end
+                        if (y < 230 && turn_on == 1) begin
+                            flight <= 1;
+                            turn_on <= 0;
+                        end else if (y >= 230 && turn_on == 0) begin
+                            turn_on <= 1;
+                            flight <= 0;
+                        end
+                    end
                 end else begin
                     coord_on <= 0;
                 end
@@ -199,6 +225,8 @@ module labkit(
     assign LED[0] =  display_coord_area;
     assign LED[1] = coord_on;
     assign LED[2] = at_display_area;
+    assign LED[3] = attack;
+    assign LED[4] = flight;
 //////////////////////////////////////////////////////////////////////////////////
 // sample Verilog to generate color bars
     
@@ -210,7 +238,7 @@ module labkit(
         
     assign VGA_R = ((vcount >= 275 && vcount < 280) || (hcount >= 464 && hcount < 469)) ? 4'hF : at_display_area ? {{stored_pixel[15:12]}} : 0;
     assign VGA_G = at_display_area ? {{stored_pixel[10:7]}} : (display_coord_area && coord_on)? 4'hF: 0;
-    assign VGA_B = at_display_area ? {{stored_pixel[4:1]}} : 0;
+    assign VGA_B = ((vcount >= 230 && vcount < 235) || hcount >= 629 && hcount < 633)? 4'hF: at_display_area ? {{stored_pixel[4:1]}} : 0;
 //    assign VGA_R = at_display_area ? {4{hcount[7]}} : 0;
 //    assign VGA_G = at_display_area ? {4{hcount[6]}} : 0;
 //    assign VGA_B = at_display_area ? {4{hcount[5]}} : 0;
@@ -219,6 +247,19 @@ module labkit(
 //    assign VGA_B = at_display_area ? {0000} : 0;
     assign VGA_HS = ~hsync;
     assign VGA_VS = ~vsync;
+endmodule
+
+module motion_type(input clock, input [9:0] x_pos, output motion);
+
+    reg motion = 0; // 0 if flying, 1 if attacking
+    always @(posedge clock) begin
+        if (x_pos >= 633) begin
+            motion <= 1;
+        end else begin
+            motion <= 0;
+        end
+    end
+    
 endmodule
 
 module blob

@@ -1,7 +1,7 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2014.4.1 (lin64) Build 1149489 Thu Feb 19 16:01:47 MST 2015
-| Date         : Tue Nov 24 17:50:25 2015
+| Date         : Tue Nov 24 22:11:04 2015
 | Host         : eecs-digital-24 running 64-bit Ubuntu 12.04.5 LTS
 | Command      : report_utilization -file labkit_utilization_synth.rpt -pb labkit_utilization_synth.pb
 | Design       : labkit
@@ -30,15 +30,15 @@ Table of Contents
 +----------------------------+------+-------+-----------+-------+
 |          Site Type         | Used | Fixed | Available | Util% |
 +----------------------------+------+-------+-----------+-------+
-| Slice LUTs*                |  500 |     0 |     63400 |  0.78 |
-|   LUT as Logic             |  492 |     0 |     63400 |  0.77 |
+| Slice LUTs*                |  528 |     0 |     63400 |  0.83 |
+|   LUT as Logic             |  520 |     0 |     63400 |  0.82 |
 |   LUT as Memory            |    8 |     0 |     19000 |  0.04 |
 |     LUT as Distributed RAM |    0 |     0 |           |       |
 |     LUT as Shift Register  |    8 |     0 |           |       |
-| Slice Registers            |  398 |     0 |    126800 |  0.31 |
-|   Register as Flip Flop    |  398 |     0 |    126800 |  0.31 |
+| Slice Registers            |  421 |     0 |    126800 |  0.33 |
+|   Register as Flip Flop    |  421 |     0 |    126800 |  0.33 |
 |   Register as Latch        |    0 |     0 |    126800 |  0.00 |
-| F7 Muxes                   |    0 |     0 |     31700 |  0.00 |
+| F7 Muxes                   |    3 |     0 |     31700 | <0.01 |
 | F8 Muxes                   |    0 |     0 |     15850 |  0.00 |
 +----------------------------+------+-------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
@@ -59,7 +59,7 @@ Table of Contents
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
 | 10    |          Yes |         Set |            - |
-| 388   |          Yes |       Reset |            - |
+| 411   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -151,19 +151,20 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDRE     |  388 |        Flop & Latch |
-| LUT6     |  150 |                 LUT |
-| LUT4     |  124 |                 LUT |
-| LUT1     |  111 |                 LUT |
-| LUT5     |   91 |                 LUT |
-| LUT3     |   71 |                 LUT |
-| LUT2     |   69 |                 LUT |
+| FDRE     |  411 |        Flop & Latch |
+| LUT6     |  184 |                 LUT |
+| LUT4     |  118 |                 LUT |
+| LUT1     |  109 |                 LUT |
+| LUT5     |   84 |                 LUT |
+| LUT3     |   76 |                 LUT |
+| LUT2     |   67 |                 LUT |
 | CARRY4   |   56 |          CarryLogic |
-| OBUF     |   35 |                  IO |
-| OBUFT    |   20 |                  IO |
+| OBUF     |   37 |                  IO |
+| OBUFT    |   18 |                  IO |
 | IBUF     |   13 |                  IO |
 | FDSE     |   10 |        Flop & Latch |
 | SRLC32E  |    8 |  Distributed Memory |
+| MUXF7    |    3 |               MuxFx |
 | DSP48E1  |    3 |    Block Arithmetic |
 | BUFG     |    3 |               Clock |
 | RAMB18E1 |    1 |        Block Memory |

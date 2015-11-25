@@ -178,21 +178,6 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="video_bram.xci" FileRelPathName="video_bram.veo"/>
-        <CompFileExtendedInfo CompFileName="video_bram.xci" FileRelPathName="doc/blk_mem_gen_v8_2_changelog.txt"/>
-        <CompFileExtendedInfo CompFileName="video_bram.xci" FileRelPathName="summary.log"/>
-        <CompFileExtendedInfo CompFileName="video_bram.xci" FileRelPathName="blk_mem_gen_v8_2/simulation/blk_mem_gen_v8_2.v"/>
-        <CompFileExtendedInfo CompFileName="video_bram.xci" FileRelPathName="sim/video_bram.v"/>
-        <CompFileExtendedInfo CompFileName="video_bram.xci" FileRelPathName="video_bram_ooc.xdc"/>
-        <CompFileExtendedInfo CompFileName="video_bram.xci" FileRelPathName="blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2_vhsyn_rfs.vhd"/>
-        <CompFileExtendedInfo CompFileName="video_bram.xci" FileRelPathName="synth/video_bram.vhd"/>
-        <CompFileExtendedInfo CompFileName="video_bram.xci" FileRelPathName="blk_mem_gen_v8_2/hdl/blk_mem_gen_v8_2.vhd"/>
-        <CompFileExtendedInfo CompFileName="video_bram.xci" FileRelPathName="video_bram.dcp"/>
-        <CompFileExtendedInfo CompFileName="video_bram.xci" FileRelPathName="video_bram_stub.v"/>
-        <CompFileExtendedInfo CompFileName="video_bram.xci" FileRelPathName="video_bram_stub.vhdl"/>
-        <CompFileExtendedInfo CompFileName="video_bram.xci" FileRelPathName="video_bram_funcsim.v"/>
-        <CompFileExtendedInfo CompFileName="video_bram.xci" FileRelPathName="video_bram_funcsim.vhdl"/>
-        <CompFileExtendedInfo CompFileName="video_bram.xci" FileRelPathName="video_bram.xml"/>
       </File>
       <Config>
         <Option Name="TopModule" Val="video_bram"/>
@@ -206,40 +191,6 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="divider_gen.xci" FileRelPathName="divider_gen_funcsim.vhdl"/>
-        <CompFileExtendedInfo CompFileName="divider_gen.xci" FileRelPathName="divider_gen_funcsim.v"/>
-        <CompFileExtendedInfo CompFileName="divider_gen.xci" FileRelPathName="divider_gen_stub.vhdl"/>
-        <CompFileExtendedInfo CompFileName="divider_gen.xci" FileRelPathName="divider_gen.dcp"/>
-        <CompFileExtendedInfo CompFileName="divider_gen.xci" FileRelPathName="divider_gen.xml"/>
-        <CompFileExtendedInfo CompFileName="divider_gen.xci" FileRelPathName="divider_gen.veo"/>
-        <CompFileExtendedInfo CompFileName="divider_gen.xci" FileRelPathName="demo_tb/tb_divider_gen.vhd"/>
-        <CompFileExtendedInfo CompFileName="divider_gen.xci" FileRelPathName="divider_gen_ooc.xdc"/>
-        <CompFileExtendedInfo CompFileName="divider_gen.xci" FileRelPathName="synth/divider_gen.vhd"/>
-        <CompFileExtendedInfo CompFileName="divider_gen.xci" FileRelPathName="div_gen_v5_1/hdl/div_gen_v5_1.vhd"/>
-        <CompFileExtendedInfo CompFileName="divider_gen.xci" FileRelPathName="div_gen_v5_1/hdl/div_gen_v5_1_vh_rfs.vhd"/>
-        <CompFileExtendedInfo CompFileName="divider_gen.xci" FileRelPathName="sim/divider_gen.vhd"/>
-        <CompFileExtendedInfo CompFileName="divider_gen.xci" FileRelPathName="xbip_dsp48_multadd_v3_0/hdl/xbip_dsp48_multadd_v3_0.vhd"/>
-        <CompFileExtendedInfo CompFileName="divider_gen.xci" FileRelPathName="xbip_dsp48_multadd_v3_0/hdl/xbip_dsp48_multadd_v3_0_vh_rfs.vhd"/>
-        <CompFileExtendedInfo CompFileName="divider_gen.xci" FileRelPathName="xbip_dsp48_mult_v3_0/hdl/xbip_dsp48_mult_v3_0.vhd"/>
-        <CompFileExtendedInfo CompFileName="divider_gen.xci" FileRelPathName="xbip_dsp48_mult_v3_0/hdl/xbip_dsp48_mult_v3_0_vh_rfs.vhd"/>
-        <CompFileExtendedInfo CompFileName="divider_gen.xci" FileRelPathName="mult_gen_v12_0/hdl/mult_gen_v12_0.vhd"/>
-        <CompFileExtendedInfo CompFileName="divider_gen.xci" FileRelPathName="mult_gen_v12_0/hdl/mult_gen_v12_0_vh_rfs.vhd"/>
-        <CompFileExtendedInfo CompFileName="divider_gen.xci" FileRelPathName="xbip_bram18k_v3_0/hdl/xbip_bram18k_v3_0.vhd"/>
-        <CompFileExtendedInfo CompFileName="divider_gen.xci" FileRelPathName="floating_point_v7_0/hdl/floating_point_v7_0_vh_rfs.vhd"/>
-        <CompFileExtendedInfo CompFileName="divider_gen.xci" FileRelPathName="xbip_bram18k_v3_0/hdl/xbip_bram18k_v3_0_vh_rfs.vhd"/>
-        <CompFileExtendedInfo CompFileName="divider_gen.xci" FileRelPathName="xbip_dsp48_addsub_v3_0/hdl/xbip_dsp48_addsub_v3_0.vhd"/>
-        <CompFileExtendedInfo CompFileName="divider_gen.xci" FileRelPathName="xbip_dsp48_addsub_v3_0/hdl/xbip_dsp48_addsub_v3_0_vh_rfs.vhd"/>
-        <CompFileExtendedInfo CompFileName="divider_gen.xci" FileRelPathName="xbip_pipe_v3_0/hdl/xbip_pipe_v3_0.vhd"/>
-        <CompFileExtendedInfo CompFileName="divider_gen.xci" FileRelPathName="xbip_pipe_v3_0/hdl/xbip_pipe_v3_0_vh_rfs.vhd"/>
-        <CompFileExtendedInfo CompFileName="divider_gen.xci" FileRelPathName="axi_utils_v2_0/hdl/axi_utils_v2_0_vh_rfs.vhd"/>
-        <CompFileExtendedInfo CompFileName="divider_gen.xci" FileRelPathName="xbip_dsp48_wrapper_v3_0/hdl/xbip_dsp48_wrapper_v3_0_vh_rfs.vhd"/>
-        <CompFileExtendedInfo CompFileName="divider_gen.xci" FileRelPathName="cmodel/div_gen_v5_1_bitacc_cmodel_nt64.zip"/>
-        <CompFileExtendedInfo CompFileName="divider_gen.xci" FileRelPathName="cmodel/div_gen_v5_1_bitacc_cmodel_nt.zip"/>
-        <CompFileExtendedInfo CompFileName="divider_gen.xci" FileRelPathName="cmodel/div_gen_v5_1_bitacc_cmodel_lin64.zip"/>
-        <CompFileExtendedInfo CompFileName="divider_gen.xci" FileRelPathName="xbip_utils_v3_0/hdl/xbip_utils_v3_0_vh_rfs.vhd"/>
-        <CompFileExtendedInfo CompFileName="divider_gen.xci" FileRelPathName="doc/div_gen_v5_1_changelog.txt"/>
-        <CompFileExtendedInfo CompFileName="divider_gen.xci" FileRelPathName="cmodel/div_gen_v5_1_bitacc_cmodel_lin.zip"/>
-        <CompFileExtendedInfo CompFileName="divider_gen.xci" FileRelPathName="divider_gen_stub.v"/>
       </File>
       <Config>
         <Option Name="TopModule" Val="divider_gen"/>
@@ -279,9 +230,7 @@
     </Run>
     <Run Id="divider_gen_synth_1" Type="Ft3:Synth" SrcSet="divider_gen" Part="xc7a100tcsg324-3" ConstrsSet="divider_gen" Description="Vivado Synthesis Defaults" Dir="$PRUNDIR/divider_gen_synth_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2014">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2014"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -317,9 +266,7 @@
     </Run>
     <Run Id="divider_gen_impl_1" Type="Ft2:EntireDesign" Part="xc7a100tcsg324-3" ConstrsSet="divider_gen" Description="Vivado Implementation Defaults" SynthRun="divider_gen_synth_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2014">
-          <Desc>Vivado Implementation Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2014"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
