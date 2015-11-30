@@ -7,3 +7,4 @@
 # Log file: /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.runs/impl_1/labkit.vdi
 # Journal file: /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.runs/impl_1/vivado.jou
 #-----------------------------------------------------------
+source labkit.tcl -notrace

@@ -1,0 +1,61 @@
+Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2014.4.1 (lin64) Build 1149489 Thu Feb 19 16:01:47 MST 2015
+| Date         : Wed Nov 25 11:51:38 2015
+| Host         : eecs-digital-23 running 64-bit Ubuntu 12.04.5 LTS
+| Command      : report_control_sets -verbose -file labkit_control_sets_placed.rpt
+| Design       : labkit
+| Device       : xc7a100t
+--------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Flip-Flop Distribution
+3. Detailed Control Set Information
+
+1. Summary
+----------
+
++-------------------------------------------------------------------+-------+
+|                               Status                              | Count |
++-------------------------------------------------------------------+-------+
+| Number of unique control sets                                     |     8 |
+| Minimum Number of register sites lost to control set restrictions |    32 |
++-------------------------------------------------------------------+-------+
+
+
+2. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |             105 |           41 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |              41 |           12 |
+| Yes          | No                    | No                     |              14 |            5 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |               0 |            0 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+3. Detailed Control Set Information
+-----------------------------------
+
++--------------------------+------------------------+----------------------------------+------------------+----------------+
+|       Clock Signal       |      Enable Signal     |         Set/Reset Signal         | Slice Load Count | Bel Load Count |
++--------------------------+------------------------+----------------------------------+------------------+----------------+
+|  CLK100MHZ_BUFG          |                        |                                  |                1 |              2 |
+|  pixelclk/inst/clk_65mhz | calc/divider/E[0]      |                                  |                1 |              4 |
+|  pixelclk/inst/clk_65mhz | vga1/n_0_vcount[9]_i_1 |                                  |                4 |             10 |
+|  vsync_BUFG              |                        | g/n_0_ound_x[9]_i_1              |                4 |             10 |
+|  pixelclk/inst/clk_65mhz |                        |                                  |                8 |             16 |
+|  clockgen/clock_25mhz    |                        |                                  |                9 |             29 |
+|  pixelclk/inst/clk_65mhz |                        | calc/divider/n_0_counter[31]_i_1 |                8 |             31 |
+|  vsync_BUFG              |                        |                                  |               23 |             58 |
++--------------------------+------------------------+----------------------------------+------------------+----------------+
+
+
