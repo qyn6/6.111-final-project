@@ -1,7 +1,7 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2014.4.1 (lin64) Build 1149489 Thu Feb 19 16:01:47 MST 2015
-| Date             : Tue Nov 24 22:12:30 2015
+| Date             : Sun Nov 29 22:11:51 2015
 | Host             : eecs-digital-24 running 64-bit Ubuntu 12.04.5 LTS
 | Command          : report_power -file labkit_power_routed.rpt -pb labkit_power_summary_routed.pb
 | Design           : labkit
@@ -51,7 +51,7 @@ Table of Contents
 +-------------------------+-----------+----------+-----------+-----------------+
 | Clocks                  |    <0.001 |        3 |       --- |             --- |
 | Slice Logic             |     0.002 |     1085 |       --- |             --- |
-|   LUT as Logic          |     0.002 |      474 |     63400 |            0.74 |
+|   LUT as Logic          |     0.002 |      475 |     63400 |            0.74 |
 |   CARRY4                |    <0.001 |       28 |     15850 |            0.17 |
 |   Register              |    <0.001 |      351 |    126800 |            0.27 |
 |   LUT as Shift Register |    <0.001 |        8 |     19000 |            0.04 |

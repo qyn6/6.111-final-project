@@ -1,7 +1,7 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2014.4.1 (lin64) Build 1149489 Thu Feb 19 16:01:47 MST 2015
-| Date         : Tue Nov 24 22:11:04 2015
+| Date         : Sun Nov 29 22:10:25 2015
 | Host         : eecs-digital-24 running 64-bit Ubuntu 12.04.5 LTS
 | Command      : report_utilization -file labkit_utilization_synth.rpt -pb labkit_utilization_synth.pb
 | Design       : labkit
@@ -152,12 +152,12 @@ Table of Contents
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
 | FDRE     |  411 |        Flop & Latch |
-| LUT6     |  184 |                 LUT |
-| LUT4     |  118 |                 LUT |
+| LUT6     |  185 |                 LUT |
+| LUT4     |  120 |                 LUT |
 | LUT1     |  109 |                 LUT |
-| LUT5     |   84 |                 LUT |
+| LUT5     |   80 |                 LUT |
 | LUT3     |   76 |                 LUT |
-| LUT2     |   67 |                 LUT |
+| LUT2     |   68 |                 LUT |
 | CARRY4   |   56 |          CarryLogic |
 | OBUF     |   37 |                  IO |
 | OBUFT    |   18 |                  IO |

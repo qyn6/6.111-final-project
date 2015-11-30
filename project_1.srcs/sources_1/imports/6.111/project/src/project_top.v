@@ -54,19 +54,6 @@ module labkit(
 
 //////////////////////////////////////////////////////////////////////////////////
 //
-//  remove these lines and insert your lab here
-
-//    assign LED = SW;     
-//    assign JA[7:0] = 8'b0;
-//    assign data = {28'h0123456, SW[3:0]};   // display 0123456 + SW
-//    assign LED16_R = BTNL;                  // left button -> red led
-//    assign LED16_G = BTNC;                  // center button -> green led
-//    assign LED16_B = BTNR;                  // right button -> blue led
-//    assign LED17_R = BTNL;
-//    assign LED17_G = BTNC;
-//    assign LED17_B = BTNR; 
-
-
 
 //
 //////////////////////////////////////////////////////////////////////////////////
@@ -86,14 +73,12 @@ module labkit(
     
     reg [15:0] mem_in  = 0;
     
-    assign color = SW[15:0];
     reg [16:0] store_address = 0;
     reg [16:0] read_address = 4'b1111;
     parameter MAX_ADDRESS = 17'd131071;
     wire [15:0] stored_pixel;
     reg [15:0] pixel_num = 0;
     wire [15:0] mem_out;
-    //assign SEG[7:0] = camera_pixel[7:0];
     
     //assign camera outputs
     assign JB[0] = camera_pwdn;
@@ -101,7 +86,6 @@ module labkit(
     assign camera_dout[2] = JA[1];
     assign camera_dout[4] = JA[2];
     assign camera_dout[6] = JA[3];
-
     assign JB[4] = camera_reset;
     assign camera_dout[1] = JA[4];
     assign camera_dout[3] = JA[5];
@@ -114,8 +98,6 @@ module labkit(
     assign camera_vsync = JB[5];
     assign JB[6] = clock_25mhz;
     assign camera_clk_out = JB[7];
-//    BUFG clk (.O(camera_clk_out), .I(JB[7]));
-//    assign JD[10] = camera_clk_out;
     assign start = BTNU;
     
     camera_configure configure(.clk(clock_25mhz), .start(start), .sioc(sioc), .siod(siod), .done(done));
@@ -130,50 +112,47 @@ module labkit(
         .frame_done(camera_frame_done)
     );
     
-    reg wea =0;
-//    assign LED[0] = SW[0];
-//    assign wea = BTNR;
-
+    reg wea =0; // write enable for BRAM, except it's always on after it's turned on?
     wire attack; //1 if attack on, 0 else
     reg flight = 0; //1 if flight pulse below some threshold
-    reg [9:0] x;
+    reg [9:0] x; //x, y coords of current light signal (the last pixel of the light)
     reg [9:0] y;
     wire [7:0] h;
     wire [7:0] s;
     wire [7:0] v;
     reg coord_on = 1; //is the light in the current pixel location
     
-//    rgb2hsv tohsv(.clock(clock_25mhz), .reset(camera_reset), .r({4'b0, stored_pixel[15:12]}), 
-//                .g(stored_pixel[11:4]), .b(4'b0, stored_pixel[3:0]), .h(h), .s(s), .v(v)); 
+    //don't touch this
     rgb2hsv tohsv(.clock(clock_25mhz), .reset(camera_reset), .r({4'b0, stored_pixel[11], stored_pixel[10], stored_pixel[3], stored_pixel[2]}), 
             .g({stored_pixel[15:12], stored_pixel[7:4]}), .b({4'b0, stored_pixel[9], stored_pixel[8], stored_pixel[1], stored_pixel[0]}), .h(h), .s(s), .v(v));                
-                    
+    
+    //don't touch this either                
     video_bram mybram(.clka(clock_25mhz), .ena(1), .wea(wea), .addra(store_address), 
         .dina(mem_in), .clkb(clock_25mhz), .addrb(read_address), .doutb(stored_pixel));
         
     motion_type motion_type(.clock(clock_25mhz), .x_pos(x), .motion(attack));   
+    
     //parity bits for storing every other pixel, every other row
     reg hpar = 1;
     reg vpar = 1;
+    //toggle vpar after each row
     reg [9:0] row_pixel_count = 0;
+    
     always @(posedge camera_clk_out) begin
-//          if (mem_in == 16'hFFFF) begin
-//            mem_in <= 0;
-//          end else begin
-//            mem_in = mem_in + 1;
-//          end
+          // reset everything at the end of each frame
           if (camera_frame_done) begin
               store_address <= 0;
               row_pixel_count <= 0;
               hpar <= 1;
               vpar <= 1;
           end
+          // camera_memory_we is on the full pixel (because camera sends in half a pixel at a time)
           if (camera_memory_we) begin
               mem_in <= camera_pixel;
-
+              //update store address if it's every 4th pixel that we need to store
               if (hpar && vpar) begin
                 store_address <= store_address + 1;
-                wea <= 1;
+                wea <= 1; 
               end
               if (row_pixel_count == 639) begin
                 vpar <= ~vpar;
@@ -184,9 +163,11 @@ module labkit(
           end
     end
     
+    //controlls whether to turn on the flight signal
     reg turn_on = 0;
     
     always @(posedge clock_25mhz) begin
+        //magic numbers for thresholds! 
         if ((vcount < 35 && hcount < 144) || (vcount >= 275 && hcount >= 464)) begin
                 read_address <= 0;
  
@@ -195,17 +176,23 @@ module labkit(
                 read_address <= (vcount-35) * 320 + (hcount - 144);
         end else if (hcount >= 469 && hcount < 789 && vcount >= 35 && vcount < 275) begin
                 read_address <= (vcount-35) * 320 + (hcount - 469);
+                //filter light from camera data in the upper right quadrant to only show the light
                 if (v > 70) begin
                     coord_on <= 1;
+                    //reset on vsync
                     if (vsync == 1) begin
                         x <= 0;
                         y <= 0;
+                    //update x, y coords to where the light pixel is
                     end else begin
                         x <= hcount;
                         y <= vcount;
+                        //flight only turns on for one cycle, then doesn't turn on again unless
+                        // it's moved above the threshold and back down again
                         if (flight == 1) begin
                             flight <= 0;
                         end
+                        //turn flight on below threshold
                         if (y < 230 && turn_on == 1) begin
                             flight <= 1;
                             turn_on <= 0;
@@ -217,11 +204,10 @@ module labkit(
                 end else begin
                     coord_on <= 0;
                 end
-               //coord_on <= 1;
-
         end
     end
     
+    //debugging things
     assign LED[0] =  display_coord_area;
     assign LED[1] = coord_on;
     assign LED[2] = at_display_area;
@@ -236,22 +222,18 @@ module labkit(
     vga vga1(.vga_clock(clock_25mhz),.hcount(hcount),.vcount(vcount),
           .hsync(hsync),.vsync(vsync),.at_display_area(at_display_area), .display_coord_area(display_coord_area));
         
+    //more magic numbers for threshold lines
     assign VGA_R = ((vcount >= 275 && vcount < 280) || (hcount >= 464 && hcount < 469)) ? 4'hF : at_display_area ? {{stored_pixel[15:12]}} : 0;
     assign VGA_G = at_display_area ? {{stored_pixel[10:7]}} : (display_coord_area && coord_on)? 4'hF: 0;
     assign VGA_B = ((vcount >= 230 && vcount < 235) || hcount >= 629 && hcount < 633)? 4'hF: at_display_area ? {{stored_pixel[4:1]}} : 0;
-//    assign VGA_R = at_display_area ? {4{hcount[7]}} : 0;
-//    assign VGA_G = at_display_area ? {4{hcount[6]}} : 0;
-//    assign VGA_B = at_display_area ? {4{hcount[5]}} : 0;
-//    assign VGA_R = at_display_area ? {0000} : 0;
-//    assign VGA_G = at_display_area ? {1111} : 0;
-//    assign VGA_B = at_display_area ? {0000} : 0;
     assign VGA_HS = ~hsync;
     assign VGA_VS = ~vsync;
 endmodule
 
+//sets attack signal to 1 if it's right of threshold
 module motion_type(input clock, input [9:0] x_pos, output motion);
 
-    reg motion = 0; // 0 if flying, 1 if attacking
+    reg motion = 0; // 1 if attacking, 0 else
     always @(posedge clock) begin
         if (x_pos >= 633) begin
             motion <= 1;
@@ -260,22 +242,6 @@ module motion_type(input clock, input [9:0] x_pos, output motion);
         end
     end
     
-endmodule
-
-module blob
-   #(parameter WIDTH = 64,            // default width: 64 pixels
-               HEIGHT = 64,           // default height: 64 pixels
-               COLOR = 24'hFF_FF_FF)  // default color: white
-   (input [10:0] x,hcount,
-    input [9:0] y,vcount,
-    output reg [23:0] pixel);
-
-   always @ * begin
-      if ((hcount >= x && hcount < (x+WIDTH)) &&
-     (vcount >= y && vcount < (y+HEIGHT)))
-    pixel = COLOR;
-      else pixel = 0;
-   end
 endmodule
 
 module clock_quarter_divider(input clk100_mhz, output reg clock_25mhz = 0);
@@ -316,50 +282,3 @@ module vga(input vga_clock,
     
 endmodule
 
-//module bram(input clka, input ena, input wea,
-//             input clkb, 
-//            output [15:0]stored_pixel);
-
-//    wire camera_reset;
-//    wire [15:0] camera_pixel;
-    
-//    reg [15:0] mem_in = 16'hFF_00;
-//    reg [16:0] store_address = 0;
-//        reg [16:0] read_address = 0;
-
-//    reg [15:0] mem_out;        
-    
-//    video_bram mybram(.clka(clka), .ena(ena), .wea(wea), .addra(store_address), 
-//            .dina(mem_in), .clkb(clkb), .addrb(read_address), .doutb(stored_pixel));
-            
-//         reg wea = 1;
-//            //parity bits for storing every other pixel, every other row
-//            reg hpar = 1;
-//            reg vpar = 1;
-//            reg [9:0] row_pixel_count = 0;
-//            always @(posedge clka) begin
-//                if (camera_reset) begin
-//                    store_address <= 0;
-//                    read_address <= 0;
-//                end
-//                if (~wea && ~vpar && row_pixel_count == 639) begin
-//                    wea <= 1;
-//                    vpar <= 1;
-//                end else if (wea ==0 && vpar && row_pixel_count != 639) begin
-//                    wea <= 1;
-//                end else if (wea == 1) begin
-//                    wea <= 0;
-//                    mem_in <= camera_pixel;
-//                    store_address <= store_address + 1;
-//                end else if (wea == 0) begin
-//                    read_address <= (hcount * vcount);
-//                end        
-                
-//                if (row_pixel_count == 639) begin
-//                    row_pixel_count <= 0;
-//                end
-//                row_pixel_count <= row_pixel_count +1;
-//            end
-
-        
-//endmodule
