@@ -53,16 +53,14 @@ module labkit(
     assign SEG[7] = 1'b1;
 
 //////////////////////////////////////////////////////////////////////////////////
-//
+// Motion tracking
 
-//
-//////////////////////////////////////////////////////////////////////////////////
     wire [7:0] camera_dout;
     wire start;
     wire sioc, siod, done;
     wire camera_pwdn;
     wire camera_reset;
-    wire camera_clk_in = clock_25mhz;
+    //wire camera_clk_in = clock_25mhz;
     wire camera_clk_out;
     wire camera_vsync;
     wire camera_hsync;
@@ -73,12 +71,12 @@ module labkit(
     
     reg [15:0] mem_in  = 0;
     
-    reg [16:0] store_address = 0;
-    reg [16:0] read_address = 4'b1111;
-    parameter MAX_ADDRESS = 17'd131071;
+//    reg [16:0] store_address = 0;
+//    reg [16:0] read_address = 4'b1111;
+//    parameter MAX_ADDRESS = 17'd131071;
     wire [15:0] stored_pixel;
-    reg [15:0] pixel_num = 0;
-    wire [15:0] mem_out;
+//    reg [15:0] pixel_num = 0;
+//    wire [15:0] mem_out;
     
     //assign camera outputs
     assign JB[0] = camera_pwdn;
@@ -112,136 +110,119 @@ module labkit(
         .frame_done(camera_frame_done)
     );
     
-    reg wea =0; // write enable for BRAM, except it's always on after it's turned on?
+    camera_handler handler(.clock_25mhz(clock_25mhz),.camera_dout(camera_dout),.camera_reset(camera_reset),.camera_clk_out(camera_clk_out),
+        .camera_vsync(camera_vsync),.camera_hsync(camera_hsync),.camera_memory_we(camera_memory_we),.camera_frame_done(camera_frame_done),
+        .start(start),.camera_pixel(camera_pixel),
+        .camera_pwdn(camera_pwdn),.sioc(sioc),.siod(siod),.done(done),.mem_in(mem_in),.stored_pixel(stored_pixel));
+    
     wire attack; //1 if attack on, 0 else
-    reg flight = 0; //1 if flight pulse below some threshold
-    reg [9:0] x; //x, y coords of current light signal (the last pixel of the light)
-    reg [9:0] y;
-    wire [7:0] h;
-    wire [7:0] s;
-    wire [7:0] v;
-    reg coord_on = 1; //is the light in the current pixel location
+    wire flight; //1 if flight pulse below some threshold
+    wire [9:0] x; //x, y coords of current light signal (the last pixel of the light)
+    wire [9:0] y;
+
+    wire coord_on; //is the light in the current pixel location
     
-    //don't touch this
-    rgb2hsv tohsv(.clock(clock_25mhz), .reset(camera_reset), .r({4'b0, stored_pixel[11], stored_pixel[10], stored_pixel[3], stored_pixel[2]}), 
-            .g({stored_pixel[15:12], stored_pixel[7:4]}), .b({4'b0, stored_pixel[9], stored_pixel[8], stored_pixel[1], stored_pixel[0]}), .h(h), .s(s), .v(v));                
-    
-    //don't touch this either                
-    video_bram mybram(.clka(clock_25mhz), .ena(1), .wea(wea), .addra(store_address), 
-        .dina(mem_in), .clkb(clock_25mhz), .addrb(read_address), .doutb(stored_pixel));
+    flight_pulse fpulse(.clock_25mhz(clock_25mhz),.hcount(hcount1),.vcount(vcount1),.hsync(hsync1),.vsync(vsync1),
+        .flight(flight),.x(x),.y(y),.coord_on(coord_on));
         
     motion_type motion_type(.clock(clock_25mhz), .x_pos(x), .motion(attack));   
     
-    //parity bits for storing every other pixel, every other row
-    reg hpar = 1;
-    reg vpar = 1;
-    //toggle vpar after each row
-    reg [9:0] row_pixel_count = 0;
-    
-    always @(posedge camera_clk_out) begin
-          // reset everything at the end of each frame
-          if (camera_frame_done) begin
-              store_address <= 0;
-              row_pixel_count <= 0;
-              hpar <= 1;
-              vpar <= 1;
-          end
-          // camera_memory_we is on the full pixel (because camera sends in half a pixel at a time)
-          if (camera_memory_we) begin
-              mem_in <= camera_pixel;
-              //update store address if it's every 4th pixel that we need to store
-              if (hpar && vpar) begin
-                store_address <= store_address + 1;
-                wea <= 1; 
-              end
-              if (row_pixel_count == 639) begin
-                vpar <= ~vpar;
-                row_pixel_count <= 0;
-              end
-              else row_pixel_count <= row_pixel_count + 1;
-              if (vpar) hpar <= ~hpar;
-          end
-    end
-    
-    //controlls whether to turn on the flight signal
-    reg turn_on = 0;
-    
-    always @(posedge clock_25mhz) begin
-        //magic numbers for thresholds! 
-        if ((vcount < 35 && hcount < 144) || (vcount >= 275 && hcount >= 464)) begin
-                read_address <= 0;
- 
-        end else if (hcount >= 144 && hcount < 464 && vcount >= 35 && vcount < 275) begin
-                //read_address <= read_address +1;
-                read_address <= (vcount-35) * 320 + (hcount - 144);
-        end else if (hcount >= 469 && hcount < 789 && vcount >= 35 && vcount < 275) begin
-                read_address <= (vcount-35) * 320 + (hcount - 469);
-                //filter light from camera data in the upper right quadrant to only show the light
-                if (v > 70) begin
-                    coord_on <= 1;
-                    //reset on vsync
-                    if (vsync == 1) begin
-                        x <= 0;
-                        y <= 0;
-                    //update x, y coords to where the light pixel is
-                    end else begin
-                        x <= hcount;
-                        y <= vcount;
-                        //flight only turns on for one cycle, then doesn't turn on again unless
-                        // it's moved above the threshold and back down again
-                        if (flight == 1) begin
-                            flight <= 0;
-                        end
-                        //turn flight on below threshold
-                        if (y < 230 && turn_on == 1) begin
-                            flight <= 1;
-                            turn_on <= 0;
-                        end else if (y >= 230 && turn_on == 0) begin
-                            turn_on <= 1;
-                            flight <= 0;
-                        end
-                    end
-                end else begin
-                    coord_on <= 0;
-                end
-        end
-    end
-    
+
     //debugging things
     assign LED[0] =  display_coord_area;
     assign LED[1] = coord_on;
     assign LED[2] = at_display_area;
     assign LED[3] = attack;
     assign LED[4] = flight;
-//////////////////////////////////////////////////////////////////////////////////
-// sample Verilog to generate color bars
     
-    wire [9:0] hcount;
-    wire [9:0] vcount;
-    wire hsync, vsync, at_display_area, display_coord_area;
-    vga vga1(.vga_clock(clock_25mhz),.hcount(hcount),.vcount(vcount),
-          .hsync(hsync),.vsync(vsync),.at_display_area(at_display_area), .display_coord_area(display_coord_area));
+//
+//////////////////////////////////////////////////////////////////////////////////
+
+
+//////////////////////////////////////////////////////////////////////////////////
+// Game Logic
+
+    wire fly, flap;
+    synchronize sync_flight(.clk(vsync),.in(BTNU),
+        .out(fly));
+    //necessary??
+    flightpulse pulse(.clock_65mhz(clock_65mhz),.fly(fly),
+        .flap(flap));
+    
+    wire dir;
+    wire [3:0] speed;
+    physics calc(.clock_65mhz(clock_65mhz),.flap(fly),.vsync(vsync),
+        .dir(dir),.speed(speed));
+    
+    wire [11:0] pixel;
+    
+    wire [11:0] pegasus_pixel;
+    wire on_ground, over_ground;
+    pegasus p(.clock_65mhz(clock_65mhz),.hcount(hcount),.vcount(vcount),
+        .hsync(hsync),.vsync(vsync),.speed(speed),.up(dir),
+        .over_ground(over_ground),
+        .pegasus_pixel(pegasus_pixel));
+    
+    wire [11:0] ground_pixel;
+    ground g(.clock_65mhz(clock_65mhz),.hcount(hcount),.vcount(vcount),
+        .hsync(hsync),.vsync(vsync),
+        .over_ground(over_ground),.ground_pixel(ground_pixel));
+    
+    wire test;
+    wire [8:0] enabled;
+    wire obstacle_hit;
+    wire [3:0] hit_index,obstacle_index;
+    wire [11:0] obstacle_pixel;
+    obstacles o(.clock_65mhz(clock_65mhz),.hcount(hcount),.vcount(vcount),
+        .hsync(hsync),.vsync(vsync),
+        .obstacle_hit(obstacle_hit),.hit_index(hit_index),
+        .obstacle_index(obstacle_index),.obstacle_pixel(obstacle_pixel));
+    
+    wire destroy_button;
+//    synchronize sync_destroy(.clk(vsync),.in(BTNR),
+//        .out(destroy_button));
+//    flightpulse destroy_pulse(.clock_65mhz(vsync),.fly(destroy_button),
+//        .flap(obstacle_hit));
+    longpulse destroy_pulse(.clk(vsync),.in(BTNR),
+        .out(obstacle_hit));
+    assign hit_index = SW[3:0];
+    
+    wire [11:0] end_pixel;
+    endscreen e(.clock_65mhz(clock_65mhz),.hcount(hcount),.vcount(vcount),
+        .hsync(hsync),.vsync(vsync),
+        .end_pixel(end_pixel));
+    
+    controller control(.clock_65mhz(clock_65mhz),.hcount(hcount),.vcount(vcount),
+        .hsync(hsync),.vsync(vsync),.pegasus_pixel(pegasus_pixel),.ground_pixel(ground_pixel),
+        .obstacle_pixel(obstacle_pixel),.end_pixel(end_pixel),
+        .pixel(pixel));
+
+//
+//////////////////////////////////////////////////////////////////////////////////
+    
+    wire [9:0] hcount1;
+    wire [9:0] vcount1;
+    wire hsync1, vsync1, at_display_area1, display_coord_area1;
+    vga_camera vga1(.vga_clock(clock_25mhz),.hcount(hcount1),.vcount(vcount1),
+          .hsync(hsync1),.vsync(vsync1),.at_display_area(at_display_area1), .display_coord_area(display_coord_area1));
         
+    wire [10:0] hcount;
+    wire [9:0] vcount;
+    wire hsync, vsync, at_display_area;
+    vga vga2(.vga_clock(clock_65mhz),.hcount(hcount),.vcount(vcount),
+        .hsync(hsync),.vsync(vsync),.at_display_area(at_display_area));
+    
     //more magic numbers for threshold lines
-    assign VGA_R = ((vcount >= 275 && vcount < 280) || (hcount >= 464 && hcount < 469)) ? 4'hF : at_display_area ? {{stored_pixel[15:12]}} : 0;
-    assign VGA_G = at_display_area ? {{stored_pixel[10:7]}} : (display_coord_area && coord_on)? 4'hF: 0;
-    assign VGA_B = ((vcount >= 230 && vcount < 235) || hcount >= 629 && hcount < 633)? 4'hF: at_display_area ? {{stored_pixel[4:1]}} : 0;
+//    assign VGA_R = ((vcount >= 275 && vcount < 280) || (hcount >= 464 && hcount < 469)) ? 4'hF : at_display_area ? {{stored_pixel[15:12]}} : 0;
+//    assign VGA_G = at_display_area ? {{stored_pixel[10:7]}} : (display_coord_area && coord_on)? 4'hF: 0;
+//    assign VGA_B = ((vcount >= 230 && vcount < 235) || hcount >= 629 && hcount < 633)? 4'hF: at_display_area ? {{stored_pixel[4:1]}} : 0;
+    
+    assign VGA_R = at_display_area ? pixel[11:8] : 0;
+    assign VGA_G = at_display_area ? pixel[7:4] : 0;
+    assign VGA_B = at_display_area ? pixel[3:0] : 0;
+    
     assign VGA_HS = ~hsync;
     assign VGA_VS = ~vsync;
-endmodule
-
-//sets attack signal to 1 if it's right of threshold
-module motion_type(input clock, input [9:0] x_pos, output motion);
-
-    reg motion = 0; // 1 if attacking, 0 else
-    always @(posedge clock) begin
-        if (x_pos >= 633) begin
-            motion <= 1;
-        end else begin
-            motion <= 0;
-        end
-    end
-    
 endmodule
 
 module clock_quarter_divider(input clk100_mhz, output reg clock_25mhz = 0);
@@ -255,7 +236,7 @@ module clock_quarter_divider(input clk100_mhz, output reg clock_25mhz = 0);
     end
 endmodule
 
-module vga(input vga_clock,
+module vga_camera(input vga_clock,
             output reg [9:0] hcount = 0,    // pixel number on current line
             output reg [9:0] vcount = 0,	 // line number
             output vsync, hsync, at_display_area, display_coord_area);
@@ -282,3 +263,28 @@ module vga(input vga_clock,
     
 endmodule
 
+//change back to 640x480?
+module vga(input vga_clock,
+            output reg [10:0] hcount = 0,    // pixel number on current line
+            output reg [9:0] vcount = 0,	 // line number
+            output vsync, hsync, at_display_area);
+    // Counters.
+    always @(posedge vga_clock) begin
+        if (hcount == 1343) begin
+            hcount <= 0;
+        end
+        else begin
+            hcount <= hcount +  1;
+        end
+        if (vcount == 805) begin
+            vcount <= 0;
+        end
+        else if(hcount == 1343) begin
+            vcount <= vcount + 1;
+        end
+    end
+    
+    assign hsync = (hcount < 1047 || hcount >= 1183);
+    assign vsync = (vcount < 776 || vcount >= 782);
+    assign at_display_area = (hcount < 1023 && vcount < 767);
+endmodule

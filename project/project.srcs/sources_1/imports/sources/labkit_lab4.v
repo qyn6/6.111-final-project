@@ -80,72 +80,15 @@ module labkit(
 //////////////////////////////////////////////////////////////////////////////////
 // sample Verilog to generate color bars
     
-    wire [10:0] hcount;
-    wire [9:0] vcount;
-    wire hsync, vsync, at_display_area;
-    vga vga1(.vga_clock(clock_65mhz),.hcount(hcount),.vcount(vcount),
-          .hsync(hsync),.vsync(vsync),.at_display_area(at_display_area));
+    
         
 //    assign VGA_R = at_display_area ? {4{hcount[7]}} : 0;
 //    assign VGA_G = at_display_area ? {4{hcount[6]}} : 0;
 //    assign VGA_B = at_display_area ? {4{hcount[5]}} : 0;
     
-    wire fly, flap;
-    synchronize sync_flight(.clk(vsync),.in(BTNU),
-        .out(fly));
-    //necessary??
-    flightpulse pulse(.clock_65mhz(clock_65mhz),.fly(fly),
-        .flap(flap));
     
-    wire dir;
-    wire [3:0] speed;
-    physics calc(.clock_65mhz(clock_65mhz),.flap(fly),.vsync(vsync),
-        .dir(dir),.speed(speed));
     
-    wire [11:0] pixel;
-    
-    wire [11:0] pegasus_pixel;
-    wire on_ground, over_ground;
-    pegasus p(.clock_65mhz(clock_65mhz),.hcount(hcount),.vcount(vcount),
-        .hsync(hsync),.vsync(vsync),.speed(speed),.up(dir),
-        .over_ground(over_ground),
-        .pegasus_pixel(pegasus_pixel));
-    
-    wire [11:0] ground_pixel;
-    ground g(.clock_65mhz(clock_65mhz),.hcount(hcount),.vcount(vcount),
-        .hsync(hsync),.vsync(vsync),
-        .over_ground(over_ground),.ground_pixel(ground_pixel));
-    
-    wire test;
-    wire [8:0] enabled;
-    wire obstacle_hit;
-    wire [3:0] hit_index,obstacle_index;
-    wire [11:0] obstacle_pixel;
-    obstacles o(.clock_65mhz(clock_65mhz),.hcount(hcount),.vcount(vcount),
-        .hsync(hsync),.vsync(vsync),
-        .obstacle_hit(obstacle_hit),.hit_index(hit_index),
-        .obstacle_index(obstacle_index),.obstacle_pixel(obstacle_pixel));
-    
-    wire destroy_button;
-//    synchronize sync_destroy(.clk(vsync),.in(BTNR),
-//        .out(destroy_button));
-//    flightpulse destroy_pulse(.clock_65mhz(vsync),.fly(destroy_button),
-//        .flap(obstacle_hit));
-    longpulse destroy_pulse(.clk(vsync),.in(BTNR),
-        .out(obstacle_hit));
-    assign hit_index = SW[3:0];
-    
-    wire [11:0] end_pixel;
-    endscreen e(.clock_65mhz(clock_65mhz),.hcount(hcount),.vcount(vcount),
-        .hsync(hsync),.vsync(vsync),
-        .end_pixel(end_pixel));
-    
-    controller control(.clock_65mhz(clock_65mhz),.hcount(hcount),.vcount(vcount),
-        .hsync(hsync),.vsync(vsync),.pegasus_pixel(pegasus_pixel),.ground_pixel(ground_pixel),
-        .obstacle_pixel(obstacle_pixel),.end_pixel(end_pixel),
-        .pixel(pixel));
-    
-    wire border = (hcount==0 | hcount==1023 | vcount==0 | vcount==767);
+    //wire border = (hcount==0 | hcount==1023 | vcount==0 | vcount==767);
     
     assign VGA_R = at_display_area ? pixel[11:8] : 0;
     assign VGA_G = at_display_area ? pixel[7:4] : 0;
@@ -253,32 +196,6 @@ module physics(
     end
     
     assign speed = vel;
-endmodule
-
-//change back to 640x480?
-module vga(input vga_clock,
-            output reg [10:0] hcount = 0,    // pixel number on current line
-            output reg [9:0] vcount = 0,	 // line number
-            output vsync, hsync, at_display_area);
-    // Counters.
-    always @(posedge vga_clock) begin
-        if (hcount == 1343) begin
-            hcount <= 0;
-        end
-        else begin
-            hcount <= hcount +  1;
-        end
-        if (vcount == 805) begin
-            vcount <= 0;
-        end
-        else if(hcount == 1343) begin
-            vcount <= vcount + 1;
-        end
-    end
-    
-    assign hsync = (hcount < 1047 || hcount >= 1183);
-    assign vsync = (vcount < 776 || vcount >= 782);
-    assign at_display_area = (hcount < 1023 && vcount < 767);
 endmodule
 
 module controller(  
