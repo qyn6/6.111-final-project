@@ -151,7 +151,7 @@ module labkit(
     
     wire dir;
     wire [3:0] speed;
-    physics calc(.clock_65mhz(clock_65mhz),.flap(fly),.vsync(vsync),
+    physics calc(.clock_65mhz(clock_65mhz),.flap(flight),.vsync(vsync),
         .dir(dir),.speed(speed));
     
     wire [11:0] pixel;
@@ -168,8 +168,6 @@ module labkit(
         .hsync(hsync),.vsync(vsync),
         .over_ground(over_ground),.ground_pixel(ground_pixel));
     
-    wire test;
-    wire [8:0] enabled;
     wire obstacle_hit;
     wire [3:0] hit_index,obstacle_index;
     wire [11:0] obstacle_pixel;
@@ -183,7 +181,7 @@ module labkit(
 //        .out(destroy_button));
 //    flightpulse destroy_pulse(.clock_65mhz(vsync),.fly(destroy_button),
 //        .flap(obstacle_hit));
-    longpulse destroy_pulse(.clk(vsync),.in(BTNR),
+    longpulse destroy_pulse(.clk(vsync),.in(attack),
         .out(obstacle_hit));
     assign hit_index = SW[3:0];
     
@@ -213,13 +211,13 @@ module labkit(
         .hsync(hsync),.vsync(vsync),.at_display_area(at_display_area));
     
     //more magic numbers for threshold lines
-//    assign VGA_R = ((vcount >= 275 && vcount < 280) || (hcount >= 464 && hcount < 469)) ? 4'hF : at_display_area ? {{stored_pixel[15:12]}} : 0;
-//    assign VGA_G = at_display_area ? {{stored_pixel[10:7]}} : (display_coord_area && coord_on)? 4'hF: 0;
-//    assign VGA_B = ((vcount >= 230 && vcount < 235) || hcount >= 629 && hcount < 633)? 4'hF: at_display_area ? {{stored_pixel[4:1]}} : 0;
+    assign VGA_R = ((vcount1 >= 275 && vcount1 < 280) || (hcount1 >= 464 && hcount1 < 469)) ? 4'hF : at_display_area1 ? {{stored_pixel[15:12]}} : 0;
+    assign VGA_G = at_display_area1 ? {{stored_pixel[10:7]}} : (display_coord_area1 && coord_on)? 4'hF: 0;
+    assign VGA_B = ((vcount1 >= 230 && vcount1 < 235) || hcount1 >= 629 && hcount1 < 633)? 4'hF: at_display_area1 ? {{stored_pixel[4:1]}} : 0;
     
-    assign VGA_R = at_display_area ? pixel[11:8] : 0;
-    assign VGA_G = at_display_area ? pixel[7:4] : 0;
-    assign VGA_B = at_display_area ? pixel[3:0] : 0;
+//    assign VGA_R = at_display_area ? pixel[11:8] : 0;
+//    assign VGA_G = at_display_area ? pixel[7:4] : 0;
+//    assign VGA_B = at_display_area ? pixel[3:0] : 0;
     
     assign VGA_HS = ~hsync;
     assign VGA_VS = ~vsync;

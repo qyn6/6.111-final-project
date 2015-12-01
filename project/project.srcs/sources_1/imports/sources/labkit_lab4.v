@@ -19,88 +19,88 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module labkit(
-   input CLK100MHZ,
-   input[15:0] SW, 
-   input BTNC, BTNU, BTNL, BTNR, BTND,
-   output[3:0] VGA_R, 
-   output[3:0] VGA_B, 
-   output[3:0] VGA_G,
-   output[7:0] JA, 
-   output VGA_HS, 
-   output VGA_VS, 
-   output LED16_B, LED16_G, LED16_R,
-   output LED17_B, LED17_G, LED17_R,
-   output[15:0] LED,
-   output[7:0] SEG,  // segments A-G (0-6), DP (7)
-   output[7:0] AN    // Display 0-7
-   );
+//module labkit(
+//   input CLK100MHZ,
+//   input[15:0] SW, 
+//   input BTNC, BTNU, BTNL, BTNR, BTND,
+//   output[3:0] VGA_R, 
+//   output[3:0] VGA_B, 
+//   output[3:0] VGA_G,
+//   output[7:0] JA, 
+//   output VGA_HS, 
+//   output VGA_VS, 
+//   output LED16_B, LED16_G, LED16_R,
+//   output LED17_B, LED17_G, LED17_R,
+//   output[15:0] LED,
+//   output[7:0] SEG,  // segments A-G (0-6), DP (7)
+//   output[7:0] AN    // Display 0-7
+//   );
    
 
-// create 25mhz system clock
-    wire clock_25mhz;
-    clock_quarter_divider clockgen(.clk100_mhz(CLK100MHZ), .clock_25mhz(clock_25mhz));
+//// create 25mhz system clock
+//    wire clock_25mhz;
+//    clock_quarter_divider clockgen(.clk100_mhz(CLK100MHZ), .clock_25mhz(clock_25mhz));
 
-    wire reset;
-    wire locked;
+//    wire reset;
+//    wire locked;
     
-    wire clock_65mhz;
-    clk_wiz_0 pixelclk(.clk_100mhz(CLK100MHZ),.clk_65mhz(clock_65mhz),.reset(reset),.locked(locked));
+//    wire clock_65mhz;
+//    clk_wiz_0 pixelclk(.clk_100mhz(CLK100MHZ),.clk_65mhz(clock_65mhz),.reset(reset),.locked(locked));
 
-//  instantiate 7-segment display;  
-    wire [31:0] data;
-    wire [6:0] segments;
-    display_8hex display(.clk(clock_25mhz),.data(data), .seg(segments), .strobe(AN));    
-    assign SEG[6:0] = segments;
-    assign SEG[7] = 1'b1;
-
-
-//////////////////////////////////////////////////////////////////////////////////
-//
-//  remove these lines and insert your lab here
-
-    assign LED[8:0] = enabled;
-    assign LED[15:9] = SW[15:9];    
-    assign JA[7:0] = 8'b0;
-    assign data = {20'h01234, 3'd0, test, 3'd0, destroy_button, SW[3:0]};   // display 0123456 + SW
-    assign LED16_R = BTNL;                  // left button -> red led
-    assign LED16_G = BTNC;                  // center button -> green led
-    assign LED16_B = BTNR;                  // right button -> blue led
-    assign LED17_R = BTNL;
-    assign LED17_G = BTNC;
-    assign LED17_B = BTNR; 
+////  instantiate 7-segment display;  
+//    wire [31:0] data;
+//    wire [6:0] segments;
+//    display_8hex display(.clk(clock_25mhz),.data(data), .seg(segments), .strobe(AN));    
+//    assign SEG[6:0] = segments;
+//    assign SEG[7] = 1'b1;
 
 
+////////////////////////////////////////////////////////////////////////////////////
+////
+////  remove these lines and insert your lab here
 
-//
-//////////////////////////////////////////////////////////////////////////////////
+//    assign LED[8:0] = enabled;
+//    assign LED[15:9] = SW[15:9];    
+//    assign JA[7:0] = 8'b0;
+//    assign data = {20'h01234, 3'd0, test, 3'd0, destroy_button, SW[3:0]};   // display 0123456 + SW
+//    assign LED16_R = BTNL;                  // left button -> red led
+//    assign LED16_G = BTNC;                  // center button -> green led
+//    assign LED16_B = BTNR;                  // right button -> blue led
+//    assign LED17_R = BTNL;
+//    assign LED17_G = BTNC;
+//    assign LED17_B = BTNR; 
 
 
 
-//////////////////////////////////////////////////////////////////////////////////
-// sample Verilog to generate color bars
+////
+////////////////////////////////////////////////////////////////////////////////////
+
+
+
+////////////////////////////////////////////////////////////////////////////////////
+//// sample Verilog to generate color bars
     
     
         
-//    assign VGA_R = at_display_area ? {4{hcount[7]}} : 0;
-//    assign VGA_G = at_display_area ? {4{hcount[6]}} : 0;
-//    assign VGA_B = at_display_area ? {4{hcount[5]}} : 0;
+////    assign VGA_R = at_display_area ? {4{hcount[7]}} : 0;
+////    assign VGA_G = at_display_area ? {4{hcount[6]}} : 0;
+////    assign VGA_B = at_display_area ? {4{hcount[5]}} : 0;
     
     
     
-    //wire border = (hcount==0 | hcount==1023 | vcount==0 | vcount==767);
+//    //wire border = (hcount==0 | hcount==1023 | vcount==0 | vcount==767);
     
-    assign VGA_R = at_display_area ? pixel[11:8] : 0;
-    assign VGA_G = at_display_area ? pixel[7:4] : 0;
-    assign VGA_B = at_display_area ? pixel[3:0] : 0;
+//    assign VGA_R = at_display_area ? pixel[11:8] : 0;
+//    assign VGA_G = at_display_area ? pixel[7:4] : 0;
+//    assign VGA_B = at_display_area ? pixel[3:0] : 0;
     
-//    assign VGA_R = {4{border}};
-//    assign VGA_G = {4{border}};
-//    assign VGA_B = {4{border}};
+////    assign VGA_R = {4{border}};
+////    assign VGA_G = {4{border}};
+////    assign VGA_B = {4{border}};
     
-    assign VGA_HS = ~hsync;
-    assign VGA_VS = ~vsync;
-endmodule
+//    assign VGA_HS = ~hsync;
+//    assign VGA_VS = ~vsync;
+//endmodule
 
 module clock_quarter_divider(input clk100_mhz, output reg clock_25mhz = 0);
     reg counter = 0;
@@ -467,6 +467,7 @@ module obstacles(
     assign obstacle_pixel = enabled_pixel;
 endmodule
 
+//finish
 module attack(
     input clock_65mhz,
     input [10:0] hcount,
