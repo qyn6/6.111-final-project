@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-3" LaunchTime="1448852973">
+<GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-3" LaunchTime="1449001510">
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <File Type="RDI-RDI" Name="labkit.vdi"/>
   <File Type="BG-DRC" Name="labkit.drc"/>
@@ -152,14 +152,14 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../lab4/sources/display_8hex.v">
+    <File Path="$PSRCDIR/sources_1/imports/6.111/project/src/rgb2hsv.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/imports/6.111/project/src/rgb2hsv.v">
+    <File Path="$PSRCDIR/sources_1/imports/6.111/project/src/display_8hex.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>

@@ -263,21 +263,21 @@ module pegasus(
     blob #(.WIDTH(PEGASUS_WIDTH),.HEIGHT(PEGASUS_HEIGHT))
         pegasus_sprite(.x(PEGASUS_X),.y(pegasus_y),.hcount(hcount),.vcount(vcount),
             .pixel(pegasus_pixel));
-    always @(posedge vsync) begin
-        if (up) begin
-            if (pegasus_y < speed) pegasus_y <= 10'd0;
-            else pegasus_y <= pegasus_y - speed;
-        end
-        else begin
-            if (over_ground &&
-                    (pegasus_y + PEGASUS_HEIGHT + speed > SCREEN_HEIGHT - GROUND_HEIGHT))
-                pegasus_y <= SCREEN_HEIGHT - GROUND_HEIGHT - PEGASUS_HEIGHT;
-            else if (~over_ground &&
-                    (pegasus_y + PEGASUS_HEIGHT + speed > SCREEN_HEIGHT))
-                pegasus_y <= SCREEN_HEIGHT - PEGASUS_HEIGHT;
-            else pegasus_y <= pegasus_y + speed;
-        end
-    end
+//    always @(posedge vsync) begin
+//        if (up) begin
+//            if (pegasus_y < speed) pegasus_y <= 10'd0;
+//            else pegasus_y <= pegasus_y - speed;
+//        end
+//        else begin
+//            if (over_ground &&
+//                    (pegasus_y + PEGASUS_HEIGHT + speed > SCREEN_HEIGHT - GROUND_HEIGHT))
+//                pegasus_y <= SCREEN_HEIGHT - GROUND_HEIGHT - PEGASUS_HEIGHT;
+//            else if (~over_ground &&
+//                    (pegasus_y + PEGASUS_HEIGHT + speed > SCREEN_HEIGHT))
+//                pegasus_y <= SCREEN_HEIGHT - PEGASUS_HEIGHT;
+//            else pegasus_y <= pegasus_y + speed;
+//        end
+//    end
     
     //assign attack_x = peagsus + PEGASUS_WIDTH;
 endmodule

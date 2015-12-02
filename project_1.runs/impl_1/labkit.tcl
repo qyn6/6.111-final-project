@@ -49,23 +49,22 @@ start_step init_design
 set rc [catch {
   create_msg_db init_design.pb
   set_param gui.test TreeTableDev
-  set_param xicom.use_bs_reader 1
   debug::add_scope template.lib 1
   set_property design_mode GateLvl [current_fileset]
-  set_property webtalk.parent_dir /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/6.111-final-project/project_1.cache/wt [current_project]
-  set_property parent.project_path /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/6.111-final-project/project_1.xpr [current_project]
-  set_property ip_repo_paths /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/6.111-final-project/project_1.cache/ip [current_project]
-  set_property ip_output_repo /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/6.111-final-project/project_1.cache/ip [current_project]
-  add_files -quiet /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/6.111-final-project/project_1.runs/synth_1/labkit.dcp
-  add_files -quiet /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/6.111-final-project/project_1.runs/video_bram_synth_1/video_bram.dcp
-  set_property netlist_only true [get_files /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/6.111-final-project/project_1.runs/video_bram_synth_1/video_bram.dcp]
-  add_files -quiet /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/6.111-final-project/project_1.runs/divider_gen_synth_1/divider_gen.dcp
-  set_property netlist_only true [get_files /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/6.111-final-project/project_1.runs/divider_gen_synth_1/divider_gen.dcp]
-  read_xdc -mode out_of_context -ref video_bram -cells U0 /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/6.111-final-project/project_1.srcs/sources_1/ip/video_bram/video_bram_ooc.xdc
-  set_property processing_order EARLY [get_files /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/6.111-final-project/project_1.srcs/sources_1/ip/video_bram/video_bram_ooc.xdc]
-  read_xdc -mode out_of_context -ref divider_gen -cells U0 /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/6.111-final-project/project_1.srcs/sources_1/ip/divider_gen/divider_gen_ooc.xdc
-  set_property processing_order EARLY [get_files /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/6.111-final-project/project_1.srcs/sources_1/ip/divider_gen/divider_gen_ooc.xdc]
-  read_xdc /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/6.111-final-project/project_1.srcs/constrs_1/imports/Downloads/Nexys4DDR_Master_lab4.xdc
+  set_property webtalk.parent_dir /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.cache/wt [current_project]
+  set_property parent.project_path /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.xpr [current_project]
+  set_property ip_repo_paths /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.cache/ip [current_project]
+  set_property ip_output_repo /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.cache/ip [current_project]
+  add_files -quiet /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.runs/synth_1/labkit.dcp
+  add_files -quiet /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.runs/video_bram_synth_1/video_bram.dcp
+  set_property netlist_only true [get_files /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.runs/video_bram_synth_1/video_bram.dcp]
+  add_files -quiet /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.runs/divider_gen_synth_1/divider_gen.dcp
+  set_property netlist_only true [get_files /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.runs/divider_gen_synth_1/divider_gen.dcp]
+  read_xdc -mode out_of_context -ref video_bram -cells U0 /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/ip/video_bram/video_bram_ooc.xdc
+  set_property processing_order EARLY [get_files /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/ip/video_bram/video_bram_ooc.xdc]
+  read_xdc -mode out_of_context -ref divider_gen -cells U0 /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/ip/divider_gen/divider_gen_ooc.xdc
+  set_property processing_order EARLY [get_files /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/ip/divider_gen/divider_gen_ooc.xdc]
+  read_xdc /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/constrs_1/imports/Downloads/Nexys4DDR_Master_lab4.xdc
   link_design -top labkit -part xc7a100tcsg324-3
   close_msg_db -file init_design.pb
 } RESULT]
@@ -132,8 +131,8 @@ start_step write_bitstream
 set rc [catch {
   create_msg_db write_bitstream.pb
   write_bitstream -force labkit.bit 
-  if { [file exists /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/6.111-final-project/project_1.runs/synth_1/labkit.hwdef] } {
-    catch { write_sysdef -hwdef /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/6.111-final-project/project_1.runs/synth_1/labkit.hwdef -bitfile labkit.bit -meminfo labkit.mmi -file labkit.sysdef }
+  if { [file exists /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.runs/synth_1/labkit.hwdef] } {
+    catch { write_sysdef -hwdef /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.runs/synth_1/labkit.hwdef -bitfile labkit.bit -meminfo labkit.mmi -file labkit.sysdef }
   }
   close_msg_db -file write_bitstream.pb
 } RESULT]

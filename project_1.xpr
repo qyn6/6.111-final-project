@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="2" Path="/afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/6.111-final-project/project_1.xpr">
+<Project Version="7" Minor="2" Path="/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="63c86c1214764a52b8404aad25b3cf54"/>
@@ -121,14 +121,14 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../lab4/sources/display_8hex.v">
+      <File Path="$PSRCDIR/sources_1/imports/6.111/project/src/rgb2hsv.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/imports/6.111/project/src/rgb2hsv.v">
+      <File Path="$PSRCDIR/sources_1/imports/6.111/project/src/display_8hex.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>

@@ -1,10 +1,10 @@
 -- Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2014.4.1 (lin64) Build 1149489 Thu Feb 19 16:01:47 MST 2015
--- Date        : Mon Nov 16 22:11:36 2015
+-- Date        : Tue Dec  1 15:47:12 2015
 -- Host        : eecs-digital-24 running 64-bit Ubuntu 12.04.5 LTS
 -- Command     : write_vhdl -force -mode synth_stub
---               /afs/athena.mit.edu/user/q/y/qyn/Desktop/6.111/final_project/project_1.srcs/sources_1/ip/video_bram/video_bram_stub.vhdl
+--               /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/ip/video_bram/video_bram_stub.vhdl
 -- Design      : video_bram
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7a100tcsg324-3

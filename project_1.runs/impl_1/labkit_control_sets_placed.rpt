@@ -1,7 +1,7 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2014.4.1 (lin64) Build 1149489 Thu Feb 19 16:01:47 MST 2015
-| Date         : Sun Nov 29 22:11:15 2015
+| Date         : Tue Dec  1 15:26:56 2015
 | Host         : eecs-digital-24 running 64-bit Ubuntu 12.04.5 LTS
 | Command      : report_control_sets -verbose -file labkit_control_sets_placed.rpt
 | Design       : labkit
