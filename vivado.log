@@ -1,0 +1,20 @@
+#-----------------------------------------------------------
+# Vivado v2014.4.1 (64-bit)
+# SW Build 1149489 on Thu Feb 19 16:01:47 MST 2015
+# IP Build 1147552 on Wed Feb 18 14:25:16 MST 2015
+# Start of session at: Thu Dec  3 12:15:29 2015
+# Process ID: 27923
+# Log file: /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/vivado.log
+# Journal file: /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.xpr
+CRITICAL WARNING: [Project 1-19] Could not find the file '/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sim_1/new/test_bram.v'.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/mit/6.111/xilinx-vivado/Vivado/2014.4/data/ip'.
+open_project: Time (s): cpu = 00:00:15 ; elapsed = 00:00:06 . Memory (MB): peak = 5741.645 ; gain = 92.164 ; free physical = 2735 ; free virtual = 14277
+update_compile_order -fileset sources_1
+update_compile_order -fileset sim_1

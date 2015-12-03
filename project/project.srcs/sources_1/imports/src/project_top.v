@@ -49,7 +49,6 @@ module labkit(
     wire [6:0] segments;
     display_8hex display(.clk(clock_25mhz),.data(data), .seg(segments), .strobe(AN));    
     assign data = {6'b0, y, 3'b0, flight, 2'b0, x};
-    assign data = 32'b0;
     assign SEG[7:0] = segments;
     assign SEG[7] = 1'b1;
 
@@ -257,7 +256,7 @@ module labkit(
         end else if (hcount1 >= 144 && hcount1 < 464 && vcount1 >= 35 && vcount1 < 275) begin
                 //read_address <= read_address +1;
                 read_address <= (vcount1-35) * 320 + (hcount1 - 144);
-        end else if (hcount1 >= 469 && hcount < 789 && vcount1 >= 35 && vcount1 < 275) begin
+        end else if (hcount1 >= 469 && hcount1 < 789 && vcount1 >= 35 && vcount1 < 275) begin
                 read_address <= (vcount1-35) * 320 + (hcount1 - 469);
                 //filter light from camera data in the upper right quadrant to only show the light
                 if (v > 70) begin
@@ -335,15 +334,16 @@ module labkit(
         .hsync(hsync),.vsync(vsync),.at_display_area(at_display_area));
     
     wire fly, flap;
-    synchronize sync_flight(.clk(vsync),.in(BTNU),
+    synchronize sync_flight(.clk(vsync),.in(flight),
         .out(fly));
     //necessary??
     flightpulse pulse(.clock_65mhz(clock_65mhz),.fly(fly),
         .flap(flap));
     
+    //test!!!!
     wire dir;
     wire [3:0] speed;
-    physics calc(.clock_65mhz(clock_65mhz),.flap(BTNU),.vsync(vsync),
+    physics calc(.clock_65mhz(clock_65mhz),.flap(fly),.vsync(vsync),
         .dir(dir),.speed(speed));
     
     wire [11:0] pixel;
@@ -355,7 +355,7 @@ module labkit(
         .over_ground(over_ground),
         .pegasus_pixel(pegasus_pixel));
     
-    wire [11:0] ground_pixel = 0;
+    wire [11:0] ground_pixel;
     ground g(.clock_65mhz(clock_65mhz),.hcount(hcount),.vcount(vcount),
         .hsync(hsync),.vsync(vsync),
         .over_ground(over_ground),.ground_pixel(ground_pixel));
@@ -369,10 +369,6 @@ module labkit(
         .obstacle_index(obstacle_index),.obstacle_pixel(obstacle_pixel));
     
     wire destroy_button;
-//    synchronize sync_destroy(.clk(vsync),.in(BTNR),
-//        .out(destroy_button));
-//    flightpulse destroy_pulse(.clock_65mhz(vsync),.fly(destroy_button),
-//        .flap(obstacle_hit));
     longpulse destroy_pulse(.clk(vsync),.in(BTNR),
         .out(obstacle_hit));
     assign hit_index = SW[3:0];
