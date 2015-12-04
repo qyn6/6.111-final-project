@@ -2,8 +2,8 @@
 # Vivado v2014.4.1 (64-bit)
 # SW Build 1149489 on Thu Feb 19 16:01:47 MST 2015
 # IP Build 1147552 on Wed Feb 18 14:25:16 MST 2015
-# Start of session at: Tue Dec  1 22:14:45 2015
-# Process ID: 13912
+# Start of session at: Thu Dec  3 19:31:59 2015
+# Process ID: 27308
 # Log file: /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.runs/synth_1/labkit.vds
 # Journal file: /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.runs/synth_1/vivado.jou
 #-----------------------------------------------------------
@@ -30,11 +30,11 @@ source labkit.tcl
 #   /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/SCCB_interface.v
 #   /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/OV7670_config_rom.v
 #   /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/OV7670_config.v
+#   /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/synchronize.v
 #   /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/rgb2hsv.v
 #   /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/new/motion_type.v
 #   /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/camera_read.v
 #   /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/camera_configure.v
-#   /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/synchronize.v
 #   /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/display_8hex.v
 #   /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v
 #   /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v
@@ -49,24 +49,24 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 WARNING: [Synth 8-2611] redeclaration of ansi port motion is not allowed [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/new/motion_type.v:26]
-WARNING: [Synth 8-2507] parameter declaration becomes local in blob with formal parameter declaration list [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:505]
-WARNING: [Synth 8-2507] parameter declaration becomes local in blob with formal parameter declaration list [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:506]
-WARNING: [Synth 8-2507] parameter declaration becomes local in looping_blob with formal parameter declaration list [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:524]
-WARNING: [Synth 8-2507] parameter declaration becomes local in looping_blob with formal parameter declaration list [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:525]
-WARNING: [Synth 8-2507] parameter declaration becomes local in extended_blob with formal parameter declaration list [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:544]
-WARNING: [Synth 8-2507] parameter declaration becomes local in extended_blob with formal parameter declaration list [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:545]
-WARNING: [Synth 8-2507] parameter declaration becomes local in enabled_blob with formal parameter declaration list [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:565]
-WARNING: [Synth 8-2507] parameter declaration becomes local in enabled_blob with formal parameter declaration list [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:566]
-WARNING: [Synth 8-2507] parameter declaration becomes local in ray_blob with formal parameter declaration list [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:584]
-WARNING: [Synth 8-2507] parameter declaration becomes local in ray_blob with formal parameter declaration list [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:585]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module clock_quarter_divider [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:423]
+WARNING: [Synth 8-2507] parameter declaration becomes local in blob with formal parameter declaration list [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:558]
+WARNING: [Synth 8-2507] parameter declaration becomes local in blob with formal parameter declaration list [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:559]
+WARNING: [Synth 8-2507] parameter declaration becomes local in looping_blob with formal parameter declaration list [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:577]
+WARNING: [Synth 8-2507] parameter declaration becomes local in looping_blob with formal parameter declaration list [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:578]
+WARNING: [Synth 8-2507] parameter declaration becomes local in extended_blob with formal parameter declaration list [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:597]
+WARNING: [Synth 8-2507] parameter declaration becomes local in extended_blob with formal parameter declaration list [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:598]
+WARNING: [Synth 8-2507] parameter declaration becomes local in enabled_blob with formal parameter declaration list [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:618]
+WARNING: [Synth 8-2507] parameter declaration becomes local in enabled_blob with formal parameter declaration list [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:619]
+WARNING: [Synth 8-2507] parameter declaration becomes local in ray_blob with formal parameter declaration list [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:637]
+WARNING: [Synth 8-2507] parameter declaration becomes local in ray_blob with formal parameter declaration list [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:638]
+CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module clock_quarter_divider [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:429]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 917.098 ; gain = 152.723 ; free physical = 2680 ; free virtual = 13840
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 917.098 ; gain = 152.723 ; free physical = 1945 ; free virtual = 13911
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'labkit' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:22]
 	Parameter MAX_ADDRESS bound to: 17'b11111111111111111 
-INFO: [Synth 8-638] synthesizing module 'clock_quarter_divider' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:423]
-INFO: [Synth 8-256] done synthesizing module 'clock_quarter_divider' (1#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:423]
+INFO: [Synth 8-638] synthesizing module 'clock_quarter_divider' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:429]
+INFO: [Synth 8-256] done synthesizing module 'clock_quarter_divider' (1#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:429]
 INFO: [Synth 8-638] synthesizing module 'display_8hex' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/display_8hex.v:16]
 	Parameter bits bound to: 13 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'display_8hex' (2#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/display_8hex.v:16]
@@ -108,64 +108,67 @@ INFO: [Synth 8-638] synthesizing module 'camera_read' [/afs/athena.mit.edu/user/
 INFO: [Synth 8-155] case statement is not full and has no default [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/camera_read.v:42]
 INFO: [Synth 8-256] done synthesizing module 'camera_read' (7#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/camera_read.v:21]
 INFO: [Synth 8-638] synthesizing module 'rgb2hsv' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/rgb2hsv.v:22]
-INFO: [Synth 8-638] synthesizing module 'divider_gen' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.runs/synth_1/.Xil/Vivado-13912-eecs-digital-24/realtime/divider_gen_stub.v:7]
-INFO: [Synth 8-256] done synthesizing module 'divider_gen' (8#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.runs/synth_1/.Xil/Vivado-13912-eecs-digital-24/realtime/divider_gen_stub.v:7]
+INFO: [Synth 8-638] synthesizing module 'divider_gen' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.runs/synth_1/.Xil/Vivado-27308-eecs-digital-24/realtime/divider_gen_stub.v:7]
+INFO: [Synth 8-256] done synthesizing module 'divider_gen' (8#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.runs/synth_1/.Xil/Vivado-27308-eecs-digital-24/realtime/divider_gen_stub.v:7]
 INFO: [Synth 8-256] done synthesizing module 'rgb2hsv' (9#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/rgb2hsv.v:22]
-INFO: [Synth 8-638] synthesizing module 'video_bram' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.runs/synth_1/.Xil/Vivado-13912-eecs-digital-24/realtime/video_bram_stub.v:7]
-INFO: [Synth 8-256] done synthesizing module 'video_bram' (10#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.runs/synth_1/.Xil/Vivado-13912-eecs-digital-24/realtime/video_bram_stub.v:7]
+INFO: [Synth 8-638] synthesizing module 'video_bram' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.runs/synth_1/.Xil/Vivado-27308-eecs-digital-24/realtime/video_bram_stub.v:7]
+INFO: [Synth 8-256] done synthesizing module 'video_bram' (10#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.runs/synth_1/.Xil/Vivado-27308-eecs-digital-24/realtime/video_bram_stub.v:7]
 INFO: [Synth 8-638] synthesizing module 'motion_type' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/new/motion_type.v:24]
 INFO: [Synth 8-256] done synthesizing module 'motion_type' (11#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/new/motion_type.v:24]
-INFO: [Synth 8-638] synthesizing module 'vga_camera' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:434]
-INFO: [Synth 8-256] done synthesizing module 'vga_camera' (12#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:434]
-INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.runs/synth_1/.Xil/Vivado-13912-eecs-digital-24/realtime/clk_wiz_0_stub.v:6]
-INFO: [Synth 8-256] done synthesizing module 'clk_wiz_0' (13#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.runs/synth_1/.Xil/Vivado-13912-eecs-digital-24/realtime/clk_wiz_0_stub.v:6]
-INFO: [Synth 8-638] synthesizing module 'vga' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:462]
-INFO: [Synth 8-256] done synthesizing module 'vga' (14#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:462]
+INFO: [Synth 8-638] synthesizing module 'vga_camera' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:440]
+INFO: [Synth 8-256] done synthesizing module 'vga_camera' (12#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:440]
+INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.runs/synth_1/.Xil/Vivado-27308-eecs-digital-24/realtime/clk_wiz_0_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'clk_wiz_0' (13#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.runs/synth_1/.Xil/Vivado-27308-eecs-digital-24/realtime/clk_wiz_0_stub.v:6]
+INFO: [Synth 8-638] synthesizing module 'vga' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:468]
+INFO: [Synth 8-256] done synthesizing module 'vga' (14#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:468]
 INFO: [Synth 8-638] synthesizing module 'synchronize' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/synchronize.v:2]
 	Parameter NSYNC bound to: 2 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'synchronize' (15#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/synchronize.v:2]
-INFO: [Synth 8-638] synthesizing module 'flightpulse' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:150]
-INFO: [Synth 8-256] done synthesizing module 'flightpulse' (16#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:150]
-INFO: [Synth 8-638] synthesizing module 'physics' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:167]
-	Parameter ACCEL bound to: 1 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'flightpulse' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:151]
+INFO: [Synth 8-256] done synthesizing module 'flightpulse' (16#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:151]
+INFO: [Synth 8-638] synthesizing module 'physics' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:168]
+	Parameter ACCEL bound to: 2 - type: integer 
+	Parameter GRAVITY bound to: 1 - type: integer 
 INFO: [Synth 8-638] synthesizing module 'clock_divider' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:116]
 	Parameter COUNT bound to: 16249999 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'clock_divider' (17#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:116]
-INFO: [Synth 8-256] done synthesizing module 'physics' (18#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:167]
-INFO: [Synth 8-638] synthesizing module 'pegasus' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:241]
+WARNING: [Synth 8-3848] Net reset in module/entity physics does not have driver. [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:176]
+INFO: [Synth 8-256] done synthesizing module 'physics' (18#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:168]
+INFO: [Synth 8-638] synthesizing module 'pegasus' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:263]
 	Parameter SCREEN_HEIGHT bound to: 10'b1100000000 
 	Parameter GROUND_HEIGHT bound to: 10'b0001100100 
 	Parameter PEGASUS_WIDTH bound to: 64 - type: integer 
 	Parameter PEGASUS_HEIGHT bound to: 64 - type: integer 
 	Parameter PEGASUS_X bound to: 11'b00010010110 
-INFO: [Synth 8-638] synthesizing module 'blob' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:497]
+INFO: [Synth 8-638] synthesizing module 'blob' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:550]
 	Parameter WIDTH bound to: 64 - type: integer 
 	Parameter HEIGHT bound to: 64 - type: integer 
 	Parameter COLOR bound to: 12'b111111111111 
 	Parameter SCREEN_WIDTH bound to: 1024 - type: integer 
 	Parameter SCREEN_HEIGHT bound to: 768 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'blob' (19#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:497]
-INFO: [Synth 8-256] done synthesizing module 'pegasus' (20#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:241]
-INFO: [Synth 8-638] synthesizing module 'ground' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:285]
+INFO: [Synth 8-256] done synthesizing module 'blob' (19#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:550]
+INFO: [Synth 8-256] done synthesizing module 'pegasus' (20#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:263]
+WARNING: [Synth 8-689] width (12) of port connection 'attack_y' does not match port width (10) of module 'pegasus' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:359]
+INFO: [Synth 8-638] synthesizing module 'ground' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:315]
 	Parameter SCREEN_WIDTH bound to: 1024 - type: integer 
 	Parameter SCREEN_HEIGHT bound to: 10'b1100000000 
 	Parameter GROUND_HEIGHT bound to: 10'b0001100100 
 	Parameter GROUND_WIDTH bound to: 600 - type: integer 
 	Parameter PEGASUS_X bound to: 150 - type: integer 
 	Parameter PEGASUS_WIDTH bound to: 64 - type: integer 
-INFO: [Synth 8-638] synthesizing module 'looping_blob' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:516]
+INFO: [Synth 8-638] synthesizing module 'looping_blob' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:569]
 	Parameter WIDTH bound to: 600 - type: integer 
 	Parameter HEIGHT bound to: 10'b0001100100 
 	Parameter COLOR bound to: 12'b000011110000 
 	Parameter SCREEN_WIDTH bound to: 1024 - type: integer 
 	Parameter SCREEN_HEIGHT bound to: 768 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'looping_blob' (21#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:516]
-WARNING: [Synth 8-567] referenced signal 'vcount' should be on the sensitivity list [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:316]
-WARNING: [Synth 8-567] referenced signal 'hcount' should be on the sensitivity list [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:316]
-WARNING: [Synth 8-567] referenced signal 'gr' should be on the sensitivity list [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:316]
-WARNING: [Synth 8-567] referenced signal 'ground_pixel' should be on the sensitivity list [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:316]
-INFO: [Synth 8-256] done synthesizing module 'ground' (22#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:285]
-INFO: [Synth 8-638] synthesizing module 'obstacles' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:331]
+INFO: [Synth 8-256] done synthesizing module 'looping_blob' (21#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:569]
+WARNING: [Synth 8-567] referenced signal 'vcount' should be on the sensitivity list [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:346]
+WARNING: [Synth 8-567] referenced signal 'hcount' should be on the sensitivity list [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:346]
+WARNING: [Synth 8-567] referenced signal 'gr' should be on the sensitivity list [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:346]
+WARNING: [Synth 8-567] referenced signal 'ground_pixel' should be on the sensitivity list [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:346]
+INFO: [Synth 8-256] done synthesizing module 'ground' (22#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:315]
+INFO: [Synth 8-638] synthesizing module 'obstacles' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:361]
 	Parameter SCREEN_WIDTH bound to: 1024 - type: integer 
 	Parameter SCREEN_HEIGHT bound to: 768 - type: integer 
 	Parameter DELTA_X bound to: 512 - type: integer 
@@ -176,47 +179,56 @@ INFO: [Synth 8-638] synthesizing module 'obstacles' [/afs/athena.mit.edu/user/t/
 	Parameter COLOR1 bound to: 12'b111111110000 
 	Parameter COLOR2 bound to: 12'b111100001111 
 	Parameter COLOR3 bound to: 12'b000011111111 
-INFO: [Synth 8-638] synthesizing module 'enabled_blob' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:556]
+INFO: [Synth 8-638] synthesizing module 'enabled_blob' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:609]
 	Parameter WIDTH bound to: 64 - type: integer 
 	Parameter HEIGHT bound to: 64 - type: integer 
 	Parameter COLOR bound to: 12'b111111110000 
 	Parameter SCREEN_WIDTH bound to: 1536 - type: integer 
 	Parameter SCREEN_HEIGHT bound to: 768 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'enabled_blob' (23#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:556]
-INFO: [Synth 8-638] synthesizing module 'enabled_blob__parameterized0' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:556]
+INFO: [Synth 8-256] done synthesizing module 'enabled_blob' (23#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:609]
+INFO: [Synth 8-638] synthesizing module 'enabled_blob__parameterized0' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:609]
 	Parameter WIDTH bound to: 64 - type: integer 
 	Parameter HEIGHT bound to: 64 - type: integer 
 	Parameter COLOR bound to: 12'b111100001111 
 	Parameter SCREEN_WIDTH bound to: 1536 - type: integer 
 	Parameter SCREEN_HEIGHT bound to: 768 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'enabled_blob__parameterized0' (23#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:556]
-INFO: [Synth 8-638] synthesizing module 'enabled_blob__parameterized1' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:556]
+INFO: [Synth 8-256] done synthesizing module 'enabled_blob__parameterized0' (23#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:609]
+INFO: [Synth 8-638] synthesizing module 'enabled_blob__parameterized1' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:609]
 	Parameter WIDTH bound to: 64 - type: integer 
 	Parameter HEIGHT bound to: 64 - type: integer 
 	Parameter COLOR bound to: 12'b000011111111 
 	Parameter SCREEN_WIDTH bound to: 1536 - type: integer 
 	Parameter SCREEN_HEIGHT bound to: 768 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'enabled_blob__parameterized1' (23#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:556]
-INFO: [Synth 8-155] case statement is not full and has no default [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:407]
-INFO: [Synth 8-256] done synthesizing module 'obstacles' (24#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:331]
-INFO: [Synth 8-638] synthesizing module 'longpulse' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:131]
-INFO: [Synth 8-256] done synthesizing module 'longpulse' (25#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:131]
-INFO: [Synth 8-638] synthesizing module 'endscreen' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:228]
-	Parameter COLOR bound to: 12'b111100000000 
-INFO: [Synth 8-256] done synthesizing module 'endscreen' (26#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:228]
-INFO: [Synth 8-638] synthesizing module 'controller' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:201]
+INFO: [Synth 8-256] done synthesizing module 'enabled_blob__parameterized1' (23#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:609]
+INFO: [Synth 8-155] case statement is not full and has no default [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:438]
+INFO: [Synth 8-256] done synthesizing module 'obstacles' (24#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:361]
+INFO: [Synth 8-638] synthesizing module 'attack' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:504]
+	Parameter ATTACK_HEIGHT bound to: 16 - type: integer 
+	Parameter SCREEN_WIDTH bound to: 1024 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'ray_blob' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:630]
+	Parameter HEIGHT bound to: 16 - type: integer 
+	Parameter COLOR bound to: 12'b111101000000 
+	Parameter SCREEN_WIDTH bound to: 1024 - type: integer 
 	Parameter SCREEN_HEIGHT bound to: 768 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'controller' (27#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:201]
-WARNING: [Synth 8-3848] Net camera_reset in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:147]
-WARNING: [Synth 8-3848] Net camera_pwdn in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:146]
+INFO: [Synth 8-256] done synthesizing module 'ray_blob' (25#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:630]
+INFO: [Synth 8-256] done synthesizing module 'attack' (26#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:504]
+WARNING: [Synth 8-689] width (12) of port connection 'attack_y' does not match port width (10) of module 'attack' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:382]
+INFO: [Synth 8-638] synthesizing module 'endscreen' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:250]
+	Parameter COLOR bound to: 12'b111100000000 
+INFO: [Synth 8-256] done synthesizing module 'endscreen' (27#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:250]
+INFO: [Synth 8-638] synthesizing module 'controller' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:213]
+	Parameter SCREEN_HEIGHT bound to: 768 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'controller' (28#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:213]
+WARNING: [Synth 8-3848] Net camera_reset in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:146]
+WARNING: [Synth 8-3848] Net camera_pwdn in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:145]
 WARNING: [Synth 8-3848] Net LED16_B in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:35]
 WARNING: [Synth 8-3848] Net LED16_G in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:35]
 WARNING: [Synth 8-3848] Net LED16_R in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:35]
 WARNING: [Synth 8-3848] Net LED17_B in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:36]
 WARNING: [Synth 8-3848] Net LED17_G in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:36]
 WARNING: [Synth 8-3848] Net LED17_R in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:36]
-WARNING: [Synth 8-3848] Net reset in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:324]
-INFO: [Synth 8-256] done synthesizing module 'labkit' (28#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:22]
+WARNING: [Synth 8-3848] Net reset in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:323]
+INFO: [Synth 8-256] done synthesizing module 'labkit' (29#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:22]
 WARNING: [Synth 8-3331] design labkit has unconnected port LED16_B
 WARNING: [Synth 8-3331] design labkit has unconnected port LED16_G
 WARNING: [Synth 8-3331] design labkit has unconnected port LED16_R
@@ -233,7 +245,6 @@ WARNING: [Synth 8-3331] design labkit has unconnected port LED[8]
 WARNING: [Synth 8-3331] design labkit has unconnected port LED[7]
 WARNING: [Synth 8-3331] design labkit has unconnected port LED[6]
 WARNING: [Synth 8-3331] design labkit has unconnected port LED[5]
-WARNING: [Synth 8-3917] design labkit has port LED[4] driven by constant 0
 WARNING: [Synth 8-3917] design labkit has port SEG[7] driven by constant 1
 WARNING: [Synth 8-3331] design labkit has unconnected port JB[0]
 WARNING: [Synth 8-3331] design labkit has unconnected port JC[7]
@@ -263,11 +274,16 @@ WARNING: [Synth 8-3331] design labkit has unconnected port SW[8]
 WARNING: [Synth 8-3331] design labkit has unconnected port SW[6]
 WARNING: [Synth 8-3331] design labkit has unconnected port SW[5]
 WARNING: [Synth 8-3331] design labkit has unconnected port SW[4]
+WARNING: [Synth 8-3331] design labkit has unconnected port SW[3]
+WARNING: [Synth 8-3331] design labkit has unconnected port SW[2]
+WARNING: [Synth 8-3331] design labkit has unconnected port SW[1]
+WARNING: [Synth 8-3331] design labkit has unconnected port SW[0]
 WARNING: [Synth 8-3331] design labkit has unconnected port BTNC
 WARNING: [Synth 8-3331] design labkit has unconnected port BTNL
+WARNING: [Synth 8-3331] design labkit has unconnected port BTNR
 WARNING: [Synth 8-3331] design labkit has unconnected port BTND
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:10 . Memory (MB): peak = 946.355 ; gain = 181.980 ; free physical = 2636 ; free virtual = 13809
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:10 . Memory (MB): peak = 947.355 ; gain = 182.980 ; free physical = 1913 ; free virtual = 13881
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -276,8 +292,9 @@ Report Check Netlist:
 +------+------------------+-------+---------+-------+------------------+
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
+WARNING: [Synth 8-3295] tying undriven pin divider:reset to constant 0 [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:178]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:11 . Memory (MB): peak = 946.355 ; gain = 181.980 ; free physical = 2636 ; free virtual = 13807
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:10 . Memory (MB): peak = 947.355 ; gain = 182.980 ; free physical = 1913 ; free virtual = 13880
 ---------------------------------------------------------------------------------
 Loading clock regions from /mit/6.111/xilinx-vivado/Vivado/2014.4/data/parts/xilinx/artix7/artix7/xc7a100t/ClockRegion.xml
 Loading clock buffers from /mit/6.111/xilinx-vivado/Vivado/2014.4/data/parts/xilinx/artix7/artix7/xc7a100t/ClockBuffers.xml
@@ -290,8 +307,8 @@ INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.runs/synth_1/.Xil/Vivado-13912-eecs-digital-24/dcp/clk_wiz_0_in_context.xdc] for cell 'pixelclk'
-Finished Parsing XDC File [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.runs/synth_1/.Xil/Vivado-13912-eecs-digital-24/dcp/clk_wiz_0_in_context.xdc] for cell 'pixelclk'
+Parsing XDC File [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.runs/synth_1/.Xil/Vivado-27308-eecs-digital-24/dcp/clk_wiz_0_in_context.xdc] for cell 'pixelclk'
+Finished Parsing XDC File [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.runs/synth_1/.Xil/Vivado-27308-eecs-digital-24/dcp/clk_wiz_0_in_context.xdc] for cell 'pixelclk'
 Parsing XDC File [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/constrs_1/imports/Downloads/Nexys4DDR_Master_lab4.xdc]
 WARNING: [Vivado 12-507] No nets matched 'n_1_n_0_107_BUFG_inst'. [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/constrs_1/imports/Downloads/Nexys4DDR_Master_lab4.xdc:9]
 Finished Parsing XDC File [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/constrs_1/imports/Downloads/Nexys4DDR_Master_lab4.xdc]
@@ -301,23 +318,23 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.02 . Memory (MB): peak = 1274.602 ; gain = 0.000 ; free physical = 2430 ; free virtual = 13599
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1275.602 ; gain = 0.000 ; free physical = 1712 ; free virtual = 13679
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:17 ; elapsed = 00:00:22 . Memory (MB): peak = 1274.602 ; gain = 510.227 ; free physical = 2427 ; free virtual = 13590
+Finished Constraint Validation : Time (s): cpu = 00:00:17 ; elapsed = 00:00:21 . Memory (MB): peak = 1275.602 ; gain = 511.227 ; free physical = 1711 ; free virtual = 13678
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-3
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:17 ; elapsed = 00:00:22 . Memory (MB): peak = 1274.602 ; gain = 510.227 ; free physical = 2427 ; free virtual = 13590
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:17 ; elapsed = 00:00:21 . Memory (MB): peak = 1275.602 ; gain = 511.227 ; free physical = 1711 ; free virtual = 13678
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property IO_BUFFER_TYPE = NONE for CLK100MHZ. (constraint file  /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.runs/synth_1/.Xil/Vivado-13912-eecs-digital-24/dcp/clk_wiz_0_in_context.xdc, line 3).
+Applied set_property IO_BUFFER_TYPE = NONE for CLK100MHZ. (constraint file  /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.runs/synth_1/.Xil/Vivado-27308-eecs-digital-24/dcp/clk_wiz_0_in_context.xdc, line 3).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:23 . Memory (MB): peak = 1274.602 ; gain = 510.227 ; free physical = 2428 ; free virtual = 13590
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:22 . Memory (MB): peak = 1275.602 ; gain = 511.227 ; free physical = 1711 ; free virtual = 13679
 ---------------------------------------------------------------------------------
 ROM "FSM_state" won't be mapped to RAM because it is too sparse.
 ROM "timer0" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
@@ -335,23 +352,23 @@ INFO: [Synth 8-3537] HDL ADVISOR - The operator resource <multiplier> is shared.
 INFO: [Synth 8-3537] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the inputs of the operator [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/rgb2hsv.v:149]
 ROM "vcount" won't be mapped to RAM because it is too sparse.
 ROM "vcount" won't be mapped to RAM because it is too sparse.
-ROM "counter" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
-INFO: [Synth 8-41] '_-' operator could not be merged with '+' operator due to loss of accuracy [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:530]
-INFO: [Synth 8-41] '_-' operator could not be merged with '+' operator due to loss of accuracy [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:530]
-INFO: [Synth 8-41] '_-' operator could not be merged with '+' operator due to loss of accuracy [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:530]
-ROM "ready" won't be mapped to Block RAM because address size (2) smaller than threshold (5) 
-INFO: [Synth 8-3537] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the inputs of the operator [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:257]
-WARNING: [Synth 8-3848] Net camera_reset in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:147]
-WARNING: [Synth 8-3848] Net camera_pwdn in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:146]
+INFO: [Synth 8-3537] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the inputs of the operator [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:287]
+INFO: [Synth 8-41] '_-' operator could not be merged with '+' operator due to loss of accuracy [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:583]
+INFO: [Synth 8-41] '_-' operator could not be merged with '+' operator due to loss of accuracy [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:583]
+INFO: [Synth 8-41] '_-' operator could not be merged with '+' operator due to loss of accuracy [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:583]
+INFO: [Synth 8-3537] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the inputs of the operator [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:256]
+WARNING: [Synth 8-3848] Net reset in module/entity physics does not have driver. [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/sources/labkit_lab4.v:176]
+WARNING: [Synth 8-3848] Net camera_reset in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:146]
+WARNING: [Synth 8-3848] Net camera_pwdn in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:145]
 WARNING: [Synth 8-3848] Net LED16_B in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:35]
 WARNING: [Synth 8-3848] Net LED16_G in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:35]
 WARNING: [Synth 8-3848] Net LED16_R in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:35]
 WARNING: [Synth 8-3848] Net LED17_B in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:36]
 WARNING: [Synth 8-3848] Net LED17_G in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:36]
 WARNING: [Synth 8-3848] Net LED17_R in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:36]
-WARNING: [Synth 8-3848] Net reset in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:324]
+WARNING: [Synth 8-3848] Net reset in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:323]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:19 ; elapsed = 00:00:24 . Memory (MB): peak = 1274.602 ; gain = 510.227 ; free physical = 2402 ; free virtual = 13574
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:19 ; elapsed = 00:00:24 . Memory (MB): peak = 1275.602 ; gain = 511.227 ; free physical = 1696 ; free virtual = 13663
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -364,52 +381,52 @@ Start RTL Component Statistics
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input     32 Bit       Adders := 14    
+	   2 Input     32 Bit       Adders := 13    
 	   2 Input     17 Bit       Adders := 2     
 	   2 Input     16 Bit       Adders := 3     
 	   3 Input     13 Bit       Adders := 11    
-	   3 Input     12 Bit       Adders := 10    
+	   3 Input     12 Bit       Adders := 12    
 	   2 Input     12 Bit       Adders := 1     
 	   2 Input     11 Bit       Adders := 5     
 	   3 Input     11 Bit       Adders := 1     
-	   2 Input     10 Bit       Adders := 5     
+	   2 Input     10 Bit       Adders := 6     
+	   3 Input     10 Bit       Adders := 1     
 	   2 Input      8 Bit       Adders := 1     
 	   3 Input      8 Bit       Adders := 2     
 	   2 Input      4 Bit       Adders := 5     
 	   2 Input      2 Bit       Adders := 1     
 	   2 Input      1 Bit       Adders := 1     
 +---Registers : 
-	               32 Bit    Registers := 3     
+	               32 Bit    Registers := 2     
 	               19 Bit    Registers := 1     
 	               17 Bit    Registers := 2     
 	               16 Bit    Registers := 5     
 	               12 Bit    Registers := 1     
-	               11 Bit    Registers := 5     
-	               10 Bit    Registers := 6     
-	                9 Bit    Registers := 1     
+	               11 Bit    Registers := 3     
+	               10 Bit    Registers := 7     
 	                8 Bit    Registers := 62    
 	                7 Bit    Registers := 1     
-	                4 Bit    Registers := 5     
+	                4 Bit    Registers := 6     
 	                3 Bit    Registers := 2     
-	                2 Bit    Registers := 3     
-	                1 Bit    Registers := 24    
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 30    
 +---ROMs : 
 	                              ROMs := 1     
 +---Muxes : 
-	   2 Input     32 Bit        Muxes := 5     
+	   2 Input     32 Bit        Muxes := 4     
 	   4 Input     32 Bit        Muxes := 1     
 	   3 Input     32 Bit        Muxes := 1     
 	  14 Input     32 Bit        Muxes := 1     
 	   2 Input     17 Bit        Muxes := 2     
 	   2 Input     16 Bit        Muxes := 8     
 	   3 Input     16 Bit        Muxes := 1     
-	   2 Input     12 Bit        Muxes := 16    
+	   2 Input     12 Bit        Muxes := 18    
 	   2 Input     11 Bit        Muxes := 5     
-	   2 Input     10 Bit        Muxes := 5     
-	  10 Input      9 Bit        Muxes := 1     
+	   2 Input     10 Bit        Muxes := 9     
 	   2 Input      9 Bit        Muxes := 6     
+	  10 Input      9 Bit        Muxes := 1     
 	   8 Input      8 Bit        Muxes := 1     
-	   2 Input      8 Bit        Muxes := 16    
+	   2 Input      8 Bit        Muxes := 18    
 	   4 Input      8 Bit        Muxes := 2     
 	  14 Input      8 Bit        Muxes := 1     
 	   3 Input      8 Bit        Muxes := 1     
@@ -423,7 +440,7 @@ Detailed RTL Component Info :
 	   2 Input      2 Bit        Muxes := 9     
 	   3 Input      2 Bit        Muxes := 1     
 	  14 Input      2 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 49    
+	   2 Input      1 Bit        Muxes := 47    
 	   4 Input      1 Bit        Muxes := 8     
 	   3 Input      1 Bit        Muxes := 5     
 	  14 Input      1 Bit        Muxes := 11    
@@ -547,7 +564,7 @@ Detailed RTL Component Info :
 Module motion_type 
 Detailed RTL Component Info : 
 +---Registers : 
-	                1 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
 Module vga_camera 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -579,19 +596,13 @@ Detailed RTL Component Info :
 	                1 Bit    Registers := 2     
 Module clock_divider 
 Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input     32 Bit       Adders := 1     
-+---Registers : 
-	               32 Bit    Registers := 1     
-+---Muxes : 
-	   2 Input     32 Bit        Muxes := 1     
 Module physics 
 Detailed RTL Component Info : 
 +---Adders : 
 	   2 Input      4 Bit       Adders := 4     
 +---Registers : 
 	                4 Bit    Registers := 1     
-	                1 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
 +---Muxes : 
 	   4 Input      4 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 3     
@@ -602,6 +613,17 @@ Detailed RTL Component Info :
 	   3 Input     12 Bit       Adders := 1     
 Module pegasus 
 Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     12 Bit       Adders := 1     
+	   3 Input     10 Bit       Adders := 1     
+	   2 Input     10 Bit       Adders := 1     
++---Registers : 
+	               10 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     10 Bit        Muxes := 4     
+	   2 Input      8 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 1     
 Module looping_blob 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -650,30 +672,34 @@ Detailed RTL Component Info :
 	   2 Input     11 Bit       Adders := 3     
 +---Registers : 
 	               12 Bit    Registers := 1     
-	               11 Bit    Registers := 3     
-	                9 Bit    Registers := 1     
 	                4 Bit    Registers := 1     
-+---Muxes : 
-	   2 Input     11 Bit        Muxes := 3     
-	  10 Input      9 Bit        Muxes := 1     
-	   2 Input      9 Bit        Muxes := 6     
-	  10 Input      4 Bit        Muxes := 1     
-	   2 Input      3 Bit        Muxes := 6     
-Module longpulse 
-Detailed RTL Component Info : 
-+---Registers : 
-	                2 Bit    Registers := 1     
 	                1 Bit    Registers := 1     
 +---Muxes : 
-	   2 Input      1 Bit        Muxes := 3     
+	   2 Input     11 Bit        Muxes := 3     
+	   2 Input      9 Bit        Muxes := 6     
+	  10 Input      9 Bit        Muxes := 1     
+	  10 Input      4 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 6     
+Module ray_blob 
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     12 Bit       Adders := 1     
+Module attack 
+Detailed RTL Component Info : 
++---Registers : 
+	               11 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input     12 Bit        Muxes := 1     
 Module endscreen 
 Detailed RTL Component Info : 
 Module controller 
 Detailed RTL Component Info : 
 +---Registers : 
-	                1 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
 +---Muxes : 
-	   2 Input     12 Bit        Muxes := 3     
+	   2 Input     12 Bit        Muxes := 4     
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
@@ -686,7 +712,7 @@ BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
-Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:19 ; elapsed = 00:00:24 . Memory (MB): peak = 1274.602 ; gain = 510.227 ; free physical = 2397 ; free virtual = 13573
+Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:19 ; elapsed = 00:00:24 . Memory (MB): peak = 1275.602 ; gain = 511.227 ; free physical = 1696 ; free virtual = 13663
 ---------------------------------------------------------------------------------
 Start Cross Boundary Optimization
 ---------------------------------------------------------------------------------
@@ -700,7 +726,6 @@ DSP Report: register h_top_reg is absorbed into DSP h_top_reg.
 DSP Report: operator (null) is absorbed into DSP h_top_reg.
 ROM "vcount" won't be mapped to RAM because it is too sparse.
 ROM "vcount" won't be mapped to RAM because it is too sparse.
-ROM "divider/counter" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
 ROM "enabled" won't be mapped to RAM because it is too sparse.
 DSP Report: Generating DSP read_address1, operation Mode is: A*(B:0x140).
 DSP Report: operator read_address1 is absorbed into DSP read_address1.
@@ -722,7 +747,6 @@ WARNING: [Synth 8-3331] design labkit has unconnected port LED[8]
 WARNING: [Synth 8-3331] design labkit has unconnected port LED[7]
 WARNING: [Synth 8-3331] design labkit has unconnected port LED[6]
 WARNING: [Synth 8-3331] design labkit has unconnected port LED[5]
-WARNING: [Synth 8-3917] design labkit has port LED[4] driven by constant 0
 WARNING: [Synth 8-3917] design labkit has port SEG[7] driven by constant 1
 WARNING: [Synth 8-3331] design labkit has unconnected port JB[0]
 WARNING: [Synth 8-3331] design labkit has unconnected port JC[7]
@@ -752,13 +776,15 @@ WARNING: [Synth 8-3331] design labkit has unconnected port SW[8]
 WARNING: [Synth 8-3331] design labkit has unconnected port SW[6]
 WARNING: [Synth 8-3331] design labkit has unconnected port SW[5]
 WARNING: [Synth 8-3331] design labkit has unconnected port SW[4]
-WARNING: [Synth 8-3331] design labkit has unconnected port BTNC
-WARNING: [Synth 8-3331] design labkit has unconnected port BTNL
-WARNING: [Synth 8-3331] design labkit has unconnected port BTND
+WARNING: [Synth 8-3331] design labkit has unconnected port SW[3]
+WARNING: [Synth 8-3331] design labkit has unconnected port SW[2]
+WARNING: [Synth 8-3331] design labkit has unconnected port SW[1]
+WARNING: [Synth 8-3331] design labkit has unconnected port SW[0]
+INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:26 . Memory (MB): peak = 1274.602 ; gain = 510.227 ; free physical = 2393 ; free virtual = 13573
+Finished Cross Boundary Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:25 . Memory (MB): peak = 1275.602 ; gain = 511.227 ; free physical = 1695 ; free virtual = 13663
 ---------------------------------------------------------------------------------
-Finished Parallel Reinference  : Time (s): cpu = 00:00:21 ; elapsed = 00:00:26 . Memory (MB): peak = 1274.602 ; gain = 510.227 ; free physical = 2393 ; free virtual = 13573
+Finished Parallel Reinference  : Time (s): cpu = 00:00:21 ; elapsed = 00:00:25 . Memory (MB): peak = 1275.602 ; gain = 511.227 ; free physical = 1695 ; free virtual = 13663
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
@@ -789,18 +815,8 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (tohsv/\my
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (camera_read_1/\FSM_state_reg[1] )
 INFO: [Synth 8-3333] propagating constant 1 across sequential element (configure/\config_1/FSM_return_state_reg[0] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (configure/\config_1/FSM_return_state_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (display/\seg_reg[5] )
-INFO: [Synth 8-3333] propagating constant 1 across sequential element (display/\seg_reg[6] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\motion_type/motion_reg )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (control/game_over_reg)
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (configure/\config_1/FSM_state_reg[2] )
-WARNING: [Synth 8-3332] Sequential element (\seg_reg[6] ) is unused and will be removed from module display_8hex.
-WARNING: [Synth 8-3332] Sequential element (\seg_reg[5] ) is unused and will be removed from module display_8hex.
-WARNING: [Synth 8-3332] Sequential element (\seg_reg[4] ) is unused and will be removed from module display_8hex.
-WARNING: [Synth 8-3332] Sequential element (\seg_reg[3] ) is unused and will be removed from module display_8hex.
-WARNING: [Synth 8-3332] Sequential element (\seg_reg[2] ) is unused and will be removed from module display_8hex.
-WARNING: [Synth 8-3332] Sequential element (\seg_reg[1] ) is unused and will be removed from module display_8hex.
-WARNING: [Synth 8-3332] Sequential element (\seg_reg[0] ) is unused and will be removed from module display_8hex.
 WARNING: [Synth 8-3332] Sequential element (\config_1/FSM_state_reg[2] ) is unused and will be removed from module camera_configure.
 WARNING: [Synth 8-3332] Sequential element (\config_1/FSM_return_state_reg[2] ) is unused and will be removed from module camera_configure.
 WARNING: [Synth 8-3332] Sequential element (\config_1/FSM_return_state_reg[1] ) is unused and will be removed from module camera_configure.
@@ -894,32 +910,31 @@ WARNING: [Synth 8-3332] Sequential element (\h_add_reg[7][1] ) is unused and wil
 WARNING: [Synth 8-3332] Sequential element (\h_add_reg[7][0] ) is unused and will be removed from module rgb2hsv.
 WARNING: [Synth 8-3332] Sequential element (\h_add_reg[8][7] ) is unused and will be removed from module rgb2hsv.
 WARNING: [Synth 8-3332] Sequential element (\h_add_reg[8][6] ) is unused and will be removed from module rgb2hsv.
+WARNING: [Synth 8-3332] Sequential element (\h_add_reg[8][5] ) is unused and will be removed from module rgb2hsv.
+WARNING: [Synth 8-3332] Sequential element (\h_add_reg[8][4] ) is unused and will be removed from module rgb2hsv.
+WARNING: [Synth 8-3332] Sequential element (\h_add_reg[8][3] ) is unused and will be removed from module rgb2hsv.
+WARNING: [Synth 8-3332] Sequential element (\h_add_reg[8][2] ) is unused and will be removed from module rgb2hsv.
+WARNING: [Synth 8-3332] Sequential element (\h_add_reg[8][1] ) is unused and will be removed from module rgb2hsv.
+WARNING: [Synth 8-3332] Sequential element (\h_add_reg[8][0] ) is unused and will be removed from module rgb2hsv.
+WARNING: [Synth 8-3332] Sequential element (\h_add_reg[9][7] ) is unused and will be removed from module rgb2hsv.
 INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-CRITICAL WARNING: [Synth 8-3352] multi-driven net ground_pixel[7] with 1st driver pin 'g/ground_pixel[7]' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:359]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net ground_pixel[7] with 2nd driver pin 'GND' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:359]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net ground_pixel[6] with 1st driver pin 'g/ground_pixel[6]' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:359]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net ground_pixel[6] with 2nd driver pin 'GND' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:359]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net ground_pixel[5] with 1st driver pin 'g/ground_pixel[5]' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:359]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net ground_pixel[5] with 2nd driver pin 'GND' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:359]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net ground_pixel[4] with 1st driver pin 'g/ground_pixel[4]' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:359]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net ground_pixel[4] with 2nd driver pin 'GND' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/project_top.v:359]
 ---------------------------------------------------------------------------------
 Start Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Area Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:29 . Memory (MB): peak = 1274.605 ; gain = 510.230 ; free physical = 2383 ; free virtual = 13553
+Finished Area Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:30 . Memory (MB): peak = 1275.605 ; gain = 511.230 ; free physical = 1681 ; free virtual = 13648
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Area Optimization : Time (s): cpu = 00:00:24 ; elapsed = 00:00:29 . Memory (MB): peak = 1274.605 ; gain = 510.230 ; free physical = 2383 ; free virtual = 13553
+Finished Area Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:30 . Memory (MB): peak = 1275.605 ; gain = 511.230 ; free physical = 1681 ; free virtual = 13648
 ---------------------------------------------------------------------------------
-Finished Parallel Area Optimization  : Time (s): cpu = 00:00:24 ; elapsed = 00:00:29 . Memory (MB): peak = 1274.605 ; gain = 510.230 ; free physical = 2383 ; free virtual = 13553
+Finished Parallel Area Optimization  : Time (s): cpu = 00:00:25 ; elapsed = 00:00:30 . Memory (MB): peak = 1275.605 ; gain = 511.230 ; free physical = 1681 ; free virtual = 13648
 
 Report RTL Partitions: 
 +-+--------------+------------+----------+
 | |RTL Partition |Replication |Instances |
 +-+--------------+------------+----------+
 +-+--------------+------------+----------+
-Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:24 ; elapsed = 00:00:29 . Memory (MB): peak = 1274.605 ; gain = 510.230 ; free physical = 2383 ; free virtual = 13553
+Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:25 ; elapsed = 00:00:30 . Memory (MB): peak = 1275.605 ; gain = 511.230 ; free physical = 1681 ; free virtual = 13648
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
@@ -928,10 +943,10 @@ Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 INFO: Moved 1 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:41 ; elapsed = 00:00:46 . Memory (MB): peak = 1297.598 ; gain = 533.223 ; free physical = 2324 ; free virtual = 13500
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:42 ; elapsed = 00:00:47 . Memory (MB): peak = 1301.598 ; gain = 537.223 ; free physical = 1585 ; free virtual = 13553
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:41 ; elapsed = 00:00:46 . Memory (MB): peak = 1298.598 ; gain = 534.223 ; free physical = 2324 ; free virtual = 13499
+Finished Timing Optimization : Time (s): cpu = 00:00:42 ; elapsed = 00:00:47 . Memory (MB): peak = 1302.598 ; gain = 538.223 ; free physical = 1584 ; free virtual = 13552
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -944,7 +959,7 @@ Start Technology Mapping
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-4480] The timing for the instance \configure/rom1/dout_reg  (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:42 ; elapsed = 00:00:48 . Memory (MB): peak = 1316.613 ; gain = 552.238 ; free physical = 2242 ; free virtual = 13464
+Finished Technology Mapping : Time (s): cpu = 00:00:44 ; elapsed = 00:00:49 . Memory (MB): peak = 1323.660 ; gain = 559.285 ; free physical = 1563 ; free virtual = 13531
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -969,7 +984,7 @@ Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 CRITICAL WARNING: [Synth 8-4442] BlackBox module pixelclk has unconnected pin reset
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:43 ; elapsed = 00:00:48 . Memory (MB): peak = 1316.613 ; gain = 552.238 ; free physical = 2230 ; free virtual = 13463
+Finished IO Insertion : Time (s): cpu = 00:00:44 ; elapsed = 00:00:49 . Memory (MB): peak = 1323.660 ; gain = 559.285 ; free physical = 1563 ; free virtual = 13531
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -982,7 +997,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:43 ; elapsed = 00:00:48 . Memory (MB): peak = 1316.613 ; gain = 552.238 ; free physical = 2230 ; free virtual = 13463
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:44 ; elapsed = 00:00:49 . Memory (MB): peak = 1323.660 ; gain = 559.285 ; free physical = 1563 ; free virtual = 13531
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -994,7 +1009,7 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:43 ; elapsed = 00:00:48 . Memory (MB): peak = 1316.613 ; gain = 552.238 ; free physical = 2229 ; free virtual = 13463
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:44 ; elapsed = 00:00:49 . Memory (MB): peak = 1323.660 ; gain = 559.285 ; free physical = 1563 ; free virtual = 13531
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RAM, DSP and Shift Register Reporting
@@ -1032,68 +1047,75 @@ Report Cell Usage:
 |3     |divider_gen__1 |     1|
 |4     |video_bram     |     1|
 |5     |BUFG           |     4|
-|6     |CARRY4         |    86|
+|6     |CARRY4         |   134|
 |7     |DSP48E1        |     1|
 |8     |DSP48E1_1      |     1|
 |9     |DSP48E1_2      |     1|
-|10    |INV            |     4|
-|11    |LUT1           |   113|
-|12    |LUT2           |   118|
-|13    |LUT3           |    85|
-|14    |LUT4           |   198|
-|15    |LUT5           |   176|
-|16    |LUT6           |   209|
-|17    |RAMB18E1       |     1|
-|18    |SRLC32E        |     8|
-|19    |FDRE           |   446|
-|20    |FDSE           |    14|
-|21    |IBUF           |    18|
-|22    |OBUF           |    37|
-|23    |OBUFT          |    18|
+|10    |INV            |     5|
+|11    |LUT1           |   193|
+|12    |LUT2           |   183|
+|13    |LUT3           |   100|
+|14    |LUT4           |   308|
+|15    |LUT5           |   215|
+|16    |LUT6           |   270|
+|17    |MUXF7          |     2|
+|18    |RAMB18E1       |     1|
+|19    |SRLC32E        |     8|
+|20    |FDRE           |   577|
+|21    |FDSE           |    26|
+|22    |IBUF           |    13|
+|23    |OBUF           |    37|
+|24    |OBUFT          |    18|
 +------+---------------+------+
 
 Report Instance Areas: 
 +------+----------------+----------------------+------+
 |      |Instance        |Module                |Cells |
 +------+----------------+----------------------+------+
-|1     |top             |                      |  1688|
-|2     |  camera_read_1 |camera_read           |    32|
-|3     |  clockgen      |clock_quarter_divider |     4|
-|4     |  configure     |camera_configure      |   336|
-|5     |    SCCB1       |SCCB_interface        |   186|
-|6     |    config_1    |OV7670_config         |   138|
-|7     |    rom1        |OV7670_config_rom     |    12|
-|8     |  control       |controller            |     2|
-|9     |  destroy_pulse |longpulse             |    13|
-|10    |  display       |display_8hex          |    48|
-|11    |  o             |obstacles             |   248|
-|12    |  tohsv         |rgb2hsv               |   540|
-|13    |  vga1          |vga_camera            |   108|
-|14    |  vga2          |vga                   |   157|
+|1     |top             |                      |  2247|
+|2     |  a             |attack                |   108|
+|3     |    divider     |clock_divider_0       |    80|
+|4     |  calc          |physics               |   114|
+|5     |    divider     |clock_divider         |    81|
+|6     |  camera_read_1 |camera_read           |    32|
+|7     |  clockgen      |clock_quarter_divider |     4|
+|8     |  configure     |camera_configure      |   336|
+|9     |    SCCB1       |SCCB_interface        |   186|
+|10    |    config_1    |OV7670_config         |   138|
+|11    |    rom1        |OV7670_config_rom     |    12|
+|12    |  control       |controller            |    12|
+|13    |  display       |display_8hex          |    95|
+|14    |  g             |ground                |    86|
+|15    |  motion_type   |motion_type           |     9|
+|16    |  o             |obstacles             |   268|
+|17    |  p             |pegasus               |    75|
+|18    |  tohsv         |rgb2hsv               |   543|
+|19    |  vga1          |vga_camera            |   113|
+|20    |  vga2          |vga                   |   232|
 +------+----------------+----------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:43 ; elapsed = 00:00:48 . Memory (MB): peak = 1316.613 ; gain = 552.238 ; free physical = 2229 ; free virtual = 13463
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:44 ; elapsed = 00:00:49 . Memory (MB): peak = 1323.660 ; gain = 559.285 ; free physical = 1563 ; free virtual = 13531
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 9 critical warnings and 362 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:35 ; elapsed = 00:00:37 . Memory (MB): peak = 1316.613 ; gain = 120.250 ; free physical = 2240 ; free virtual = 13462
-Synthesis Optimization Complete : Time (s): cpu = 00:00:43 ; elapsed = 00:00:48 . Memory (MB): peak = 1316.613 ; gain = 552.238 ; free physical = 2240 ; free virtual = 13461
+Synthesis finished with 0 errors, 1 critical warnings and 306 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:36 ; elapsed = 00:00:38 . Memory (MB): peak = 1323.660 ; gain = 127.297 ; free physical = 1563 ; free virtual = 13531
+Synthesis Optimization Complete : Time (s): cpu = 00:00:45 ; elapsed = 00:00:50 . Memory (MB): peak = 1323.660 ; gain = 559.285 ; free physical = 1563 ; free virtual = 13531
 INFO: [Project 1-571] Translating synthesized netlist
 WARNING: [Netlist 29-345] The value of SIM_DEVICE on instance 'configure/rom1/dout_reg' of type 'RAMB18E1' is 'VIRTEX6'; it is being changed to match the current FPGA architecture, '7SERIES'. For functional simulation to match hardware behavior, the value of SIM_DEVICE should be changed in the source netlist or constraint file.
-INFO: [Netlist 29-17] Analyzing 108 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 151 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-140] Inserted 0 IBUFs to IO ports without IO buffers.
 INFO: [Opt 31-141] Inserted 0 OBUFs to IO ports without IO buffers.
-INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Opt 31-138] Pushed 1 inverter(s) to 42 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 4 instances were transformed.
   INV => LUT1: 4 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-102 Infos, 234 Warnings, 10 Critical Warnings and 0 Errors encountered.
+103 Infos, 243 Warnings, 2 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:43 ; elapsed = 00:00:47 . Memory (MB): peak = 1316.617 ; gain = 452.500 ; free physical = 2271 ; free virtual = 13474
+synth_design: Time (s): cpu = 00:00:44 ; elapsed = 00:00:48 . Memory (MB): peak = 1323.664 ; gain = 459.547 ; free physical = 1563 ; free virtual = 13530
 # write_checkpoint -noxdef labkit.dcp
 # catch { report_utilization -file labkit_utilization_synth.rpt -pb labkit_utilization_synth.pb }
-report_utilization: Time (s): cpu = 00:00:00.19 ; elapsed = 00:00:00.30 . Memory (MB): peak = 1316.617 ; gain = 0.000 ; free physical = 2246 ; free virtual = 13474
-INFO: [Common 17-206] Exiting Vivado at Tue Dec  1 22:15:41 2015...
+report_utilization: Time (s): cpu = 00:00:00.19 ; elapsed = 00:00:00.28 . Memory (MB): peak = 1323.664 ; gain = 0.000 ; free physical = 1562 ; free virtual = 13530
+INFO: [Common 17-206] Exiting Vivado at Thu Dec  3 19:32:57 2015...

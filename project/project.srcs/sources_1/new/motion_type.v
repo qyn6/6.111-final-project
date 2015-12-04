@@ -24,11 +24,14 @@
 module motion_type(input clock, input [9:0] x_pos, output motion);
 
     reg motion = 0; // 1 if attacking, 0 else
+    reg ready = 1;
     always @(posedge clock) begin
-        if (x_pos >= 633) begin
+        if (x_pos > 635 && ready) begin
             motion <= 1;
-        end else begin
+            ready <= 0;
+        end else if (x_pos <= 630 && ready == 0) begin
             motion <= 0;
-        end
+            ready <= 1;
+        end else if (motion == 1) motion <= 0;
     end
 endmodule

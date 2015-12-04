@@ -271,15 +271,15 @@ module labkit(
                         y <= vcount1;
                         //flight only turns on for one cycle, then doesn't turn on again unless
                         // it's moved above the threshold and back down again
-                        if (flight == 1) begin
-                            flight <= 0;
-                        end
+                        
                         //turn flight on below threshold
                         if (y < 230 && turn_on == 1) begin
                             flight <= 1;
                             turn_on <= 0;
                         end else if (y >= 230 && turn_on == 0) begin
                             turn_on <= 1;
+                            flight <= 0;
+                        end else if (flight == 1) begin
                             flight <= 0;
                         end
                     end
@@ -343,17 +343,20 @@ module labkit(
     //test!!!!
     wire dir;
     wire [3:0] speed;
-    physics calc(.clock_65mhz(clock_65mhz),.flap(fly),.vsync(vsync),
+    wire hit_top;
+    physics calc(.clock_65mhz(clock_65mhz),.flap(flight),.vsync(vsync),.hit_top(hit_top),
         .dir(dir),.speed(speed));
     
     wire [11:0] pixel;
     
     wire [11:0] pegasus_pixel;
     wire on_ground, over_ground;
+    wire [10:0] attack_x;
+    wire [11:0] attack_y;
     pegasus p(.clock_65mhz(clock_65mhz),.hcount(hcount),.vcount(vcount),
         .hsync(hsync),.vsync(vsync),.speed(speed),.up(dir),
         .over_ground(over_ground),
-        .pegasus_pixel(pegasus_pixel));
+        .attack_x(attack_x),.attack_y(attack_y),.pegasus_pixel(pegasus_pixel),.hit_top(hit_top));
     
     wire [11:0] ground_pixel;
     ground g(.clock_65mhz(clock_65mhz),.hcount(hcount),.vcount(vcount),
@@ -368,10 +371,16 @@ module labkit(
         .obstacle_hit(obstacle_hit),.hit_index(hit_index),
         .obstacle_index(obstacle_index),.obstacle_pixel(obstacle_pixel));
     
-    wire destroy_button;
-    longpulse destroy_pulse(.clk(vsync),.in(BTNR),
-        .out(obstacle_hit));
-    assign hit_index = SW[3:0];
+//    wire destroy_button;
+//    longpulse destroy_pulse(.clk(vsync),.in(BTNR),
+//        .out(obstacle_hit));
+    //assign hit_index = SW[3:0];
+    
+    wire [11:0] attack_pixel;
+    attack a(.clock_65mhz(clock_65mhz),.hcount(hcount),.vcount(vcount),
+        .hsync(hsync),.vsync(vsync),
+        .attack_x(attack_x),.attack_y(attack_y),.enable(attack),.obstacle_hit(obstacle_hit),
+        .attack_pixel(attack_pixel));
     
     wire [11:0] end_pixel;
     endscreen e(.clock_65mhz(clock_65mhz),.hcount(hcount),.vcount(vcount),
@@ -379,9 +388,10 @@ module labkit(
         .end_pixel(end_pixel));
     
     controller control(.clock_65mhz(clock_65mhz),.hcount(hcount),.vcount(vcount),
-        .hsync(hsync),.vsync(vsync),.pegasus_pixel(pegasus_pixel),.ground_pixel(ground_pixel),
-        .obstacle_pixel(obstacle_pixel),.end_pixel(end_pixel),
-        .pixel(pixel));
+        .hsync(hsync),.vsync(vsync),.obstacle_index(obstacle_index),
+        .pegasus_pixel(pegasus_pixel),.ground_pixel(ground_pixel),
+        .obstacle_pixel(obstacle_pixel),.attack_pixel(attack_pixel),.end_pixel(end_pixel),
+        .pixel(pixel),.obstacle_hit(obstacle_hit),.hit_index(hit_index));
 
 //
 //////////////////////////////////////////////////////////////////////////////////

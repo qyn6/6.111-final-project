@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<Checkpoint Version="4" Minor="0">
+	<BUILD_NUMBER Name="1149489"/>
+	<FULL_BUILD Name="SW Build 1149489 on Thu Feb 19 16:01:47 MST 2015"/>
+	<Part Name="xc7a100tcsg324-3"/>
+	<Top Name="labkit"/>
+	<DisableAutoIOBuffers Name="0"/>
+	<OutOfContext Name="0"/>
+	<File Type="EDIF" Name="labkit.edf" ModTime="1449189086"/>
+	<File Type="VERILOG_STUB" Name="labkit_stub.v" ModTime="1449189086"/>
+	<File Type="VHDL_STUB" Name="labkit_stub.vhdl" ModTime="1449189086"/>
+	<File Type="INCR" Name="labkit.incr" ModTime="1449189086"/>
+	<File Type="PSR" Name="labkit.psr" ModTime="1449189086"/>
+	<File Type="WDF" Name="labkit.wdf" ModTime="1449189086"/>
+</Checkpoint>
+

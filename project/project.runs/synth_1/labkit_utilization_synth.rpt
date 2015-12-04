@@ -1,7 +1,7 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2014.4.1 (lin64) Build 1149489 Thu Feb 19 16:01:47 MST 2015
-| Date         : Tue Dec  1 22:15:41 2015
+| Date         : Thu Dec  3 19:32:56 2015
 | Host         : eecs-digital-24 running 64-bit Ubuntu 12.04.5 LTS
 | Command      : report_utilization -file labkit_utilization_synth.rpt -pb labkit_utilization_synth.pb
 | Design       : labkit
@@ -30,15 +30,15 @@ Table of Contents
 +----------------------------+------+-------+-----------+-------+
 |          Site Type         | Used | Fixed | Available | Util% |
 +----------------------------+------+-------+-----------+-------+
-| Slice LUTs*                |  700 |     0 |     63400 |  1.10 |
-|   LUT as Logic             |  692 |     0 |     63400 |  1.09 |
+| Slice LUTs*                |  988 |     0 |     63400 |  1.55 |
+|   LUT as Logic             |  980 |     0 |     63400 |  1.54 |
 |   LUT as Memory            |    8 |     0 |     19000 |  0.04 |
 |     LUT as Distributed RAM |    0 |     0 |           |       |
 |     LUT as Shift Register  |    8 |     0 |           |       |
-| Slice Registers            |  460 |     0 |    126800 |  0.36 |
-|   Register as Flip Flop    |  460 |     0 |    126800 |  0.36 |
+| Slice Registers            |  603 |     0 |    126800 |  0.47 |
+|   Register as Flip Flop    |  603 |     0 |    126800 |  0.47 |
 |   Register as Latch        |    0 |     0 |    126800 |  0.00 |
-| F7 Muxes                   |    0 |     0 |     31700 |  0.00 |
+| F7 Muxes                   |    2 |     0 |     31700 | <0.01 |
 | F8 Muxes                   |    0 |     0 |     15850 |  0.00 |
 +----------------------------+------+-------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
@@ -58,8 +58,8 @@ Table of Contents
 | 0     |          Yes |           - |            - |
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
-| 14    |          Yes |         Set |            - |
-| 446   |          Yes |       Reset |            - |
+| 26    |          Yes |         Set |            - |
+| 577   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -94,7 +94,7 @@ Table of Contents
 +-----------------------------+------+-------+-----------+-------+
 |          Site Type          | Used | Fixed | Available | Util% |
 +-----------------------------+------+-------+-----------+-------+
-| Bonded IOB                  |   73 |     0 |       210 | 34.76 |
+| Bonded IOB                  |   68 |     0 |       210 | 32.38 |
 | Bonded IPADs                |    0 |     0 |         2 |  0.00 |
 | PHY_CONTROL                 |    0 |     0 |         6 |  0.00 |
 | PHASER_REF                  |    0 |     0 |         6 |  0.00 |
@@ -151,21 +151,22 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDRE     |  446 |        Flop & Latch |
-| LUT6     |  209 |                 LUT |
-| LUT4     |  198 |                 LUT |
-| LUT5     |  176 |                 LUT |
-| LUT2     |  118 |                 LUT |
-| LUT1     |  117 |                 LUT |
-| CARRY4   |   86 |          CarryLogic |
-| LUT3     |   85 |                 LUT |
+| FDRE     |  577 |        Flop & Latch |
+| LUT4     |  308 |                 LUT |
+| LUT6     |  270 |                 LUT |
+| LUT5     |  215 |                 LUT |
+| LUT1     |  197 |                 LUT |
+| LUT2     |  183 |                 LUT |
+| CARRY4   |  134 |          CarryLogic |
+| LUT3     |  100 |                 LUT |
 | OBUF     |   37 |                  IO |
+| FDSE     |   26 |        Flop & Latch |
 | OBUFT    |   18 |                  IO |
-| IBUF     |   18 |                  IO |
-| FDSE     |   14 |        Flop & Latch |
+| IBUF     |   13 |                  IO |
 | SRLC32E  |    8 |  Distributed Memory |
 | BUFG     |    4 |               Clock |
 | DSP48E1  |    3 |    Block Arithmetic |
+| MUXF7    |    2 |               MuxFx |
 | RAMB18E1 |    1 |        Block Memory |
 +----------+------+---------------------+
 

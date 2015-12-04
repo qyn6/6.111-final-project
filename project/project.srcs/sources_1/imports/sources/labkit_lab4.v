@@ -116,13 +116,14 @@ endmodule
 module clock_divider
     #(parameter COUNT = 64_999_999)
     (input clock_65mhz,
+    input reset,
     output timer_enable);
     
     reg [31:0] counter = 32'd0;
     
     always @(posedge clock_65mhz) begin
     // restart if new countdown or 1 second reached
-        if (counter == COUNT) counter <= 32'd0;
+        if (counter == COUNT || reset) counter <= 32'd0;
         else counter <= counter + 1;
     end
     assign timer_enable = (counter == COUNT);
@@ -160,7 +161,7 @@ module flightpulse(
             ready <= 0;
         end
         else if (~ready) flap <= 0;
-        if (~fly) ready <= 1;
+        else if (~fly && ~ready) ready <= 1;
     end
 endmodule
 
@@ -168,30 +169,42 @@ module physics(
     input clock_65mhz,
     input flap,
     input vsync,
+    input hit_top,
     output reg dir = 0,
     output [3:0] speed);
     
-    wire timer_enable;
+    wire timer_enable, reset;
     clock_divider #(.COUNT(16_249_999))
-        divider(.clock_65mhz(clock_65mhz),.timer_enable(timer_enable));
+        divider(.clock_65mhz(clock_65mhz),.reset(reset),.timer_enable(timer_enable));
     
-    parameter ACCEL = 1;
+    parameter ACCEL = 2;
+    parameter GRAVITY = 1;
     
     reg [3:0] vel = 0;
+    reg thrust_ready = 0;
     always @(posedge clock_65mhz) begin
-        if (flap) begin
-            if (dir) vel <= vel + 4;
-            else if (vel < 4) begin
-                vel <= 4 - vel;
+        if (flap && thrust_ready) begin
+            if (dir) vel <= vel + ACCEL;
+            else if (vel < ACCEL) begin
+                vel <= ACCEL - vel;
                 dir <= 1;
             end
-            else vel <= vel - 4;
+            else vel <= vel - ACCEL;
+            thrust_ready <= 0;
         end
-        else if (timer_enable) begin
+        else begin
+            thrust_ready <= ~flap;
+            
+            if (hit_top) begin
+                dir <= 0;
+                vel <= vel > 3 ? 3 : vel;
+            end
+            else if (timer_enable) begin
             // at + v
-            if (dir && vel > 1) vel <= vel - ACCEL;
-            else if (dir) dir <= 0;
-            else if (vel <= 3) vel <= vel + ACCEL;
+                if (dir && vel > 1) vel <= vel - GRAVITY;
+                else if (dir) dir <= 0;
+                else if (vel <= 3) vel <= vel + GRAVITY;
+            end
         end
     end
     assign speed = vel;
@@ -206,22 +219,32 @@ module controller(
     input [11:0] pegasus_pixel,
     input [11:0] ground_pixel,
     input [11:0] obstacle_pixel,
+    input [11:0] attack_pixel,
     input [11:0] end_pixel,
-    output [11:0] pixel);
+    input [3:0] obstacle_index,
+    output [11:0] pixel,
+    output reg obstacle_hit,
+    output reg [3:0] hit_index);
     
     parameter SCREEN_HEIGHT = 768;
     
     reg game_over = 0;
-    
-    reg collision = 0;
+    reg hit_ready = 1;
     always @(posedge clock_65mhz) begin
         if ((pegasus_pixel != 0 && ground_pixel != 0) ||
                 (pegasus_pixel != 0 && vcount == SCREEN_HEIGHT - 1))
             game_over <= 0;//1;
+        
+        if (attack_pixel != 0 && obstacle_pixel != 0) begin
+            obstacle_hit <= 1;
+            hit_index <= obstacle_index;
+        end
+        else obstacle_hit <= 0;
     end
     assign pixel = game_over ? end_pixel :
         pegasus_pixel != 0 ? pegasus_pixel :
-        ground_pixel != 0 ? ground_pixel : obstacle_pixel;
+        ground_pixel != 0 ? ground_pixel : 
+        obstacle_pixel != 0 ? obstacle_pixel : attack_pixel;
 endmodule
 
 module endscreen(
@@ -246,9 +269,10 @@ module pegasus(
     input up,
     input [3:0] speed,
     input over_ground,
-    //output [10:0] attack_x,
-    //output [9:0] attack_y,
-    output [11:0] pegasus_pixel);
+    output [10:0] attack_x,
+    output [9:0] attack_y,
+    output [11:0] pegasus_pixel,
+    output reg hit_top);
     
     parameter SCREEN_HEIGHT = 10'd768;
     parameter GROUND_HEIGHT = 10'd100;
@@ -262,9 +286,13 @@ module pegasus(
     blob #(.WIDTH(PEGASUS_WIDTH),.HEIGHT(PEGASUS_HEIGHT))
         pegasus_sprite(.x(PEGASUS_X),.y(pegasus_y),.hcount(hcount),.vcount(vcount),
             .pixel(pegasus_pixel));
+    
     always @(posedge vsync) begin
         if (up) begin
-            if (pegasus_y < speed) pegasus_y <= 10'd0;
+            if (pegasus_y < speed) begin
+                //pegasus_y <= 10'd0;
+                hit_top <= 1;
+            end
             else pegasus_y <= pegasus_y - speed;
         end
         else begin
@@ -275,10 +303,13 @@ module pegasus(
                     (pegasus_y + PEGASUS_HEIGHT + speed > SCREEN_HEIGHT))
                 pegasus_y <= SCREEN_HEIGHT - PEGASUS_HEIGHT;
             else pegasus_y <= pegasus_y + speed;
+            
+            hit_top <= 0;
         end
     end
     
-    //assign attack_x = peagsus + PEGASUS_WIDTH;
+    assign attack_x = PEGASUS_X + PEGASUS_WIDTH;
+    assign attack_y = pegasus_y + (PEGASUS_HEIGHT >> 1);
 endmodule
 
 module ground(
@@ -400,8 +431,9 @@ module obstacles(
             .enabled(enabled[0]),
             .pixel(o9_pixel));
 
-    always @(posedge vsync) begin
-        if (obstacle_hit) begin
+    reg disable_obstacle = 0;
+    always @(negedge vsync) begin
+        if (disable_obstacle) begin
             //test_if <= 1;
             case (hit_index)
                 4'd0 : enabled[8] <= 0;
@@ -449,6 +481,9 @@ module obstacles(
     
     reg [11:0] enabled_pixel;
     always @(posedge clock_65mhz) begin
+        if (obstacle_hit) disable_obstacle <= 1;
+        else if (~vsync) disable_obstacle <= 0;
+        
         obstacle_index <= o1_pixel != 0 ? 4'd0 :
                           o2_pixel != 0 ? 4'd1 :
                           o3_pixel != 0 ? 4'd2 :
@@ -466,26 +501,45 @@ module obstacles(
     assign obstacle_pixel = enabled_pixel;
 endmodule
 
-//finish
 module attack(
     input clock_65mhz,
     input [10:0] hcount,
     input [9:0] vcount,
     input hsync,
     input vsync,
-    input attack_x,
-    input attack_y,
+    input [10:0] attack_x,
+    input [9:0] attack_y,
     input enable,
+    input obstacle_hit,
     output [11:0] attack_pixel);
     
     parameter ATTACK_HEIGHT = 16;
     
-    reg [11:0] beam_pixel = 0;
+    parameter SCREEN_WIDTH = 1024;
+    
+    reg [10:0] hit_x = SCREEN_WIDTH;
+    wire [11:0] beam_pixel;
     ray_blob #(.HEIGHT(ATTACK_HEIGHT),.COLOR(12'hF40))
-        attack_beam(.x(attack_x),.y(attack_y),.hcount(hcount),.vcount(vcount),
+        attack_beam(.x(attack_x),.end_x(hit_x),.y(attack_y),.hcount(hcount),.vcount(vcount),
             .pixel(beam_pixel));
     
-    assign attack_pixel = enable ? beam_pixel : 12'h000;
+    wire timer_enable;
+    clock_divider #(.COUNT(16_249_999))
+        divider(.clock_65mhz(clock_65mhz),.reset(enable),.timer_enable(timer_enable));
+    reg on = 0;
+    reg hit = 0;
+    always @(posedge clock_65mhz) begin
+        if (~vsync) hit_x <= SCREEN_WIDTH;
+        else if (obstacle_hit) hit_x <= hcount;
+        
+        if (enable) on <= 1;
+        else if (~vsync && hit) begin
+            on <= 0;
+            hit <= 0;
+        end 
+        else if (obstacle_hit || timer_enable) hit <= 1;
+    end
+    assign attack_pixel = on ? beam_pixel : 12'h000;
 endmodule
 
 //////////////////////////////////////////////////////////////////////
@@ -576,7 +630,7 @@ endmodule
 module ray_blob
     #(parameter HEIGHT = 64,           // default height: 64 pixels
                 COLOR = 12'hFFF)  // default color: white
-    (input [10:0] x,hcount,
+    (input [10:0] x,end_x,hcount,
     input [9:0] y,vcount,
     output reg [11:0] pixel);
 
@@ -584,7 +638,7 @@ module ray_blob
     parameter SCREEN_HEIGHT = 768;
     
     always @ * begin
-        if (hcount >= x && hcount < SCREEN_WIDTH &&
+        if (hcount >= x && hcount < end_x &&
             vcount >= y && vcount < y+HEIGHT)
             pixel = COLOR;
         else pixel = 0;

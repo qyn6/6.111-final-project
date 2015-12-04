@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<Checkpoint Version="4" Minor="0">
+	<BUILD_NUMBER Name="1149489"/>
+	<FULL_BUILD Name="SW Build 1149489 on Thu Feb 19 16:01:47 MST 2015"/>
+	<Part Name="xc7a100tcsg324-3"/>
+	<Top Name="video_bram"/>
+	<DisableAutoIOBuffers Name="1"/>
+	<OutOfContext Name="1"/>
+	<File Type="XDC_EARLY" Name="video_bram_early.xdc" ModTime="1449002831"/>
+	<File Type="EDIF" Name="video_bram.edf" ModTime="1449002831"/>
+	<File Type="VERILOG_STUB" Name="video_bram_stub.v" ModTime="1449002831"/>
+	<File Type="VHDL_STUB" Name="video_bram_stub.vhdl" ModTime="1449002831"/>
+	<File Type="INCR" Name="video_bram.incr" ModTime="1449002831"/>
+	<File Type="PSR" Name="video_bram.psr" ModTime="1449002831"/>
+	<File Type="WDF" Name="video_bram.wdf" ModTime="1449002831"/>
+</Checkpoint>
+

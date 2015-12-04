@@ -18,3 +18,5 @@ INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/mit/6.111/xilinx-vivado/Vi
 open_project: Time (s): cpu = 00:00:15 ; elapsed = 00:00:06 . Memory (MB): peak = 5741.645 ; gain = 92.164 ; free physical = 2735 ; free virtual = 14277
 update_compile_order -fileset sources_1
 update_compile_order -fileset sim_1
+exit
+INFO: [Common 17-206] Exiting Vivado at Thu Dec  3 12:16:40 2015...
