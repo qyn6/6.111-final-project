@@ -1,8 +1,8 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2014.4.1 (lin64) Build 1149489 Thu Feb 19 16:01:47 MST 2015
-| Date         : Thu Dec  3 19:33:40 2015
-| Host         : eecs-digital-24 running 64-bit Ubuntu 12.04.5 LTS
+| Date         : Fri Dec  4 17:05:29 2015
+| Host         : eecs-digital-23 running 64-bit Ubuntu 12.04.5 LTS
 | Command      : report_drc
 --------------------------------------------------------------------------------------
 
@@ -59,7 +59,7 @@ Related violations: <none>
 
 PLHOLDVIO-2#1 Warning
 Non-Optimal connections which could lead to hold violations  
-A LUT vga2/vsync_BUFG_inst_i_1 is driving clock pin of 64 cells. This could lead to large hold time violations. First few involved cells are:
+A LUT vga2/vsync_BUFG_inst_i_1 is driving clock pin of 68 cells. This could lead to large hold time violations. First few involved cells are:
     p/pegasus_y_reg[9] {FDSE}
     p/pegasus_y_reg[8] {FDRE}
     p/pegasus_y_reg[7] {FDRE}

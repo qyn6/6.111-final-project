@@ -384,6 +384,8 @@ module obstacles(
     parameter COLOR3 = 12'h0FF;
     
     //lfsr pseudo-random number generator
+    wire [1:0] random;
+    lfsr generator(.clk(vsync),.random(random));
     
     reg [8:0] enabled = 9'b111_111_111;
     
@@ -450,7 +452,13 @@ module obstacles(
         
         if (obstacles_x == 0) begin
             obstacles_x <= 3*DELTA_X - 1;
-            enabled[2:0] <= 3'b111;//3'b010;
+            case (random)
+                2'b00 : enabled[2:0] <= 3'b000;
+                2'b01 : enabled[2:0] <= 3'b001;
+                2'b10 : enabled[2:0] <= 3'b010;
+                2'b11 : enabled[2:0] <= 3'b100;
+            endcase
+            //enabled[2:0] <= 3'b111;//3'b010;
         end
         else begin
             if (obstacles_x == 3*DELTA_X - OBSTACLE_WIDTH)
@@ -460,7 +468,13 @@ module obstacles(
         
         if (obstacles_x_d1 == 0) begin
             obstacles_x_d1 <= 3*DELTA_X - 1;
-            enabled[8:6] <= 3'b111;//3'b100;
+            case (random)
+                2'b00 : enabled[8:6] <= 3'b000;
+                2'b01 : enabled[8:6] <= 3'b001;
+                2'b10 : enabled[8:6] <= 3'b010;
+                2'b11 : enabled[8:6] <= 3'b100;
+            endcase
+            //enabled[8:6] <= 3'b111;//3'b100;
         end
         else begin
             if (obstacles_x_d1 == 3*DELTA_X - OBSTACLE_WIDTH) 
@@ -470,7 +484,13 @@ module obstacles(
         
         if (obstacles_x_d2 == 0) begin
             obstacles_x_d2 <= 3*DELTA_X - 1;
-            enabled[5:3] <= 3'b111;//3'b001;
+            case (random)
+                2'b00 : enabled[5:3] <= 3'b000;
+                2'b01 : enabled[5:3] <= 3'b001;
+                2'b10 : enabled[5:3] <= 3'b010;
+                2'b11 : enabled[5:3] <= 3'b100;
+            endcase
+            //enabled[5:3] <= 3'b111;//3'b001;
         end
         else begin 
             if (obstacles_x_d2 == 3*DELTA_X - OBSTACLE_WIDTH)

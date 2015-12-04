@@ -3,7 +3,6 @@
 # 
 
 set_param gui.test TreeTableDev
-set_param xicom.use_bs_reader 1
 debug::add_scope template.lib 1
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
@@ -22,6 +21,7 @@ set_property used_in_implementation false [get_files /afs/athena.mit.edu/user/t/
 add_files -quiet /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.runs/video_bram_synth_1/video_bram.dcp
 set_property used_in_implementation false [get_files /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.runs/video_bram_synth_1/video_bram.dcp]
 read_verilog -library xil_defaultlib {
+  /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/new/lfsr.v
   /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/SCCB_interface.v
   /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/OV7670_config_rom.v
   /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.srcs/sources_1/imports/src/OV7670_config.v

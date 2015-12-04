@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="divider_gen_synth_1" LaunchPart="xc7a100tcsg324-3" LaunchTime="1449002633">
-  <File Type="PA-TCL" Name="divider_gen.tcl"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="divider_gen_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="divider_gen_timing_summary_synth.pb"/>
+  <File Type="RDS-DCP" Name="divider_gen.dcp"/>
+  <File Type="RDS-UTIL-PB" Name="divider_gen_utilization_synth.pb"/>
+  <File Type="RDS-PROPCONSTRS" Name="divider_gen_drc_synth.rpt"/>
+  <File Type="RDS-UTIL" Name="divider_gen_utilization_synth.rpt"/>
   <File Type="RUN-STRAT" Name="$PDATADIR/runs/divider_gen_synth_1/divider_gen_synth_1.psg"/>
+  <File Type="PA-TCL" Name="divider_gen.tcl"/>
+  <File Type="RUN-CONSTRS" Name="$PDATADIR/runs/divider_gen_synth_1/constrs_in.xml"/>
   <File Type="VDS-HWDEF" Name="divider_gen.hwdef"/>
   <File Type="RUN-SRCS" Name="$PDATADIR/runs/divider_gen_synth_1/sources.xml"/>
-  <File Type="RUN-CONSTRS" Name="$PDATADIR/runs/divider_gen_synth_1/constrs_in.xml"/>
   <File Type="RDS-RDS" Name="divider_gen.vds"/>
-  <File Type="RDS-UTIL" Name="divider_gen_utilization_synth.rpt"/>
-  <File Type="RDS-PROPCONSTRS" Name="divider_gen_drc_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="divider_gen_utilization_synth.pb"/>
-  <File Type="RDS-DCP" Name="divider_gen.dcp"/>
-  <File Type="VDS-TIMING-PB" Name="divider_gen_timing_summary_synth.pb"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="divider_gen_timing_summary_synth.rpt"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/divider_gen">
     <File Path="$PSRCDIR/sources_1/ip/divider_gen/divider_gen.xci">
       <FileInfo>
