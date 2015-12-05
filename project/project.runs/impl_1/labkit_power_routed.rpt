@@ -1,7 +1,7 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2014.4.1 (lin64) Build 1149489 Thu Feb 19 16:01:47 MST 2015
-| Date             : Sat Dec  5 12:48:21 2015
+| Date             : Sat Dec  5 14:29:26 2015
 | Host             : eecs-digital-24 running 64-bit Ubuntu 12.04.5 LTS
 | Command          : report_power -file labkit_power_routed.rpt -pb labkit_power_summary_routed.pb
 | Design           : labkit
@@ -50,13 +50,13 @@ Table of Contents
 | On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
 +-------------------------+-----------+----------+-----------+-----------------+
 | Clocks                  |     0.002 |        6 |       --- |             --- |
-| Slice Logic             |     0.004 |     1939 |       --- |             --- |
-|   LUT as Logic          |     0.003 |      866 |     63400 |            1.36 |
+| Slice Logic             |     0.004 |     1942 |       --- |             --- |
+|   LUT as Logic          |     0.003 |      869 |     63400 |            1.37 |
 |   CARRY4                |    <0.001 |      106 |     15850 |            0.66 |
 |   Register              |    <0.001 |      537 |    126800 |            0.42 |
 |   LUT as Shift Register |    <0.001 |        8 |     19000 |            0.04 |
 |   BUFG                  |    <0.001 |        3 |        32 |            9.37 |
-|   F7/F8 Muxes           |    <0.001 |       20 |     63400 |            0.03 |
+|   F7/F8 Muxes           |    <0.001 |       21 |     63400 |            0.03 |
 |   Others                |     0.000 |      140 |       --- |             --- |
 | Signals                 |     0.004 |     1461 |       --- |             --- |
 | Block RAM               |     0.009 |     36.5 |       135 |           27.03 |
@@ -74,7 +74,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.035 |       0.019 |      0.016 |
+| Vccint    |       1.000 |     0.034 |       0.019 |      0.016 |
 | Vccaux    |       1.800 |     0.086 |       0.068 |      0.018 |
 | Vcco33    |       3.300 |     0.009 |       0.005 |      0.004 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |

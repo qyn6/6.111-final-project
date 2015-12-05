@@ -1,7 +1,7 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2014.4.1 (lin64) Build 1149489 Thu Feb 19 16:01:47 MST 2015
-| Date         : Sat Dec  5 12:46:51 2015
+| Date         : Sat Dec  5 14:27:56 2015
 | Host         : eecs-digital-24 running 64-bit Ubuntu 12.04.5 LTS
 | Command      : report_utilization -file labkit_utilization_synth.rpt -pb labkit_utilization_synth.pb
 | Design       : labkit
@@ -30,15 +30,15 @@ Table of Contents
 +----------------------------+------+-------+-----------+-------+
 |          Site Type         | Used | Fixed | Available | Util% |
 +----------------------------+------+-------+-----------+-------+
-| Slice LUTs*                |  993 |     0 |     63400 |  1.56 |
-|   LUT as Logic             |  985 |     0 |     63400 |  1.55 |
+| Slice LUTs*                |  995 |     0 |     63400 |  1.56 |
+|   LUT as Logic             |  987 |     0 |     63400 |  1.55 |
 |   LUT as Memory            |    8 |     0 |     19000 |  0.04 |
 |     LUT as Distributed RAM |    0 |     0 |           |       |
 |     LUT as Shift Register  |    8 |     0 |           |       |
 | Slice Registers            |  607 |     0 |    126800 |  0.47 |
 |   Register as Flip Flop    |  607 |     0 |    126800 |  0.47 |
 |   Register as Latch        |    0 |     0 |    126800 |  0.00 |
-| F7 Muxes                   |    2 |     0 |     31700 | <0.01 |
+| F7 Muxes                   |    3 |     0 |     31700 | <0.01 |
 | F8 Muxes                   |    0 |     0 |     15850 |  0.00 |
 +----------------------------+------+-------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
@@ -152,21 +152,21 @@ Table of Contents
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
 | FDRE     |  581 |        Flop & Latch |
-| LUT4     |  296 |                 LUT |
-| LUT6     |  277 |                 LUT |
+| LUT4     |  297 |                 LUT |
+| LUT6     |  278 |                 LUT |
 | LUT5     |  217 |                 LUT |
 | LUT1     |  197 |                 LUT |
-| LUT2     |  188 |                 LUT |
+| LUT2     |  187 |                 LUT |
 | CARRY4   |  134 |          CarryLogic |
-| LUT3     |  101 |                 LUT |
+| LUT3     |  102 |                 LUT |
 | OBUF     |   37 |                  IO |
 | FDSE     |   26 |        Flop & Latch |
 | OBUFT    |   18 |                  IO |
 | IBUF     |   13 |                  IO |
 | SRLC32E  |    8 |  Distributed Memory |
 | BUFG     |    4 |               Clock |
+| MUXF7    |    3 |               MuxFx |
 | DSP48E1  |    3 |    Block Arithmetic |
-| MUXF7    |    2 |               MuxFx |
 | RAMB18E1 |    1 |        Block Memory |
 +----------+------+---------------------+
 

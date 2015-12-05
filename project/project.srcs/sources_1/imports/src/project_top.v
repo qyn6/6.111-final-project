@@ -250,25 +250,25 @@ module labkit(
     
     always @(posedge clock_25mhz) begin
         //magic numbers for thresholds! 
-        if ((vcount1 < 35 && hcount1 < 144) || (vcount1 >= 275 && hcount1 >= 464)) begin
+        if ((vcount0 < 35 && hcount0 < 144) || (vcount0 >= 275 && hcount0 >= 464)) begin
                 read_address <= 0;
  
-        end else if (hcount1 >= 144 && hcount1 < 464 && vcount1 >= 35 && vcount1 < 275) begin
+        end else if (hcount0 >= 144 && hcount0 < 464 && vcount0 >= 35 && vcount0 < 275) begin
                 //read_address <= read_address +1;
-                read_address <= (vcount1-35) * 320 + (hcount1 - 144);
-        end else if (hcount1 >= 469 && hcount1 < 789 && vcount1 >= 35 && vcount1 < 275) begin
-                read_address <= (vcount1-35) * 320 + (hcount1 - 469);
+                read_address <= (vcount0-35) * 320 + (hcount0 - 144);
+        end else if (hcount0 >= 469 && hcount0 < 789 && vcount0 >= 35 && vcount0 < 275) begin
+                read_address <= (vcount0-35) * 320 + (hcount0 - 469);
                 //filter light from camera data in the upper right quadrant to only show the light
                 if (v > 70) begin
                     coord_on <= 1;
                     //reset on vsync
-                    if (vsync1 == 1) begin
+                    if (vsync0 == 1) begin
                         x <= 0;
                         y <= 0;
                     //update x, y coords to where the light pixel is
                     end else begin
-                        x <= hcount1;
-                        y <= vcount1;
+                        x <= hcount0;
+                        y <= vcount0;
                         //flight only turns on for one cycle, then doesn't turn on again unless
                         // it's moved above the threshold and back down again
                         
@@ -290,20 +290,35 @@ module labkit(
     end
     
     //debugging things
-    assign LED[0] =  display_coord_area;
+    assign LED[0] = display_coord_area0;
     assign LED[1] = coord_on;
-    assign LED[2] = at_display_area1;
+    assign LED[2] = at_display_area0;
     assign LED[3] = attack;
     assign LED[4] = flight;
 //////////////////////////////////////////////////////////////////////////////////
 // sample Verilog to generate color bars
     
-    wire [9:0] hcount1;
-    wire [9:0] vcount1;
-    wire hsync1, vsync1, at_display_area1, display_coord_area;
-    vga_camera vga1(.vga_clock(clock_25mhz),.hcount(hcount1),.vcount(vcount1),
-          .hsync(hsync1),.vsync(vsync1),.at_display_area(at_display_area1), .display_coord_area(display_coord_area));
-        
+    wire [9:0] hcount0;
+    wire [9:0] vcount0;
+    wire hsync0, vsync0, at_display_area0, display_coord_area0;
+    vga_camera vga1(.vga_clock(clock_25mhz),.hcount(hcount0),.vcount(vcount0),
+          .hsync(hsync0),.vsync(vsync0),.at_display_area(at_display_area0), .display_coord_area(display_coord_area0));
+    
+//    wire [9:0] hcount2;
+//    wire [9:0] vcount2;
+//    wire hsync2, vsync2, at_display_area2, display_coord_area2;
+//    delayN #(.NDELAY(2))
+//        hcount_delay2(.clk(clock_25mhz),.in(hcount0),.out(hcount2));
+//    delayN #(.NDELAY(2))
+//        vcount_delay2(.clk(clock_25mhz),.in(vcount0),.out(vcount2));
+//    delayN #(.NDELAY(2))
+//        hsync_delay2(.clk(clock_25mhz),.in(hsync0),.out(hsync2));
+//    delayN #(.NDELAY(2))
+//        vsync_delay2(.clk(clock_25mhz),.in(vsync0),.out(vsync2));
+//    delayN #(.NDELAY(2))
+//        at_display_area_delay2(.clk(clock_25mhz),.in(at_display_area0),.out(at_display_area2));
+//    delayN #(.NDELAY(2))
+//        display_coord_area_delay2(.clk(clock_25mhz),.in(display_coord_area0),.out(display_coord_area2));
 ////////////////////////end
         
     //more magic numbers for threshold lines
@@ -395,18 +410,11 @@ module labkit(
 
 //
 //////////////////////////////////////////////////////////////////////////////////
-    
-//    wire [9:0] hcount1;
-//    wire [9:0] vcount1;
-//    wire hsync1, vsync1, at_display_area1, display_coord_area1;
-//    vga_camera vga1(.vga_clock(clock_25mhz),.hcount(hcount1),.vcount(vcount1),
-//          .hsync(hsync1),.vsync(vsync1),.at_display_area(at_display_area1), .display_coord_area(display_coord_area1));
-        
 
     
-    wire [3:0] camera_r = ((vcount1 >= 275 && vcount1 < 280) || (hcount1 >= 464 && hcount1 < 469)) ? 4'hF : at_display_area1 ? {{stored_pixel[15:12]}} : 0;
-    wire [3:0] camera_g = at_display_area1 ? {{stored_pixel[10:7]}} : (display_coord_area && coord_on)? 4'hF: 0;
-    wire [3:0] camera_b = ((vcount1 >= 230 && vcount1 < 235) || hcount1 >= 629 && hcount1 < 633)? 4'hF: at_display_area1 ? {{stored_pixel[4:1]}} : 0;
+    wire [3:0] camera_r = ((vcount0 >= 275 && vcount0 < 280) || (hcount0 >= 464 && hcount0 < 469)) ? 4'hF : at_display_area0 ? {{stored_pixel[15:12]}} : 0;
+    wire [3:0] camera_g = at_display_area0 ? {{stored_pixel[10:7]}} : (display_coord_area0 && coord_on)? 4'hF: 0;
+    wire [3:0] camera_b = ((vcount0 >= 230 && vcount0 < 235) || hcount0 >= 629 && hcount0 < 633)? 4'hF: at_display_area0 ? {{stored_pixel[4:1]}} : 0;
 
 //    wire [11:0] square;
 //    blob pegasus_sprite(.x(11'd100),.y(10'd100),.hcount(hcount),.vcount(vcount),
@@ -422,8 +430,8 @@ module labkit(
     assign VGA_G = SW[7] ? camera_g : game_g;
     assign VGA_B = SW[7] ? camera_b : game_b;
     
-    assign VGA_HS = SW[7] ? ~hsync1 : ~hsync;
-    assign VGA_VS = SW[7] ? ~vsync1 : ~vsync;
+    assign VGA_HS = SW[7] ? ~hsync0 : ~hsync;
+    assign VGA_VS = SW[7] ? ~vsync0 : ~vsync;
 endmodule
 
 module clock_quarter_divider(input clk100_mhz, output reg clock_25mhz = 0);

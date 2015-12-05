@@ -174,7 +174,7 @@ module physics(
     output [3:0] speed);
     
     wire timer_enable, reset;
-    clock_divider #(.COUNT(16_249_999))
+    clock_divider #(.COUNT(8_124_999))
         divider(.clock_65mhz(clock_65mhz),.reset(reset),.timer_enable(timer_enable));
     
     parameter ACCEL = 2;
@@ -184,7 +184,7 @@ module physics(
     reg thrust_ready = 0;
     always @(posedge clock_65mhz) begin
         if (flap && thrust_ready) begin
-            if (dir) vel <= vel + ACCEL;
+            if (dir && vel <= 4) vel <= vel + ACCEL;
             else if (vel < ACCEL) begin
                 vel <= ACCEL - vel;
                 dir <= 1;

@@ -29,7 +29,7 @@ module motion_type(input clock, input [9:0] x_pos, output motion);
         if (x_pos > 640 && ready) begin
             motion <= 1;
             ready <= 0;
-        end else if (x_pos <= 625 && ready == 0) begin
+        end else if (x_pos > 20 && x_pos <= 625 && ready == 0) begin
             motion <= 0;
             ready <= 1;
         end else if (motion == 1) motion <= 0;
