@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2014.4.1 (64-bit)
+# SW Build 1149489 on Thu Feb 19 16:01:47 MST 2015
+# IP Build 1147552 on Wed Feb 18 14:25:16 MST 2015
+# Start of session at: Thu Dec  3 12:15:29 2015
+# Process ID: 27923
+# Log file: /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/vivado.log
+# Journal file: /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project/project.xpr
+update_compile_order -fileset sources_1
+update_compile_order -fileset sim_1
