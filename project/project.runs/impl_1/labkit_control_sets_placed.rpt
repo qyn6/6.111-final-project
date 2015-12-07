@@ -1,7 +1,7 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2014.4.1 (lin64) Build 1149489 Thu Feb 19 16:01:47 MST 2015
-| Date         : Sun Dec  6 20:52:51 2015
+| Date         : Sun Dec  6 23:18:01 2015
 | Host         : eecs-digital-24 running 64-bit Ubuntu 12.04.5 LTS
 | Command      : report_control_sets -verbose -file labkit_control_sets_placed.rpt
 | Design       : labkit
@@ -22,8 +22,8 @@ Table of Contents
 +-------------------------------------------------------------------+-------+
 |                               Status                              | Count |
 +-------------------------------------------------------------------+-------+
-| Number of unique control sets                                     |    46 |
-| Minimum Number of register sites lost to control set restrictions |   147 |
+| Number of unique control sets                                     |    47 |
+| Minimum Number of register sites lost to control set restrictions |   150 |
 +-------------------------------------------------------------------+-------+
 
 
@@ -33,12 +33,12 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |             124 |           66 |
+| No           | No                    | No                     |             141 |           77 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |             160 |           51 |
-| Yes          | No                    | No                     |             150 |           62 |
+| No           | Yes                   | No                     |             172 |           49 |
+| Yes          | No                    | No                     |             150 |           57 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |             195 |           61 |
+| Yes          | Yes                   | No                     |             195 |           60 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -49,51 +49,52 @@ Table of Contents
 |       Clock Signal       |                   Enable Signal                   |             Set/Reset Signal            | Slice Load Count | Bel Load Count |
 +--------------------------+---------------------------------------------------+-----------------------------------------+------------------+----------------+
 |  CLK100MHZ_BUFG          |                                                   |                                         |                2 |              3 |
-|  JB_IBUF_BUFG[6]         |                                                   | tohsv/n_2_max[7]_i_1                    |                1 |              4 |
-|  JB_IBUF_BUFG[6]         | configure/SCCB1/n_2_byte_index[3]_i_1             |                                         |                1 |              4 |
-|  JB_IBUF_BUFG[6]         |                                                   | display/p_0_in[1]                       |                2 |              4 |
-|  pixelclk/inst/clk_65mhz | calc/divider/E[0]                                 | calc/n_2_vel[3]_i_1                     |                1 |              4 |
-|  pixelclk/inst/clk_65mhz | o/E[0]                                            |                                         |                2 |              4 |
-|  JB_IBUF_BUFG[6]         | configure/SCCB1/n_2_FSM_state[3]_i_1              |                                         |                3 |              4 |
-|  JB_IBUF_BUFG[6]         | configure/SCCB1/n_2_FSM_return_state[3]_i_1       |                                         |                2 |              4 |
 |  JB_IBUF_BUFG[6]         | alwaysclock/music_enable                          |                                         |                1 |              4 |
-|  vsync_BUFG              | calc/O2                                           | BTNL_IBUF                               |                2 |              5 |
-|  vsync_BUFG              |                                                   |                                         |                4 |              5 |
+|  pixelclk/inst/clk_65mhz | a/E[0]                                            |                                         |                2 |              4 |
+|  pixelclk/inst/clk_65mhz | calc/divider/E[0]                                 | calc/n_2_vel[3]_i_1                     |                2 |              4 |
+|  JB_IBUF_BUFG[6]         | configure/SCCB1/n_2_FSM_return_state[3]_i_1       |                                         |                3 |              4 |
+|  JB_IBUF_BUFG[6]         | configure/SCCB1/n_2_FSM_state[3]_i_1              |                                         |                4 |              4 |
+|  JB_IBUF_BUFG[6]         | configure/SCCB1/n_2_byte_index[3]_i_1             |                                         |                1 |              4 |
+|  JB_IBUF_BUFG[6]         |                                                   | tohsv/n_2_max[7]_i_1                    |                1 |              4 |
+|  JB_IBUF_BUFG[6]         |                                                   | display/p_0_in[1]                       |                2 |              4 |
 |  vsync_BUFG              | calc/E[0]                                         | g/SR[0]                                 |                3 |              5 |
-|  n_0_3663_BUFG           |                                                   |                                         |                3 |              7 |
+|  vsync_BUFG              | calc/O2                                           | BTNL_IBUF                               |                3 |              5 |
+|  vsync_BUFG              |                                                   |                                         |                5 |              5 |
 |  JB_IBUF_BUFG[6]         | configure/rom1/O4                                 | configure/config_1/n_2_timer[17]_i_1    |                2 |              7 |
-|  CLK100MHZ_BUFG          |                                                   | BTNL_IBUF                               |                3 |              8 |
-|  JB_IBUF_BUFG[6]         | configure/SCCB1/n_2_tx_byte[7]_i_1                |                                         |                4 |              8 |
+|  n_0_3637_BUFG           |                                                   |                                         |                3 |              7 |
+|  n_0_3637_BUFG           | camera_read_1/n_2_pixel_data[15]_i_1              |                                         |                4 |              8 |
+|  CLK100MHZ_BUFG          |                                                   | BTNL_IBUF                               |                2 |              8 |
+|  n_0_3637_BUFG           | camera_read_1/camera_memory_we                    |                                         |                4 |              8 |
+|  JB_IBUF_BUFG[6]         | laserclock/laser_enable                           |                                         |                2 |              8 |
 |  JB_IBUF_BUFG[6]         | laserclock/E[0]                                   |                                         |                2 |              8 |
-|  JB_IBUF_BUFG[6]         | laserclock/laser_enable                           |                                         |                3 |              8 |
-|  n_0_3663_BUFG           | camera_read_1/n_2_pixel_data[15]_i_1              |                                         |                2 |              8 |
-|  n_0_3663_BUFG           | camera_read_1/camera_memory_we                    |                                         |                5 |              8 |
-|  JB_IBUF_BUFG[6]         | configure/SCCB1/n_2_timer[8]_i_1                  |                                         |                4 |              9 |
-| ~vsync_BUFG              |                                                   |                                         |                5 |              9 |
-|  JB_IBUF_BUFG[6]         |                                                   | vga640/n_2_hcount[9]_i_1__0             |                3 |             10 |
-|  n_0_3663_BUFG           | camera_read_1/camera_memory_we                    | camera_read_1/SR[0]                     |                4 |             10 |
-|  JB_IBUF_BUFG[6]         | vga640/n_2_vcount[9]_i_2                          | vga640/n_2_vcount[9]_i_1                |                4 |             10 |
+|  JB_IBUF_BUFG[6]         | configure/SCCB1/n_2_tx_byte[7]_i_1                |                                         |                2 |              8 |
+| ~vsync_BUFG              |                                                   |                                         |                7 |              9 |
+|  JB_IBUF_BUFG[6]         | configure/SCCB1/n_2_timer[8]_i_1                  |                                         |                3 |              9 |
+|  n_0_3637_BUFG           | camera_read_1/camera_memory_we                    | camera_read_1/SR[0]                     |                3 |             10 |
+|  JB_IBUF_BUFG[6]         | vga640/n_2_vcount[9]_i_2                          | vga640/n_2_vcount[9]_i_1                |                3 |             10 |
 |  pixelclk/inst/clk_65mhz | vga1024/n_2_vcount[9]_i_2__0                      | vga1024/n_2_vcount[9]_i_1__0            |                4 |             10 |
+|  JB_IBUF_BUFG[6]         |                                                   | vga640/n_2_hcount[9]_i_1__0             |                2 |             10 |
 |  vsync_BUFG              |                                                   | BTNL_IBUF                               |                5 |             11 |
-|  pixelclk/inst/clk_65mhz | control/obstacle_hit                              | vga1024/SR[0]                           |                3 |             11 |
-|  pixelclk/inst/clk_65mhz |                                                   | vga1024/n_2_hcount[10]_i_1              |                9 |             11 |
+|  pixelclk/inst/clk_65mhz | control/I3[0]                                     | vga1024/SR[0]                           |                3 |             11 |
+|  pixelclk/inst/clk_65mhz |                                                   | vga1024/n_2_hcount[10]_i_1              |                4 |             11 |
+|  pixelclk/inst/clk_65mhz |                                                   | vga1024/O108                            |                5 |             12 |
 |  JB_IBUF_BUFG[6]         | laserclock/laser_add0                             | motion_type/attack                      |                4 |             15 |
-|  JB_IBUF_BUFG[6]         | configure/config_1/n_2_SCCB_interface_data[7]_i_1 |                                         |                4 |             16 |
-|  JB_IBUF_BUFG[6]         | configure/rom1/E[0]                               |                                         |                5 |             16 |
+|  JB_IBUF_BUFG[6]         | configure/config_1/n_2_SCCB_interface_data[7]_i_1 |                                         |                3 |             16 |
+|  JB_IBUF_BUFG[6]         | configure/rom1/E[0]                               |                                         |                4 |             16 |
 |  JB_IBUF_BUFG[6]         | configure/SCCB1/n_2_latched_data[7]_i_1           |                                         |                3 |             16 |
-|  JB_IBUF_BUFG[6]         | vga640/E[0]                                       | vga640/SR[0]                            |                6 |             17 |
-|  pixelclk/inst/clk_65mhz |                                                   |                                         |               10 |             17 |
-|  n_0_3663_BUFG           | camera_read_1/O1                                  | camera_read_1/O5                        |                5 |             17 |
+|  n_0_3637_BUFG           | camera_read_1/O1                                  | camera_read_1/O5                        |                5 |             17 |
+|  JB_IBUF_BUFG[6]         | vga640/E[0]                                       | vga640/SR[0]                            |                5 |             17 |
 |  JB_IBUF_BUFG[6]         | alwaysclock/music_enable                          | BTNL_IBUF                               |                5 |             18 |
 |  JB_IBUF_BUFG[6]         | tohsv/E[0]                                        | vga640/O4[0]                            |                5 |             19 |
 |  JB_IBUF_BUFG[6]         | configure/SCCB1/n_2_timer[8]_i_1                  | configure/SCCB1/n_2_timer[31]_i_1       |                5 |             23 |
 |  JB_IBUF_BUFG[6]         | configure/rom1/O4                                 | configure/config_1/n_2_timer[31]_i_1__0 |                8 |             24 |
 |  JB_IBUF_BUFG[6]         |                                                   | laserclock/n_2_counter[24]_i_1__0       |                6 |             24 |
 |  JB_IBUF_BUFG[6]         |                                                   | alwaysclock/n_2_counter[24]_i_1         |                6 |             24 |
-|  pixelclk/inst/clk_65mhz |                                                   | motion_type/O1                          |                8 |             32 |
 |  pixelclk/inst/clk_65mhz |                                                   | calc/divider/timer_enable               |                8 |             32 |
-| ~vsync_BUFG              | o/p/p_0_in                                        |                                         |               21 |             33 |
-|  JB_IBUF_BUFG[6]         |                                                   |                                         |               44 |             88 |
+|  pixelclk/inst/clk_65mhz |                                                   | motion_type/O1                          |                8 |             32 |
+| ~vsync_BUFG              | o/p/p_0_in                                        |                                         |               19 |             33 |
+|  pixelclk/inst/clk_65mhz |                                                   |                                         |               21 |             34 |
+|  JB_IBUF_BUFG[6]         |                                                   |                                         |               41 |             88 |
 +--------------------------+---------------------------------------------------+-----------------------------------------+------------------+----------------+
 
 

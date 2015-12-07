@@ -19,13 +19,14 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-
+//pseudo-random number generator
+//returns 2-bit value using 4-bit linear feedback shift register
 module lfsr(
     input clk,
     output [1:0] random
     );
     
-    reg [3:0] random4 = 4'b1001;
+    reg [3:0] random4 = 4'b1001;    //seed = 9
     always @(posedge clk) begin
         random4 <= {random4[3]^random4[0], random4[3:1]};
     end

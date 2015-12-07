@@ -83,7 +83,7 @@ module labkit(
  
     laser_bram laser_bram(.clka(clock_25mhz), .ena(laser_enable), .addra(laser_add), .douta(laser_read));
     
-    audio_PWM bg_music(.clk(CLK100MHZ), .reset(reset), .music_data(total_read), .PWM_out(music_out));
+    audio_PWM bg_music(.clk(CLK100MHZ), .reset(reset), .music_data({total_read[7],total_read[7],total_read[7],total_read[7],total_read[7],total_read[7],total_read[7],total_read[7]}), .PWM_out(music_out));
 
     //play music
     always @(posedge clock_25mhz) begin
@@ -289,26 +289,31 @@ module labkit(
 //////////////////////////////////////////////////////////////////////////////////
 // Game Logic
 
+    //start game from splash screen
     wire reset = BTNL;
     wire locked;
 
     wire clock_65mhz;
     clk_wiz_0 pixelclk(.clk_100mhz(CLK100MHZ),.clk_65mhz(clock_65mhz),.reset(0),.locked(locked));
     
+    //1024x768 pixels
     wire [10:0] hcount;
     wire [9:0] vcount;
     wire hsync, vsync, at_display_area;
     vga vga1024(.vga_clock(clock_65mhz),.hcount(hcount),.vcount(vcount),
         .hsync(hsync),.vsync(vsync),.at_display_area(at_display_area));
     
+    //calculates pegasus velocity from flap motions
     wire dir;
     wire [3:0] speed;
     wire hit_top;
     physics calc(.clock_65mhz(clock_65mhz),.flap(flight),.vsync(vsync),.hit_top(hit_top),
         .dir(dir),.speed(speed));
     
+    //game pixel to display
     wire [11:0] pixel;
     
+    //pegasus sprite
     wire [11:0] pegasus_pixel;
     wire on_ground, over_ground;
     wire [10:0] attack_x;
@@ -318,11 +323,13 @@ module labkit(
         .over_ground(over_ground),
         .attack_x(attack_x),.attack_y(attack_y),.pegasus_pixel(pegasus_pixel),.hit_top(hit_top));
     
+    //ground block
     wire [11:0] ground_pixel;
     ground g(.clock_65mhz(clock_65mhz),.reset(reset),.hcount(hcount),.vcount(vcount),
         .hsync(hsync),.vsync(vsync),
         .over_ground(over_ground),.ground_pixel(ground_pixel));
     
+    //obstacle sprites
     wire obstacle_hit;
     wire [3:0] hit_index,obstacle_index;
     wire [11:0] obstacle_pixel;
@@ -331,17 +338,20 @@ module labkit(
         .obstacle_hit(obstacle_hit),.hit_index(hit_index),
         .obstacle_index(obstacle_index),.obstacle_pixel(obstacle_pixel));
     
+    //attack beam
     wire [11:0] attack_pixel;
     attack a(.clock_65mhz(clock_65mhz),.hcount(hcount),.vcount(vcount),
         .hsync(hsync),.vsync(vsync),
         .attack_x(attack_x),.attack_y(attack_y),.enable(attack),.obstacle_hit(obstacle_hit),
         .attack_pixel(attack_pixel));
     
+    //splash screen
     wire [11:0] end_pixel;
     endscreen e(.clock_25mhz(clock_25mhz),.hcount(hcount0),.vcount(vcount0),
         .hsync(hsync0),.vsync(vsync0),
         .end_pixel(end_pixel));
     
+    //gameplay controller, determines display and game over
     wire game_over;
     controller control(.clock_65mhz(clock_65mhz),.reset(reset),.hcount(hcount),.vcount(vcount),
         .hsync(hsync),.vsync(vsync),.obstacle_index(obstacle_index),
@@ -352,36 +362,29 @@ module labkit(
 //
 //////////////////////////////////////////////////////////////////////////////////
 
-    
+    //displays downscaled camera video in top left quadrant
+    //displays location of IR light (player hand) in top right quadrant
     wire [3:0] camera_r = ((vcount0 >= 275 && vcount0 < 280) || (hcount0 >= 464 && hcount0 < 469)) ? 4'hF : at_display_area0 ? {{stored_pixel[3:2],2'b0}} : 0;
     wire [3:0] camera_g = at_display_area0 ? {{stored_pixel[7:4]}} : (display_coord_area0 && coord_on)? 4'hF: 0;
     wire [3:0] camera_b = ((vcount0 >= 230 && vcount0 < 235) || hcount0 >= 629 && hcount0 < 633)? 4'hF: at_display_area0 ? {{stored_pixel[1:0],2'b0}} : 0;
-                
+    
+    ///displays game sprites/background
     wire [3:0] game_r = at_display_area ? pixel[11:8] : 0;
     wire [3:0] game_g = at_display_area ? pixel[7:4] : 0;
     wire [3:0] game_b = at_display_area ? pixel[3:0] : 0;
     
+    //displays splash screen
     wire [3:0] splash_r = at_display_area1 ? end_pixel[11:8] : 0;
     wire [3:0] splash_g = at_display_area1 ? end_pixel[7:4] : 0;
     wire [3:0] splash_b = at_display_area1 ? end_pixel[3:0] : 0;
-            
+    
+    //SW[7] displays camera view for debugging purposes
     assign VGA_R = SW[7] ? camera_r : game_over ? splash_r : game_r;
     assign VGA_G = SW[7] ? camera_g : game_over ? splash_g : game_g;
     assign VGA_B = SW[7] ? camera_b : game_over ? splash_b :game_b;
     
     assign VGA_HS = SW[7] || game_over ? ~hsync0 : ~hsync;
     assign VGA_VS = SW[7] || game_over ? ~vsync0 : ~vsync;
-endmodule
-
-module clock_quarter_divider(input clk100_mhz, output reg clock_25mhz = 0);
-    reg counter = 0;
-    
-    always @(posedge clk100_mhz) begin
-        counter <= counter + 1;
-        if (counter == 0) begin
-            clock_25mhz <= ~clock_25mhz;
-        end
-    end
 endmodule
 
 //640x480 vga

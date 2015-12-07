@@ -1,0 +1,834 @@
+#-----------------------------------------------------------
+# Vivado v2014.4.1 (64-bit)
+# SW Build 1149489 on Thu Feb 19 16:01:47 MST 2015
+# IP Build 1147552 on Wed Feb 18 14:25:16 MST 2015
+# Start of session at: Tue Dec  1 15:25:12 2015
+# Process ID: 21300
+# Log file: /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.runs/synth_1/labkit.vds
+# Journal file: /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.runs/synth_1/vivado.jou
+#-----------------------------------------------------------
+source labkit.tcl
+# set_param gui.test TreeTableDev
+# debug::add_scope template.lib 1
+# set_msg_config -id {HDL 9-1061} -limit 100000
+# set_msg_config -id {HDL 9-1654} -limit 100000
+# create_project -in_memory -part xc7a100tcsg324-3
+# set_param project.compositeFile.enableAutoGeneration 0
+# set_param synth.vivado.isSynthRun true
+# set_property webtalk.parent_dir /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.cache/wt [current_project]
+# set_property parent.project_path /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.xpr [current_project]
+# set_property default_lib xil_defaultlib [current_project]
+# set_property target_language Verilog [current_project]
+# add_files -quiet /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.runs/video_bram_synth_1/video_bram.dcp
+# set_property used_in_implementation false [get_files /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.runs/video_bram_synth_1/video_bram.dcp]
+# add_files -quiet /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.runs/divider_gen_synth_1/divider_gen.dcp
+# set_property used_in_implementation false [get_files /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.runs/divider_gen_synth_1/divider_gen.dcp]
+# read_verilog -library xil_defaultlib {
+#   /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/SCCB_interface.v
+#   /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/OV7670_config_rom.v
+#   /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/OV7670_config.v
+#   /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/camera_read.v
+#   /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/camera_configure.v
+#   /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/project_top.v
+#   /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/rgb2hsv.v
+#   /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/display_8hex.v
+# }
+# read_xdc /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/constrs_1/imports/Downloads/Nexys4DDR_Master_lab4.xdc
+# set_property used_in_implementation false [get_files /afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/constrs_1/imports/Downloads/Nexys4DDR_Master_lab4.xdc]
+# catch { write_hwdef -file labkit.hwdef }
+INFO: [Vivado_Tcl 4-279] hardware handoff file cannot be generated as there is no block diagram instance in the design
+# synth_design -top labkit -part xc7a100tcsg324-3
+Command: synth_design -top labkit -part xc7a100tcsg324-3
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+WARNING: [Synth 8-2611] redeclaration of ansi port motion is not allowed [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/project_top.v:236]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 917.098 ; gain = 152.723 ; free physical = 3376 ; free virtual = 14114
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'labkit' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/project_top.v:22]
+	Parameter MAX_ADDRESS bound to: 17'b11111111111111111 
+INFO: [Synth 8-638] synthesizing module 'clock_quarter_divider' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/project_top.v:247]
+INFO: [Synth 8-256] done synthesizing module 'clock_quarter_divider' (1#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/project_top.v:247]
+INFO: [Synth 8-638] synthesizing module 'display_8hex' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/display_8hex.v:16]
+	Parameter bits bound to: 13 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'display_8hex' (2#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/display_8hex.v:16]
+INFO: [Synth 8-638] synthesizing module 'camera_configure' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/camera_configure.v:23]
+	Parameter CLK_FREQ bound to: 25000000 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'OV7670_config_rom' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/OV7670_config_rom.v:23]
+INFO: [Synth 8-256] done synthesizing module 'OV7670_config_rom' (3#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/OV7670_config_rom.v:23]
+INFO: [Synth 8-638] synthesizing module 'OV7670_config' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/OV7670_config.v:23]
+	Parameter CLK_FREQ bound to: 25000000 - type: integer 
+	Parameter FSM_IDLE bound to: 0 - type: integer 
+	Parameter FSM_SEND_CMD bound to: 1 - type: integer 
+	Parameter FSM_DONE bound to: 2 - type: integer 
+	Parameter FSM_TIMER bound to: 3 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/OV7670_config.v:58]
+INFO: [Synth 8-256] done synthesizing module 'OV7670_config' (4#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/OV7670_config.v:23]
+INFO: [Synth 8-638] synthesizing module 'SCCB_interface' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/SCCB_interface.v:23]
+	Parameter CLK_FREQ bound to: 25000000 - type: integer 
+	Parameter SCCB_FREQ bound to: 100000 - type: integer 
+	Parameter CAMERA_ADDR bound to: 8'b01000010 
+	Parameter FSM_IDLE bound to: 0 - type: integer 
+	Parameter FSM_START_SIGNAL bound to: 1 - type: integer 
+	Parameter FSM_LOAD_BYTE bound to: 2 - type: integer 
+	Parameter FSM_TX_BYTE_1 bound to: 3 - type: integer 
+	Parameter FSM_TX_BYTE_2 bound to: 4 - type: integer 
+	Parameter FSM_TX_BYTE_3 bound to: 5 - type: integer 
+	Parameter FSM_TX_BYTE_4 bound to: 6 - type: integer 
+	Parameter FSM_END_SIGNAL_1 bound to: 7 - type: integer 
+	Parameter FSM_END_SIGNAL_2 bound to: 8 - type: integer 
+	Parameter FSM_END_SIGNAL_3 bound to: 9 - type: integer 
+	Parameter FSM_END_SIGNAL_4 bound to: 10 - type: integer 
+	Parameter FSM_DONE bound to: 11 - type: integer 
+	Parameter FSM_TIMER bound to: 12 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/SCCB_interface.v:72]
+INFO: [Synth 8-256] done synthesizing module 'SCCB_interface' (5#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/SCCB_interface.v:23]
+INFO: [Synth 8-256] done synthesizing module 'camera_configure' (6#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/camera_configure.v:23]
+INFO: [Synth 8-638] synthesizing module 'camera_read' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/camera_read.v:21]
+	Parameter WAIT_FRAME_START bound to: 0 - type: integer 
+	Parameter ROW_CAPTURE bound to: 1 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/camera_read.v:42]
+INFO: [Synth 8-256] done synthesizing module 'camera_read' (7#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/camera_read.v:21]
+INFO: [Synth 8-638] synthesizing module 'rgb2hsv' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/rgb2hsv.v:22]
+INFO: [Synth 8-638] synthesizing module 'divider_gen' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.runs/synth_1/.Xil/Vivado-21300-eecs-digital-24/realtime/divider_gen_stub.v:7]
+INFO: [Synth 8-256] done synthesizing module 'divider_gen' (8#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.runs/synth_1/.Xil/Vivado-21300-eecs-digital-24/realtime/divider_gen_stub.v:7]
+INFO: [Synth 8-256] done synthesizing module 'rgb2hsv' (9#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/rgb2hsv.v:22]
+INFO: [Synth 8-638] synthesizing module 'video_bram' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.runs/synth_1/.Xil/Vivado-21300-eecs-digital-24/realtime/video_bram_stub.v:7]
+INFO: [Synth 8-256] done synthesizing module 'video_bram' (10#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.runs/synth_1/.Xil/Vivado-21300-eecs-digital-24/realtime/video_bram_stub.v:7]
+INFO: [Synth 8-638] synthesizing module 'motion_type' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/project_top.v:234]
+INFO: [Synth 8-256] done synthesizing module 'motion_type' (11#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/project_top.v:234]
+INFO: [Synth 8-638] synthesizing module 'vga' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/project_top.v:258]
+INFO: [Synth 8-256] done synthesizing module 'vga' (12#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/project_top.v:258]
+WARNING: [Synth 8-3848] Net camera_reset in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/project_top.v:64]
+WARNING: [Synth 8-3848] Net camera_pwdn in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/project_top.v:63]
+WARNING: [Synth 8-3848] Net LED16_B in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/project_top.v:35]
+WARNING: [Synth 8-3848] Net LED16_G in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/project_top.v:35]
+WARNING: [Synth 8-3848] Net LED16_R in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/project_top.v:35]
+WARNING: [Synth 8-3848] Net LED17_B in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/project_top.v:36]
+WARNING: [Synth 8-3848] Net LED17_G in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/project_top.v:36]
+WARNING: [Synth 8-3848] Net LED17_R in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/project_top.v:36]
+INFO: [Synth 8-256] done synthesizing module 'labkit' (13#1) [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/project_top.v:22]
+WARNING: [Synth 8-3331] design labkit has unconnected port LED16_B
+WARNING: [Synth 8-3331] design labkit has unconnected port LED16_G
+WARNING: [Synth 8-3331] design labkit has unconnected port LED16_R
+WARNING: [Synth 8-3331] design labkit has unconnected port LED17_B
+WARNING: [Synth 8-3331] design labkit has unconnected port LED17_G
+WARNING: [Synth 8-3331] design labkit has unconnected port LED17_R
+WARNING: [Synth 8-3331] design labkit has unconnected port LED[15]
+WARNING: [Synth 8-3331] design labkit has unconnected port LED[14]
+WARNING: [Synth 8-3331] design labkit has unconnected port LED[13]
+WARNING: [Synth 8-3331] design labkit has unconnected port LED[12]
+WARNING: [Synth 8-3331] design labkit has unconnected port LED[11]
+WARNING: [Synth 8-3331] design labkit has unconnected port LED[9]
+WARNING: [Synth 8-3331] design labkit has unconnected port LED[8]
+WARNING: [Synth 8-3331] design labkit has unconnected port LED[7]
+WARNING: [Synth 8-3331] design labkit has unconnected port LED[6]
+WARNING: [Synth 8-3331] design labkit has unconnected port LED[5]
+WARNING: [Synth 8-3917] design labkit has port SEG[7] driven by constant 1
+WARNING: [Synth 8-3331] design labkit has unconnected port JB[0]
+WARNING: [Synth 8-3331] design labkit has unconnected port JC[7]
+WARNING: [Synth 8-3331] design labkit has unconnected port JC[6]
+WARNING: [Synth 8-3331] design labkit has unconnected port JC[5]
+WARNING: [Synth 8-3331] design labkit has unconnected port JC[4]
+WARNING: [Synth 8-3331] design labkit has unconnected port JC[3]
+WARNING: [Synth 8-3331] design labkit has unconnected port JC[2]
+WARNING: [Synth 8-3331] design labkit has unconnected port JC[1]
+WARNING: [Synth 8-3331] design labkit has unconnected port JC[0]
+WARNING: [Synth 8-3331] design labkit has unconnected port JD[7]
+WARNING: [Synth 8-3331] design labkit has unconnected port JD[6]
+WARNING: [Synth 8-3331] design labkit has unconnected port JD[5]
+WARNING: [Synth 8-3331] design labkit has unconnected port JD[4]
+WARNING: [Synth 8-3331] design labkit has unconnected port JD[3]
+WARNING: [Synth 8-3331] design labkit has unconnected port JD[2]
+WARNING: [Synth 8-3331] design labkit has unconnected port JD[1]
+WARNING: [Synth 8-3331] design labkit has unconnected port JD[0]
+WARNING: [Synth 8-3331] design labkit has unconnected port SW[15]
+WARNING: [Synth 8-3331] design labkit has unconnected port SW[14]
+WARNING: [Synth 8-3331] design labkit has unconnected port SW[13]
+WARNING: [Synth 8-3331] design labkit has unconnected port SW[12]
+WARNING: [Synth 8-3331] design labkit has unconnected port SW[11]
+WARNING: [Synth 8-3331] design labkit has unconnected port SW[10]
+WARNING: [Synth 8-3331] design labkit has unconnected port SW[9]
+WARNING: [Synth 8-3331] design labkit has unconnected port SW[8]
+WARNING: [Synth 8-3331] design labkit has unconnected port SW[7]
+WARNING: [Synth 8-3331] design labkit has unconnected port SW[6]
+WARNING: [Synth 8-3331] design labkit has unconnected port SW[5]
+WARNING: [Synth 8-3331] design labkit has unconnected port SW[4]
+WARNING: [Synth 8-3331] design labkit has unconnected port SW[3]
+WARNING: [Synth 8-3331] design labkit has unconnected port SW[2]
+WARNING: [Synth 8-3331] design labkit has unconnected port SW[1]
+WARNING: [Synth 8-3331] design labkit has unconnected port SW[0]
+WARNING: [Synth 8-3331] design labkit has unconnected port BTNC
+WARNING: [Synth 8-3331] design labkit has unconnected port BTNL
+WARNING: [Synth 8-3331] design labkit has unconnected port BTNR
+WARNING: [Synth 8-3331] design labkit has unconnected port BTND
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 942.355 ; gain = 177.980 ; free physical = 3334 ; free virtual = 14083
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:10 . Memory (MB): peak = 942.355 ; gain = 177.980 ; free physical = 3302 ; free virtual = 14079
+---------------------------------------------------------------------------------
+Loading clock regions from /mit/6.111/xilinx-vivado/Vivado/2014.4/data/parts/xilinx/artix7/artix7/xc7a100t/ClockRegion.xml
+Loading clock buffers from /mit/6.111/xilinx-vivado/Vivado/2014.4/data/parts/xilinx/artix7/artix7/xc7a100t/ClockBuffers.xml
+Loading clock placement rules from /mit/6.111/xilinx-vivado/Vivado/2014.4/data/parts/xilinx/artix7/ClockPlacerRules.xml
+Loading package pin functions from /mit/6.111/xilinx-vivado/Vivado/2014.4/data/parts/xilinx/artix7/PinFunctions.xml...
+Loading package from /mit/6.111/xilinx-vivado/Vivado/2014.4/data/parts/xilinx/artix7/artix7/xc7a100t/csg324/Package.xml
+Loading io standards from /mit/6.111/xilinx-vivado/Vivado/2014.4/data/./parts/xilinx/artix7/IOStandards.xml
+Loading device configuration modes from /mit/6.111/xilinx-vivado/Vivado/2014.4/data/parts/xilinx/artix7/ConfigModes.xml
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/constrs_1/imports/Downloads/Nexys4DDR_Master_lab4.xdc]
+WARNING: [Vivado 12-507] No nets matched 'n_1_n_0_107_BUFG_inst'. [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/constrs_1/imports/Downloads/Nexys4DDR_Master_lab4.xdc:9]
+Finished Parsing XDC File [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/constrs_1/imports/Downloads/Nexys4DDR_Master_lab4.xdc]
+WARNING: [Project 1-498] One or more constraints failed evaluation while reading constraint file [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/constrs_1/imports/Downloads/Nexys4DDR_Master_lab4.xdc] and the design contains unresolved black boxes. These constraints will be read post-synthesis (as long as their source constraint file is marked as used_in_implementation) and should be applied correctly then. You should review the constraints listed in the file [.Xil/labkit_propImpl.xdc] and check the run log file to verify that these constraints were correctly applied.
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1270.602 ; gain = 0.000 ; free physical = 3086 ; free virtual = 13856
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:21 . Memory (MB): peak = 1270.602 ; gain = 506.227 ; free physical = 3120 ; free virtual = 13873
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-3
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:21 . Memory (MB): peak = 1270.602 ; gain = 506.227 ; free physical = 3120 ; free virtual = 13873
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:21 . Memory (MB): peak = 1270.602 ; gain = 506.227 ; free physical = 3126 ; free virtual = 13879
+---------------------------------------------------------------------------------
+ROM "FSM_state" won't be mapped to RAM because it is too sparse.
+ROM "timer0" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "FSM_state0" won't be mapped to Block RAM because address size (2) smaller than threshold (5) 
+ROM "FSM_state0" won't be mapped to Block RAM because address size (4) smaller than threshold (5) 
+ROM "timer0" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+INFO: [Synth 8-3537] HDL ADVISOR - The operator resource <multiplier> is shared. To prevent sharing consider applying a KEEP on the inputs of the operator [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/rgb2hsv.v:131]
+INFO: [Synth 8-3537] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the inputs of the operator [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/rgb2hsv.v:131]
+INFO: [Synth 8-3537] HDL ADVISOR - The operator resource <multiplier> is shared. To prevent sharing consider applying a KEEP on the inputs of the operator [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/rgb2hsv.v:126]
+INFO: [Synth 8-3537] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the inputs of the operator [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/rgb2hsv.v:126]
+INFO: [Synth 8-3537] HDL ADVISOR - The operator resource <multiplier> is shared. To prevent sharing consider applying a KEEP on the inputs of the operator [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/rgb2hsv.v:125]
+INFO: [Synth 8-3537] HDL ADVISOR - The operator resource <multiplier> is shared. To prevent sharing consider applying a KEEP on the inputs of the operator [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/rgb2hsv.v:121]
+INFO: [Synth 8-3537] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the inputs of the operator [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/rgb2hsv.v:121]
+INFO: [Synth 8-3537] HDL ADVISOR - The operator resource <multiplier> is shared. To prevent sharing consider applying a KEEP on the inputs of the operator [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/rgb2hsv.v:85]
+INFO: [Synth 8-3537] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the inputs of the operator [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/rgb2hsv.v:149]
+ROM "vcount" won't be mapped to RAM because it is too sparse.
+INFO: [Synth 8-3537] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the inputs of the operator [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/project_top.v:174]
+WARNING: [Synth 8-3848] Net camera_reset in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/project_top.v:64]
+WARNING: [Synth 8-3848] Net camera_pwdn in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/project_top.v:63]
+WARNING: [Synth 8-3848] Net LED16_B in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/project_top.v:35]
+WARNING: [Synth 8-3848] Net LED16_G in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/project_top.v:35]
+WARNING: [Synth 8-3848] Net LED16_R in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/project_top.v:35]
+WARNING: [Synth 8-3848] Net LED17_B in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/project_top.v:36]
+WARNING: [Synth 8-3848] Net LED17_G in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/project_top.v:36]
+WARNING: [Synth 8-3848] Net LED17_R in module/entity labkit does not have driver. [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/project_top.v:36]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:18 ; elapsed = 00:00:22 . Memory (MB): peak = 1270.602 ; gain = 506.227 ; free physical = 3097 ; free virtual = 13850
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 2     
+	   2 Input     17 Bit       Adders := 2     
+	   2 Input     16 Bit       Adders := 3     
+	   2 Input     10 Bit       Adders := 3     
+	   2 Input      8 Bit       Adders := 1     
+	   3 Input      8 Bit       Adders := 2     
+	   2 Input      4 Bit       Adders := 1     
+	   2 Input      2 Bit       Adders := 1     
+	   2 Input      1 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 2     
+	               19 Bit    Registers := 1     
+	               17 Bit    Registers := 2     
+	               16 Bit    Registers := 5     
+	               10 Bit    Registers := 5     
+	                8 Bit    Registers := 62    
+	                7 Bit    Registers := 1     
+	                4 Bit    Registers := 3     
+	                3 Bit    Registers := 2     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 17    
++---ROMs : 
+	                              ROMs := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 4     
+	   4 Input     32 Bit        Muxes := 1     
+	   3 Input     32 Bit        Muxes := 1     
+	  14 Input     32 Bit        Muxes := 1     
+	   2 Input     17 Bit        Muxes := 2     
+	   2 Input     16 Bit        Muxes := 8     
+	   3 Input     16 Bit        Muxes := 1     
+	   2 Input     12 Bit        Muxes := 1     
+	   2 Input     10 Bit        Muxes := 4     
+	   8 Input      8 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 10    
+	   4 Input      8 Bit        Muxes := 2     
+	  14 Input      8 Bit        Muxes := 1     
+	   3 Input      8 Bit        Muxes := 1     
+	  16 Input      7 Bit        Muxes := 8     
+	   2 Input      4 Bit        Muxes := 8     
+	  14 Input      4 Bit        Muxes := 2     
+	   2 Input      3 Bit        Muxes := 1     
+	   4 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 9     
+	   3 Input      2 Bit        Muxes := 1     
+	  14 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 38    
+	   4 Input      1 Bit        Muxes := 8     
+	   3 Input      1 Bit        Muxes := 5     
+	  14 Input      1 Bit        Muxes := 11    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module labkit 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     17 Bit       Adders := 2     
+	   2 Input     10 Bit       Adders := 1     
++---Registers : 
+	               17 Bit    Registers := 2     
+	               16 Bit    Registers := 1     
+	               10 Bit    Registers := 3     
+	                1 Bit    Registers := 6     
++---Muxes : 
+	   2 Input     17 Bit        Muxes := 2     
+	   2 Input     10 Bit        Muxes := 2     
+	   2 Input      4 Bit        Muxes := 5     
+	   2 Input      1 Bit        Muxes := 11    
+Module clock_quarter_divider 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      1 Bit       Adders := 1     
++---Registers : 
+	                1 Bit    Registers := 2     
+Module display_8hex 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 1     
+	                7 Bit    Registers := 1     
++---Muxes : 
+	   8 Input      8 Bit        Muxes := 1     
+	  16 Input      7 Bit        Muxes := 8     
+Module OV7670_config_rom 
+Detailed RTL Component Info : 
++---Registers : 
+	               16 Bit    Registers := 1     
++---ROMs : 
+	                              ROMs := 1     
+Module OV7670_config 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
+	   2 Input      8 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
+	                8 Bit    Registers := 3     
+	                3 Bit    Registers := 2     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 3     
+	   4 Input     32 Bit        Muxes := 1     
+	   3 Input     32 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 1     
+	   4 Input      8 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 1     
+	   4 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	   3 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 12    
+	   4 Input      1 Bit        Muxes := 8     
+	   3 Input      1 Bit        Muxes := 4     
+Module SCCB_interface 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
+	   2 Input      4 Bit       Adders := 1     
+	   2 Input      2 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
+	                8 Bit    Registers := 3     
+	                4 Bit    Registers := 3     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	  14 Input     32 Bit        Muxes := 1     
+	  14 Input      8 Bit        Muxes := 1     
+	   4 Input      8 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 3     
+	  14 Input      4 Bit        Muxes := 2     
+	  14 Input      2 Bit        Muxes := 1     
+	  14 Input      1 Bit        Muxes := 11    
+	   2 Input      1 Bit        Muxes := 1     
+Module camera_configure 
+Detailed RTL Component Info : 
+Module camera_read 
+Detailed RTL Component Info : 
++---Registers : 
+	               16 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 4     
+	   2 Input      2 Bit        Muxes := 5     
+	   2 Input      1 Bit        Muxes := 10    
+Module rgb2hsv 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     16 Bit       Adders := 3     
+	   3 Input      8 Bit       Adders := 2     
++---Registers : 
+	               19 Bit    Registers := 1     
+	               16 Bit    Registers := 2     
+	                8 Bit    Registers := 55    
++---Muxes : 
+	   2 Input     16 Bit        Muxes := 4     
+	   3 Input     16 Bit        Muxes := 1     
+	   2 Input     12 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 9     
+	   3 Input      8 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 3     
+	   2 Input      1 Bit        Muxes := 2     
+	   3 Input      1 Bit        Muxes := 1     
+Module motion_type 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
+Module vga 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 2     
++---Registers : 
+	               10 Bit    Registers := 2     
++---Muxes : 
+	   2 Input     10 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 2     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:18 ; elapsed = 00:00:23 . Memory (MB): peak = 1270.602 ; gain = 506.227 ; free physical = 3097 ; free virtual = 13850
+---------------------------------------------------------------------------------
+Start Cross Boundary Optimization
+---------------------------------------------------------------------------------
+ROM "config_1/timer0" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+ROM "SCCB1/timer0" won't be mapped to RAM because address size (32) is larger than maximum supported(18) 
+INFO: [Synth 8-4471] merging register 'delta_reg[7:0]' into 'delta_reg[7:0]' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/rgb2hsv.v:113]
+INFO: [Synth 8-4471] merging register 'delta_reg[7:0]' into 'delta_reg[7:0]' [/afs/athena.mit.edu/user/t/a/taniayu/Documents/6.111/FinalProject/project_1.srcs/sources_1/imports/6.111/project/src/rgb2hsv.v:113]
+DSP Report: Generating DSP h_top_reg, operation Mode is: (A*(B:0xff))'.
+DSP Report: register h_top_reg is absorbed into DSP h_top_reg.
+DSP Report: operator (null) is absorbed into DSP h_top_reg.
+ROM "vcount" won't be mapped to RAM because it is too sparse.
+DSP Report: Generating DSP read_address1, operation Mode is: A*(B:0x140).
+DSP Report: operator read_address1 is absorbed into DSP read_address1.
+DSP Report: Generating DSP p_1_out, operation Mode is: PCIN+(A:0x0):B+C.
+DSP Report: operator p_1_out is absorbed into DSP p_1_out.
+WARNING: [Synth 8-3331] design labkit has unconnected port LED16_B
+WARNING: [Synth 8-3331] design labkit has unconnected port LED16_G
+WARNING: [Synth 8-3331] design labkit has unconnected port LED16_R
+WARNING: [Synth 8-3331] design labkit has unconnected port LED17_B
+WARNING: [Synth 8-3331] design labkit has unconnected port LED17_G
+WARNING: [Synth 8-3331] design labkit has unconnected port LED17_R
+WARNING: [Synth 8-3331] design labkit has unconnected port LED[15]
+WARNING: [Synth 8-3331] design labkit has unconnected port LED[14]
+WARNING: [Synth 8-3331] design labkit has unconnected port LED[13]
+WARNING: [Synth 8-3331] design labkit has unconnected port LED[12]
+WARNING: [Synth 8-3331] design labkit has unconnected port LED[11]
+WARNING: [Synth 8-3331] design labkit has unconnected port LED[9]
+WARNING: [Synth 8-3331] design labkit has unconnected port LED[8]
+WARNING: [Synth 8-3331] design labkit has unconnected port LED[7]
+WARNING: [Synth 8-3331] design labkit has unconnected port LED[6]
+WARNING: [Synth 8-3331] design labkit has unconnected port LED[5]
+WARNING: [Synth 8-3917] design labkit has port SEG[7] driven by constant 1
+WARNING: [Synth 8-3331] design labkit has unconnected port JB[0]
+WARNING: [Synth 8-3331] design labkit has unconnected port JC[7]
+WARNING: [Synth 8-3331] design labkit has unconnected port JC[6]
+WARNING: [Synth 8-3331] design labkit has unconnected port JC[5]
+WARNING: [Synth 8-3331] design labkit has unconnected port JC[4]
+WARNING: [Synth 8-3331] design labkit has unconnected port JC[3]
+WARNING: [Synth 8-3331] design labkit has unconnected port JC[2]
+WARNING: [Synth 8-3331] design labkit has unconnected port JC[1]
+WARNING: [Synth 8-3331] design labkit has unconnected port JC[0]
+WARNING: [Synth 8-3331] design labkit has unconnected port JD[7]
+WARNING: [Synth 8-3331] design labkit has unconnected port JD[6]
+WARNING: [Synth 8-3331] design labkit has unconnected port JD[5]
+WARNING: [Synth 8-3331] design labkit has unconnected port JD[4]
+WARNING: [Synth 8-3331] design labkit has unconnected port JD[3]
+WARNING: [Synth 8-3331] design labkit has unconnected port JD[2]
+WARNING: [Synth 8-3331] design labkit has unconnected port JD[1]
+WARNING: [Synth 8-3331] design labkit has unconnected port JD[0]
+WARNING: [Synth 8-3331] design labkit has unconnected port SW[15]
+WARNING: [Synth 8-3331] design labkit has unconnected port SW[14]
+WARNING: [Synth 8-3331] design labkit has unconnected port SW[13]
+WARNING: [Synth 8-3331] design labkit has unconnected port SW[12]
+WARNING: [Synth 8-3331] design labkit has unconnected port SW[11]
+WARNING: [Synth 8-3331] design labkit has unconnected port SW[10]
+WARNING: [Synth 8-3331] design labkit has unconnected port SW[9]
+WARNING: [Synth 8-3331] design labkit has unconnected port SW[8]
+WARNING: [Synth 8-3331] design labkit has unconnected port SW[7]
+WARNING: [Synth 8-3331] design labkit has unconnected port SW[6]
+WARNING: [Synth 8-3331] design labkit has unconnected port SW[5]
+WARNING: [Synth 8-3331] design labkit has unconnected port SW[4]
+WARNING: [Synth 8-3331] design labkit has unconnected port SW[3]
+WARNING: [Synth 8-3331] design labkit has unconnected port SW[2]
+INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished Cross Boundary Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:23 . Memory (MB): peak = 1270.602 ; gain = 506.227 ; free physical = 3091 ; free virtual = 13844
+---------------------------------------------------------------------------------
+Finished Parallel Reinference  : Time (s): cpu = 00:00:19 ; elapsed = 00:00:23 . Memory (MB): peak = 1270.602 ; gain = 506.227 ; free physical = 3091 ; free virtual = 13844
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+ Sort Area is null h_top_reg_0 : 0 0 : 477 477 : Used 1 time 0
+ Sort Area is null read_address1_2 : 0 0 : 154 267 : Used 1 time 0
+ Sort Area is null read_address1_2 : 0 1 : 113 267 : Used 1 time 0
+---------------------------------------------------------------------------------
+Start RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+DSP:
++------------+------------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping      | Neg Edge Clk | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+------------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|rgb2hsv     | (A*(B:0xff))'    | No           | 16     | 8      | 48     | 25     | 16     | 0    | 0    | 1    | 1    | 1     | 1    | 0    | 
+|labkit      | A*(B:0x140)      | No           | 17     | 9      | 48     | 25     | 26     | 0    | 0    | 1    | 1    | 1     | 0    | 0    | 
+|labkit      | PCIN+(A:0x0):B+C | No           | 30     | 10     | 48     | -1     | -1     | 0    | 0    | 0    | 1    | 1     | 0    | 0    | 
++------------+------------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table shows DSPs generated at current stage. Some DSP generation could be reversed due to later optimizations. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\tohsv/my_b_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\camera_read_1/FSM_state_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\configure/config_1/FSM_return_state_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\configure/config_1/FSM_return_state_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\configure/config_1/FSM_state_reg[2] )
+WARNING: [Synth 8-3332] Sequential element (\configure/config_1/FSM_state_reg[2] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\configure/config_1/FSM_return_state_reg[2] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\configure/config_1/FSM_return_state_reg[1] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\configure/config_1/FSM_return_state_reg[0] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\camera_read_1/FSM_state_reg[1] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/my_r_reg[6] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/my_r_reg[5] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/my_r_reg[4] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_negative_reg[18] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_negative_reg[17] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_negative_reg[16] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_negative_reg[15] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_negative_reg[14] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_negative_reg[13] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_negative_reg[12] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_negative_reg[11] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_negative_reg[10] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_negative_reg[9] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_negative_reg[8] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_negative_reg[7] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_negative_reg[6] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_negative_reg[5] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_negative_reg[4] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_negative_reg[3] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_negative_reg[2] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_negative_reg[1] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_negative_reg[0] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[0][7] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[0][6] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[0][5] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[0][4] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[0][3] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[0][2] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[0][1] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[0][0] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[1][7] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[1][6] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[1][5] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[1][4] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[1][3] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[1][2] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[1][1] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[1][0] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[2][7] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[2][6] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[2][5] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[2][4] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[2][3] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[2][2] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[2][1] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[2][0] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[3][7] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[3][6] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[3][5] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[3][4] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[3][3] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[3][2] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[3][1] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[3][0] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[4][7] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[4][6] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[4][5] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[4][4] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[4][3] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[4][2] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[4][1] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[4][0] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[5][7] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[5][6] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[5][5] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[5][4] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[5][3] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[5][2] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[5][1] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[5][0] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[6][7] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[6][6] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[6][5] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[6][4] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[6][3] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[6][2] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[6][1] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[6][0] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[7][7] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[7][6] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[7][5] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[7][4] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[7][3] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[7][2] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[7][1] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[7][0] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[8][7] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[8][6] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[8][5] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[8][4] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[8][3] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[8][2] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[8][1] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[8][0] ) is unused and will be removed from module labkit.
+WARNING: [Synth 8-3332] Sequential element (\tohsv/h_add_reg[9][7] ) is unused and will be removed from module labkit.
+INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Start Area Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Area Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:26 . Memory (MB): peak = 1270.605 ; gain = 506.230 ; free physical = 3116 ; free virtual = 13848
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Area Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:26 . Memory (MB): peak = 1270.605 ; gain = 506.230 ; free physical = 3116 ; free virtual = 13848
+---------------------------------------------------------------------------------
+Finished Parallel Area Optimization  : Time (s): cpu = 00:00:21 ; elapsed = 00:00:26 . Memory (MB): peak = 1270.605 ; gain = 506.230 ; free physical = 3116 ; free virtual = 13848
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:21 ; elapsed = 00:00:26 . Memory (MB): peak = 1270.605 ; gain = 506.230 ; free physical = 3116 ; free virtual = 13848
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:38 ; elapsed = 00:00:43 . Memory (MB): peak = 1289.598 ; gain = 525.223 ; free physical = 3021 ; free virtual = 13759
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:38 ; elapsed = 00:00:43 . Memory (MB): peak = 1290.598 ; gain = 526.223 ; free physical = 3020 ; free virtual = 13759
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-4480] The timing for the instance \configure/rom1/dout_reg  (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:39 ; elapsed = 00:00:44 . Memory (MB): peak = 1307.613 ; gain = 543.238 ; free physical = 3020 ; free virtual = 13758
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:40 ; elapsed = 00:00:44 . Memory (MB): peak = 1307.613 ; gain = 543.238 ; free physical = 3058 ; free virtual = 13756
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:40 ; elapsed = 00:00:44 . Memory (MB): peak = 1307.613 ; gain = 543.238 ; free physical = 3058 ; free virtual = 13756
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:40 ; elapsed = 00:00:44 . Memory (MB): peak = 1307.613 ; gain = 543.238 ; free physical = 3055 ; free virtual = 13756
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Static Shift Register:
++------------+----------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|Module Name | RTL Name       | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
++------------+----------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|labkit      | tohsv/v_reg[7] | 20     | 8     | NO           | NO                 | YES               | 0      | 8       | 
++------------+----------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+
+---------------------------------------------------------------------------------
+Finished RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+--------------+----------+
+|      |BlackBox name |Instances |
++------+--------------+----------+
+|1     |video_bram    |         1|
+|2     |divider_gen   |         2|
++------+--------------+----------+
+
+Report Cell Usage: 
++------+---------------+------+
+|      |Cell           |Count |
++------+---------------+------+
+|1     |divider_gen    |     1|
+|2     |divider_gen__1 |     1|
+|3     |video_bram     |     1|
+|4     |BUFG           |     3|
+|5     |CARRY4         |    56|
+|6     |DSP48E1        |     1|
+|7     |DSP48E1_1      |     1|
+|8     |DSP48E1_2      |     1|
+|9     |INV            |     4|
+|10    |LUT1           |   105|
+|11    |LUT2           |    68|
+|12    |LUT3           |    76|
+|13    |LUT4           |   120|
+|14    |LUT5           |    80|
+|15    |LUT6           |   185|
+|16    |MUXF7          |     3|
+|17    |RAMB18E1       |     1|
+|18    |SRLC32E        |     8|
+|19    |FDRE           |   411|
+|20    |FDSE           |    10|
+|21    |IBUF           |    13|
+|22    |OBUF           |    37|
+|23    |OBUFT          |    18|
++------+---------------+------+
+
+Report Instance Areas: 
++------+----------------+----------------------+------+
+|      |Instance        |Module                |Cells |
++------+----------------+----------------------+------+
+|1     |top             |                      |  1349|
+|2     |  camera_read_1 |camera_read           |    32|
+|3     |  clockgen      |clock_quarter_divider |     4|
+|4     |  configure     |camera_configure      |   346|
+|5     |    SCCB1       |SCCB_interface        |   195|
+|6     |    config_1    |OV7670_config         |   139|
+|7     |    rom1        |OV7670_config_rom     |    12|
+|8     |  display       |display_8hex          |   102|
+|9     |  motion_type   |motion_type           |     4|
+|10    |  tohsv         |rgb2hsv               |   540|
+|11    |  vga1          |vga                   |   105|
++------+----------------+----------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:40 ; elapsed = 00:00:44 . Memory (MB): peak = 1307.613 ; gain = 543.238 ; free physical = 3054 ; free virtual = 13756
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 292 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:32 ; elapsed = 00:00:33 . Memory (MB): peak = 1307.613 ; gain = 111.250 ; free physical = 3044 ; free virtual = 13755
+Synthesis Optimization Complete : Time (s): cpu = 00:00:40 ; elapsed = 00:00:45 . Memory (MB): peak = 1307.613 ; gain = 543.238 ; free physical = 3040 ; free virtual = 13754
+INFO: [Project 1-571] Translating synthesized netlist
+WARNING: [Netlist 29-345] The value of SIM_DEVICE on instance 'configure/rom1/dout_reg' of type 'RAMB18E1' is 'VIRTEX6'; it is being changed to match the current FPGA architecture, '7SERIES'. For functional simulation to match hardware behavior, the value of SIM_DEVICE should be changed in the source netlist or constraint file.
+INFO: [Netlist 29-17] Analyzing 73 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-140] Inserted 0 IBUFs to IO ports without IO buffers.
+INFO: [Opt 31-141] Inserted 0 OBUFs to IO ports without IO buffers.
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 4 instances were transformed.
+  INV => LUT1: 4 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+61 Infos, 222 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:39 ; elapsed = 00:00:43 . Memory (MB): peak = 1307.617 ; gain = 443.500 ; free physical = 3001 ; free virtual = 13747
+# write_checkpoint -noxdef labkit.dcp
+# catch { report_utilization -file labkit_utilization_synth.rpt -pb labkit_utilization_synth.pb }
+report_utilization: Time (s): cpu = 00:00:00.19 ; elapsed = 00:00:00.26 . Memory (MB): peak = 1307.617 ; gain = 0.000 ; free physical = 2935 ; free virtual = 13740
+INFO: [Common 17-206] Exiting Vivado at Tue Dec  1 15:26:04 2015...
