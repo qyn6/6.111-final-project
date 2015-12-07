@@ -1,0 +1,10 @@
+#-----------------------------------------------------------
+# Vivado v2014.4.1 (64-bit)
+# SW Build 1149489 on Thu Feb 19 16:01:47 MST 2015
+# IP Build 1147552 on Wed Feb 18 14:25:16 MST 2015
+# Start of session at: Sun Dec  6 15:07:46 2015
+# Process ID: 3680
+# Log file: /afs/athena.mit.edu/user/t/a/taniayu/Desktop/6.111-final-project-master/project/project.runs/pegasus_bram_synth_1/pegasus_bram.vds
+# Journal file: /afs/athena.mit.edu/user/t/a/taniayu/Desktop/6.111-final-project-master/project/project.runs/pegasus_bram_synth_1/vivado.jou
+#-----------------------------------------------------------
+source pegasus_bram.tcl
